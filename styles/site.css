@@ -440,14 +440,32 @@
   }
 
   .chapter-track {
-    display: flex;
-    transition: transform 340ms ease;
-    will-change: transform;
+    position: relative;
   }
 
   .chapter-slide {
-    min-width: 100%;
     padding: 0.2rem;
+  }
+
+  .chapter-slide[data-active="false"] {
+    display: none;
+  }
+
+  .chapter-slide[data-active="true"] {
+    display: block;
+    animation: chapterFade 220ms ease;
+  }
+
+  @keyframes chapterFade {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .chapter-bubble {

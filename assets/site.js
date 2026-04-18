@@ -42,8 +42,6 @@
   }
 
   function updateSlides() {
-    track.style.transform = "translateX(-" + currentIndex * 100 + "%)";
-
     slides.forEach(function (slide, index) {
       const active = index === currentIndex;
       slide.setAttribute("aria-hidden", String(!active));
