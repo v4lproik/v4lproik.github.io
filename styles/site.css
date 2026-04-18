@@ -13,10 +13,10 @@
   --color-mist-100: #dce7f0;
   --color-mist-300: #9db1c1;
   --color-mist-500: #6d8193;
-  --color-cyan-400: #59d6ff;
-  --color-cyan-500: #2fb7ee;
-  --color-teal-400: #49d6c7;
-  --color-amber-400: #ffb86b;
+  --color-brand-blue-400: #74a8ff;
+  --color-brand-blue-500: #4f84e8;
+  --color-brand-orange-400: #ffb36b;
+  --color-brand-orange-500: #ff8e42;
 }
 
 @layer base {
@@ -27,14 +27,14 @@
   body {
     min-height: 100vh;
     background:
-      radial-gradient(circle at top center, rgba(89, 214, 255, 0.12), transparent 28%),
-      radial-gradient(circle at 0% 20%, rgba(73, 214, 199, 0.08), transparent 24%),
+      radial-gradient(circle at top center, rgba(79, 132, 232, 0.16), transparent 30%),
+      radial-gradient(circle at 88% 12%, rgba(255, 142, 66, 0.1), transparent 22%),
       linear-gradient(180deg, #081018 0%, #0d1621 58%, #111c29 100%);
     color: #f4f8fb;
   }
 
   ::selection {
-    background: rgba(89, 214, 255, 0.24);
+    background: rgba(255, 142, 66, 0.28);
     color: #f4f8fb;
   }
 }
@@ -62,7 +62,7 @@
     position: absolute;
     inset: -1px;
     background:
-      linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent 34%, transparent 64%, rgba(89, 214, 255, 0.06));
+      linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent 34%, transparent 64%, rgba(79, 132, 232, 0.08));
     pointer-events: none;
   }
 
@@ -80,7 +80,7 @@
   }
 
   .eyebrow {
-    color: #59d6ff;
+    color: #ffb36b;
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.18em;
@@ -92,11 +92,11 @@
     align-items: center;
     justify-content: center;
     border-radius: 9999px;
-    background: linear-gradient(135deg, #59d6ff 0%, #2fb7ee 100%);
+    background: linear-gradient(135deg, #ffb36b 0%, #ff8e42 100%);
     color: #081018;
     padding: 0.9rem 1.25rem;
     font-weight: 600;
-    box-shadow: 0 16px 34px rgba(47, 183, 238, 0.2);
+    box-shadow: 0 16px 34px rgba(255, 142, 66, 0.22);
     transition:
       transform 180ms ease,
       box-shadow 180ms ease,
@@ -105,7 +105,7 @@
 
   .button-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 20px 40px rgba(47, 183, 238, 0.28);
+    box-shadow: 0 20px 40px rgba(255, 142, 66, 0.3);
   }
 
   .button-secondary {
@@ -126,7 +126,7 @@
 
   .button-secondary:hover {
     transform: translateY(-2px);
-    border-color: rgba(89, 214, 255, 0.3);
+    border-color: rgba(79, 132, 232, 0.38);
     background: rgba(255, 255, 255, 0.06);
   }
 
@@ -165,7 +165,7 @@
 
   .project-card:hover {
     transform: translateY(-3px);
-    border-color: rgba(89, 214, 255, 0.2);
+    border-color: rgba(79, 132, 232, 0.3);
     box-shadow:
       0 24px 46px rgba(0, 0, 0, 0.24),
       inset 0 1px 0 rgba(255, 255, 255, 0.03);
@@ -189,7 +189,7 @@
   }
 
   .nav-link:hover {
-    color: #59d6ff;
+    color: #ffb36b;
   }
 
   .reading-copy {
@@ -215,5 +215,63 @@
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     padding-top: 1rem;
     color: #dce7f0;
+  }
+
+  .brand-lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .brand-mark {
+    position: relative;
+    display: inline-flex;
+    padding: 2px;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, rgba(255, 179, 107, 0.96), rgba(79, 132, 232, 0.96));
+    box-shadow:
+      0 14px 28px rgba(0, 0, 0, 0.24),
+      0 0 0 1px rgba(255, 255, 255, 0.08);
+  }
+
+  .brand-mark::after {
+    content: "";
+    position: absolute;
+    right: -0.2rem;
+    bottom: -0.2rem;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 9999px;
+    background: #ff8e42;
+    box-shadow: 0 0 0 3px rgba(8, 16, 24, 0.95);
+  }
+
+  .brand-mark img {
+    width: 2.7rem;
+    height: 2.7rem;
+    display: block;
+    border-radius: 0.9rem;
+    object-fit: cover;
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.05rem;
+    line-height: 1.1;
+  }
+
+  .brand-name {
+    color: #f4f8fb;
+    font-size: 0.86rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+  }
+
+  .brand-subtitle {
+    color: #9db1c1;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
   }
 }
