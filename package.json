@@ -1,0 +1,12 @@
+{
+  "name": "v4lproik-github-io",
+  "private": true,
+  "scripts": {
+    "build": "npx @tailwindcss/cli -i ./styles/site.css -o ./assets/site.css --minify",
+    "dev": "npx @tailwindcss/cli -i ./styles/site.css -o ./assets/site.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.2.2",
+    "tailwindcss": "4.2.2"
+  }
+}
