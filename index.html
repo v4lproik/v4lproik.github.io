@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>v4lproik</title>
+    <meta
+      name="description"
+      content="Engineering notes, projects, and long-form writing across protocols, infrastructure, and developer tooling."
+    >
+    <meta name="theme-color" content="#f6efe2">
+    <meta property="og:title" content="v4lproik">
+    <meta
+      property="og:description"
+      content="Engineering notes, projects, and long-form writing across protocols, infrastructure, and developer tooling."
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://v4lproik.github.io/">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=Sora:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="assets/site.css">
+    <script src="assets/site.js" defer></script>
+  </head>
+  <body>
+    <div class="orb orb-one" aria-hidden="true"></div>
+    <div class="orb orb-two" aria-hidden="true"></div>
+    <div class="grid-noise" aria-hidden="true"></div>
+
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#top">v4lproik</a>
+        <nav class="topnav" aria-label="Primary">
+          <a href="#writing">Writing</a>
+          <a href="#projects">Projects</a>
+          <a href="#themes">Themes</a>
+          <a href="https://github.com/v4lproik" target="_blank" rel="noreferrer noopener">GitHub</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section class="hero reveal">
+          <div class="hero-copy">
+            <p class="eyebrow">Independent Engineering Notebook</p>
+            <h1>Protocols, systems, tooling, and the cost of abstraction.</h1>
+            <p class="hero-dek">
+              A personal site for technical writing, infrastructure work, and software that sits
+              close to the machine. The emphasis here is on careful systems thinking, measurable
+              behavior, and pragmatic engineering.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="/solana-framework-comparison/">Read the latest article</a>
+              <a class="button button-secondary" href="https://github.com/v4lproik" target="_blank" rel="noreferrer noopener">Browse GitHub</a>
+            </div>
+
+            <div class="signal-row">
+              <span class="signal-pill">Protocol engineering</span>
+              <span class="signal-pill">Developer tooling</span>
+              <span class="signal-pill">Infrastructure</span>
+              <span class="signal-pill">Research notes</span>
+            </div>
+          </div>
+
+          <aside class="hero-panel reveal reveal-delay-1">
+            <div class="panel-label">Featured</div>
+            <h2>Solana framework comparison</h2>
+            <p>
+              A long-form comparison of Anchor, Quasar, and Pinocchio through the lens of
+              CPI-heavy opinion-market contract work, with charts, metrics, and framework tradeoffs.
+            </p>
+            <a class="panel-link" href="/solana-framework-comparison/">Open article</a>
+
+            <div class="metric-grid">
+              <div class="metric-card">
+                <span class="metric-value">5</span>
+                <span class="metric-label">charts</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-value">3</span>
+                <span class="metric-label">framework families</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-value">1</span>
+                <span class="metric-label">benchmark workload</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-value">CU</span>
+                <span class="metric-label">first-class metric</span>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <section id="writing" class="section reveal reveal-delay-1">
+          <div class="section-head">
+            <p class="eyebrow">Writing</p>
+            <h2>Long-form technical articles</h2>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-copy">
+              <p class="feature-kicker">Latest Article</p>
+              <h3>Opinion Market Contract Frameworks, Deeply Compared</h3>
+              <p>
+                This article compares Anchor 0.31.0, Anchor 0.32.1, Anchor 1.0.0, Quasar, and
+                Pinocchio with a production-minded lens: CPI-heavy paths, account parsing cost,
+                zero-copy leverage, and practical framework fit.
+              </p>
+              <ul class="feature-list">
+                <li>Clarifies the “Anchor v2” confusion against official release surfaces.</li>
+                <li>Maps published CU differences across framework lines.</li>
+                <li>Turns opinion-market contract work into a benchmarkable workload.</li>
+              </ul>
+            </div>
+
+            <div class="feature-side">
+              <div class="mini-stat">
+                <span class="mini-stat-label">Focus</span>
+                <span class="mini-stat-value">CPI-heavy optimization</span>
+              </div>
+              <div class="mini-stat">
+                <span class="mini-stat-label">Format</span>
+                <span class="mini-stat-value">Long-form article + charts</span>
+              </div>
+              <div class="mini-stat">
+                <span class="mini-stat-label">URL</span>
+                <span class="mini-stat-value">/solana-framework-comparison/</span>
+              </div>
+              <a class="button button-primary" href="/solana-framework-comparison/">Read article</a>
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" class="section reveal reveal-delay-2">
+          <div class="section-head">
+            <p class="eyebrow">Projects</p>
+            <h2>Selected work</h2>
+          </div>
+
+          <div class="card-grid">
+            <article class="project-card">
+              <p class="card-kicker">Developer Tooling</p>
+              <h3>github-actionspec-rs</h3>
+              <p>
+                Define and validate GitHub Actions workflow contracts from repository-owned CUE
+                declarations.
+              </p>
+              <a class="card-link" href="https://github.com/v4lproik/github-actionspec-rs" target="_blank" rel="noreferrer noopener">Open repository</a>
+            </article>
+
+            <article class="project-card">
+              <p class="card-kicker">Infrastructure</p>
+              <h3>home-ops</h3>
+              <p>
+                Homelab and GitOps infrastructure managed with Talos, Flux, Renovate, and
+                infrastructure-as-code conventions.
+              </p>
+              <a class="card-link" href="https://github.com/v4lproik/home-ops" target="_blank" rel="noreferrer noopener">Open repository</a>
+            </article>
+
+            <article class="project-card">
+              <p class="card-kicker">Systems</p>
+              <h3>sol-validator-watcher</h3>
+              <p>
+                Utilities and monitoring around validator behavior, with an emphasis on visibility
+                into runtime and operational state.
+              </p>
+              <a class="card-link" href="https://github.com/v4lproik/sol-validator-watcher" target="_blank" rel="noreferrer noopener">Open repository</a>
+            </article>
+          </div>
+        </section>
+
+        <section id="themes" class="section reveal reveal-delay-3">
+          <div class="section-head">
+            <p class="eyebrow">Themes</p>
+            <h2>What this site is for</h2>
+          </div>
+
+          <div class="theme-grid">
+            <article class="theme-card">
+              <h3>Protocol Work</h3>
+              <p>
+                Contract design, framework tradeoffs, runtime behavior, and the engineering reality
+                behind compute budgets and operational safety.
+              </p>
+            </article>
+
+            <article class="theme-card">
+              <h3>Tooling</h3>
+              <p>
+                Developer experience that improves correctness, reduces ambiguity, and makes
+                repeatable workflows observable and testable.
+              </p>
+            </article>
+
+            <article class="theme-card">
+              <h3>Infrastructure</h3>
+              <p>
+                Homelab, GitOps, operational systems, and the pieces required to keep software
+                reliable once it leaves the laptop.
+              </p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer reveal reveal-delay-3">
+        <div>
+          <span class="footer-title">v4lproik</span>
+          <span class="footer-copy">Technical writing and engineering work across protocols, tooling, and infrastructure.</span>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/v4lproik" target="_blank" rel="noreferrer noopener">GitHub</a>
+          <a href="/solana-framework-comparison/">Latest article</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
