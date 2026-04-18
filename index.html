@@ -46,9 +46,9 @@
           </a>
 
           <nav aria-label="Primary" class="flex flex-wrap items-center gap-4 sm:gap-6">
-            <a href="#chronology" class="nav-link">Chronology</a>
-            <a href="#projects" class="nav-link">Projects</a>
-            <a href="#writing" class="nav-link">Writing</a>
+            <a href="#chapters" class="nav-link" data-chapter-target="chapter-security">Chapters</a>
+            <a href="#chapters" class="nav-link" data-chapter-target="chapter-projects">Projects</a>
+            <a href="#chapters" class="nav-link" data-chapter-target="chapter-writing">Writing</a>
             <a
               href="https://github.com/v4lproik"
               target="_blank"
@@ -80,7 +80,7 @@
               </p>
 
               <div class="mt-8 flex flex-wrap gap-3">
-                <a class="button-primary" href="#chronology">Follow the chronology</a>
+                <a class="button-primary" href="#chapters" data-chapter-target="chapter-security">Open the chapters</a>
                 <a
                   class="button-secondary"
                   href="https://github.com/v4lproik"
@@ -143,233 +143,289 @@
           </div>
         </section>
 
-        <section id="chronology" class="glass-panel section-shell">
+        <section id="chapters" class="glass-panel section-shell">
           <div class="max-w-3xl">
-            <p class="eyebrow">Chronology</p>
+            <p class="eyebrow">Chapters</p>
             <h2 class="section-title mt-4">
-              Career path, stage by stage
+              One bubble, one chapter at a time
             </h2>
             <p class="reading-copy mt-4">
-              The sequence matters. Each move built on the previous one: security led to data
-              infrastructure, infrastructure led to cryptographic systems, and that eventually led
-              into crypto research, operations, and building a company around execution.
+              Instead of a long one-pager, the site can move chapter by chapter. The arrows tell
+              you exactly what comes next, and the center card stays focused on one part of the
+              story at a time.
             </p>
           </div>
 
-          <div class="timeline-shell">
-            <article class="timeline-entry is-right">
-              <div class="timeline-node-wrap">
-                <div class="timeline-node"></div>
-              </div>
-              <div class="timeline-card">
-                <span class="timeline-step">Stage 01</span>
-                <h3 class="timeline-title">Offensive security for the French government</h3>
-                <p class="timeline-copy">
-                  I entered the field early, working as a professional hacker at 20. That meant
-                  learning fast under real constraints: offensive security, attack surfaces,
-                  operational discipline, and what robust systems look like when someone is trying
-                  to break them.
-                </p>
-              </div>
-              <div class="timeline-meta">
-                <span class="timeline-index">01</span>
-                <span class="timeline-meta-label">Origin</span>
-                <span class="timeline-meta-copy">
-                  Security first, with real consequences and no patience for hand-wavy engineering.
+          <div class="chapter-carousel" data-carousel>
+            <div class="chapter-controls">
+              <button type="button" class="chapter-arrow" data-carousel-prev aria-label="Show previous chapter">
+                <span class="chapter-arrow-dir">&lt;</span>
+                <span class="chapter-arrow-text">
+                  <span class="chapter-arrow-kicker">Previous</span>
+                  <span class="chapter-arrow-name" data-carousel-prev-label></span>
                 </span>
-              </div>
-            </article>
+              </button>
 
-            <article class="timeline-entry is-left">
-              <div class="timeline-card">
-                <span class="timeline-step">Stage 02</span>
-                <h3 class="timeline-title">Big data, streaming, and predictive market systems</h3>
-                <p class="timeline-copy">
-                  I then moved into distributed data systems: Spark, Spark Streaming, complex data
-                  pipelines, and prediction engines. At Amadeus, that included work around airline
-                  slot resale, heterogeneous ingestion including VOIP streams, and automated
-                  bidding and resale logic driven by complex prediction models.
-                </p>
+              <div class="chapter-pills" role="tablist" aria-label="Chapters">
+                <button type="button" class="chapter-pill" data-carousel-jump="0">Security</button>
+                <button type="button" class="chapter-pill" data-carousel-jump="1">Data</button>
+                <button type="button" class="chapter-pill" data-carousel-jump="2">Gov Sec</button>
+                <button type="button" class="chapter-pill" data-carousel-jump="3">Crypto</button>
+                <button type="button" class="chapter-pill" data-carousel-jump="4">Founder</button>
+                <button type="button" class="chapter-pill" data-carousel-jump="5">Projects</button>
+                <button type="button" class="chapter-pill" data-carousel-jump="6">Writing</button>
               </div>
-              <div class="timeline-node-wrap">
-                <div class="timeline-node"></div>
-              </div>
-              <div class="timeline-meta">
-                <span class="timeline-index">02</span>
-                <span class="timeline-meta-label">Scale</span>
-                <span class="timeline-meta-copy">
-                  High-throughput systems, noisy inputs, and decision-making under latency.
+
+              <button type="button" class="chapter-arrow chapter-arrow-next" data-carousel-next aria-label="Show next chapter">
+                <span class="chapter-arrow-text chapter-arrow-text-next">
+                  <span class="chapter-arrow-kicker">Next</span>
+                  <span class="chapter-arrow-name" data-carousel-next-label></span>
                 </span>
-              </div>
-            </article>
-
-            <article class="timeline-entry is-right">
-              <div class="timeline-node-wrap">
-                <div class="timeline-node"></div>
-              </div>
-              <div class="timeline-card">
-                <span class="timeline-step">Stage 03</span>
-                <h3 class="timeline-title">Cryptography, pentesting, and security platforms</h3>
-                <p class="timeline-copy">
-                  From there I went deeper into security again, working with multiple governments
-                  on cryptography, pentesting, and sophisticated security platforms. The thread was
-                  always the same: build systems that stay coherent when the environment is hostile.
-                </p>
-              </div>
-              <div class="timeline-meta">
-                <span class="timeline-index">03</span>
-                <span class="timeline-meta-label">Assurance</span>
-                <span class="timeline-meta-copy">
-                  Security as system design, not a checklist bolted on after the fact.
-                </span>
-              </div>
-            </article>
-
-            <article class="timeline-entry is-left">
-              <div class="timeline-card">
-                <span class="timeline-step">Stage 04</span>
-                <h3 class="timeline-title">Crypto research for node operators and networks</h3>
-                <p class="timeline-copy">
-                  In crypto I worked with node operators and protocol-facing teams on research that
-                  tied software behavior back to infrastructure reality: single-slot finality,
-                  validator performance, and the effect of hardware, geography, and compute on
-                  networks operating at serious scale. I also run nodes myself from my own lab and
-                  bare-metal servers, which keeps the work grounded in operational reality rather
-                  than theory.
-                </p>
-                <div class="timeline-links">
-                  <a
-                    class="timeline-link"
-                    href="https://github.com/v4lproik/sol-validator-watcher"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    sol-validator-watcher
-                  </a>
-                </div>
-              </div>
-              <div class="timeline-node-wrap">
-                <div class="timeline-node"></div>
-              </div>
-              <div class="timeline-meta">
-                <span class="timeline-index">04</span>
-                <span class="timeline-meta-label">Research</span>
-                <span class="timeline-meta-copy">
-                  Protocol ideas only matter once they are tested against the network they claim to improve.
-                </span>
-              </div>
-            </article>
-
-            <article class="timeline-entry is-right">
-              <div class="timeline-node-wrap">
-                <div class="timeline-node"></div>
-              </div>
-              <div class="timeline-card">
-                <span class="timeline-step">Stage 05</span>
-                <h3 class="timeline-title">Founder mode: build the company, not just the code</h3>
-                <p class="timeline-copy">
-                  Eventually the work stopped being only technical. I built my own company from
-                  zero to 20 employees and raised $13.4M. The challenge shifted from shipping
-                  systems myself to building the team, culture, and execution machine that could
-                  do it repeatedly. Even there, I stayed hands-on: close to architecture, close to
-                  product, and close to the people doing the work. The role became broader, but
-                  the operating style stayed the same: strong technical leadership, close support
-                  for the team, and high standards on execution.
-                </p>
-                <div class="timeline-links">
-                  <a class="timeline-link" href="#writing">Publishing posture</a>
-                </div>
-              </div>
-              <div class="timeline-meta">
-                <span class="timeline-index">05</span>
-                <span class="timeline-meta-label">Execution</span>
-                <span class="timeline-meta-copy">
-                  Leadership matters more when it stays technical, grounded, and human.
-                </span>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section id="projects" class="glass-panel section-shell">
-          <div class="max-w-3xl">
-            <p class="eyebrow">Projects</p>
-            <h2 class="section-title mt-4">
-              Selected repositories
-            </h2>
-            <p class="reading-copy mt-4">
-              A smaller secondary surface for repositories that deserve direct links without
-              interrupting the main chronology.
-            </p>
-          </div>
-
-          <div class="compact-grid">
-            <article class="compact-card">
-              <h3 class="compact-card-title">github-actionspec-rs</h3>
-              <p class="compact-card-copy">
-                Workflow contracts and validation for GitHub Actions repositories.
-              </p>
-            </article>
-            <article class="compact-card">
-              <h3 class="compact-card-title">home-ops</h3>
-              <p class="compact-card-copy">
-                GitOps-managed homelab and infrastructure workflows.
-              </p>
-            </article>
-            <article class="compact-card">
-              <h3 class="compact-card-title">sol-validator-watcher</h3>
-              <p class="compact-card-copy">
-                Validator-facing observability and operational visibility tooling.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section id="writing" class="glass-panel section-shell">
-          <div class="max-w-3xl">
-            <p class="eyebrow">Writing</p>
-            <h2 class="section-title mt-4">
-              Long-form work, published deliberately
-            </h2>
-            <p class="reading-copy mt-4">
-              This site is the public edge of a larger research process. In-progress work stays
-              unpublished until the argument, data, and implementation are solid enough to be worth
-              reading.
-            </p>
-          </div>
-
-          <div class="mt-8 grid gap-4 lg:grid-cols-[minmax(0,1.3fr)_minmax(18rem,0.7fr)]">
-            <div class="info-card p-6">
-              <p class="text-xs font-semibold uppercase tracking-[0.22em] text-mist-300">
-                Publishing approach
-              </p>
-              <h3 class="mt-3 text-2xl font-semibold tracking-[-0.03em] text-mist-50">
-                Private by default until ready
-              </h3>
-              <div class="mt-5 grid gap-3 text-sm leading-7 text-mist-100 sm:text-base">
-                <p>Publishing should follow completion, not momentum.</p>
-                <p>Benchmark-heavy comparisons need reproducible data, not just opinions.</p>
-                <p>The homepage stays curated instead of leaking half-finished drafts.</p>
-              </div>
+                <span class="chapter-arrow-dir">&gt;</span>
+              </button>
             </div>
 
-            <div class="grid gap-4">
-              <div class="info-card">
-                <p class="text-sm font-semibold text-mist-300">Status</p>
-                <p class="mt-2 text-lg font-semibold text-mist-50">Publishing pipeline in progress</p>
+            <div class="chapter-viewport" data-carousel-viewport tabindex="0" aria-live="polite">
+              <div class="chapter-track" data-carousel-track>
+                <article class="chapter-slide" id="chapter-security" data-chapter-title="Security">
+                  <div class="chapter-bubble">
+                    <div class="chapter-bubble-copy">
+                      <span class="chapter-step">01 / Origin</span>
+                      <h3 class="chapter-bubble-title">Offensive security for the French government</h3>
+                      <p class="chapter-bubble-body">
+                        I entered the field early, working as a professional hacker at 20. That
+                        meant learning fast under real constraints: offensive security, attack
+                        surfaces, operational discipline, and what robust systems look like when
+                        someone is trying to break them.
+                      </p>
+                      <div class="chapter-tags">
+                        <span class="signal-pill">Offensive security</span>
+                        <span class="signal-pill">Attack surfaces</span>
+                        <span class="signal-pill">Operational discipline</span>
+                      </div>
+                    </div>
+                    <aside class="chapter-aside">
+                      <div class="chapter-fact">
+                        <span class="chapter-fact-label">Started</span>
+                        <span class="chapter-fact-value">Professional hacker at 20</span>
+                      </div>
+                      <div class="chapter-fact">
+                        <span class="chapter-fact-label">Environment</span>
+                        <span class="chapter-fact-value">Real security constraints, real consequences</span>
+                      </div>
+                    </aside>
+                  </div>
+                </article>
+
+                <article class="chapter-slide" id="chapter-data" data-chapter-title="Data Systems">
+                  <div class="chapter-bubble">
+                    <div class="chapter-bubble-copy">
+                      <span class="chapter-step">02 / Scale</span>
+                      <h3 class="chapter-bubble-title">Big data, streaming, and predictive market systems</h3>
+                      <p class="chapter-bubble-body">
+                        I then moved into distributed data systems: Spark, Spark Streaming, complex
+                        data pipelines, and prediction engines. At Amadeus, that included airline
+                        slot resale, heterogeneous ingestion including VOIP streams, and automated
+                        bidding and resale logic driven by prediction models.
+                      </p>
+                      <div class="chapter-tags">
+                        <span class="signal-pill">Spark</span>
+                        <span class="signal-pill">Spark Streaming</span>
+                        <span class="signal-pill">Prediction systems</span>
+                      </div>
+                    </div>
+                    <aside class="chapter-aside">
+                      <div class="chapter-fact">
+                        <span class="chapter-fact-label">Focus</span>
+                        <span class="chapter-fact-value">Throughput, latency, messy real-world inputs</span>
+                      </div>
+                      <div class="chapter-fact">
+                        <span class="chapter-fact-label">System shape</span>
+                        <span class="chapter-fact-value">Pipelines that make decisions under pressure</span>
+                      </div>
+                    </aside>
+                  </div>
+                </article>
+
+                <article class="chapter-slide" id="chapter-government-security" data-chapter-title="Government Security">
+                  <div class="chapter-bubble">
+                    <div class="chapter-bubble-copy">
+                      <span class="chapter-step">03 / Assurance</span>
+                      <h3 class="chapter-bubble-title">Cryptography, pentesting, and security platforms</h3>
+                      <p class="chapter-bubble-body">
+                        From there I went deeper into security again, working with multiple
+                        governments on cryptography, pentesting, and sophisticated security
+                        platforms. The thread was always the same: build systems that stay coherent
+                        when the environment is hostile.
+                      </p>
+                      <div class="chapter-tags">
+                        <span class="signal-pill">Cryptography</span>
+                        <span class="signal-pill">Pentesting</span>
+                        <span class="signal-pill">Security platforms</span>
+                      </div>
+                    </div>
+                    <aside class="chapter-aside">
+                      <div class="chapter-fact">
+                        <span class="chapter-fact-label">Angle</span>
+                        <span class="chapter-fact-value">Security as system design</span>
+                      </div>
+                      <div class="chapter-fact">
+                        <span class="chapter-fact-label">Clients</span>
+                        <span class="chapter-fact-value">Public-sector and government environments</span>
+                      </div>
+                    </aside>
+                  </div>
+                </article>
+
+                <article class="chapter-slide" id="chapter-crypto" data-chapter-title="Crypto &amp; Nodes">
+                  <div class="chapter-bubble">
+                    <div class="chapter-bubble-copy">
+                      <span class="chapter-step">04 / Crypto</span>
+                      <h3 class="chapter-bubble-title">Crypto research for node operators and networks</h3>
+                      <p class="chapter-bubble-body">
+                        In crypto I worked with node operators and protocol-facing teams on
+                        research tied to infrastructure reality: single-slot finality, validator
+                        performance, and the effect of hardware, geography, and compute on networks
+                        operating at serious scale. I also run nodes myself from my own lab and
+                        bare-metal servers.
+                      </p>
+                      <div class="chapter-tags">
+                        <span class="signal-pill">Single-slot finality</span>
+                        <span class="signal-pill">Validator research</span>
+                        <span class="signal-pill">Bare metal nodes</span>
+                      </div>
+                      <div class="chapter-links">
+                        <a
+                          class="timeline-link"
+                          href="https://github.com/v4lproik/sol-validator-watcher"
+                          target="_blank"
+                          rel="noreferrer noopener"
+                        >
+                          sol-validator-watcher
+                        </a>
+                      </div>
+                    </div>
+                    <aside class="chapter-aside">
+                      <div class="chapter-fact">
+                        <span class="chapter-fact-label">Operations</span>
+                        <span class="chapter-fact-value">Own lab, bare metal, node operations</span>
+                      </div>
+                      <div class="chapter-fact">
+                        <span class="chapter-fact-label">Lens</span>
+                        <span class="chapter-fact-value">Protocol ideas tested against real networks</span>
+                      </div>
+                    </aside>
+                  </div>
+                </article>
+
+                <article class="chapter-slide" id="chapter-founder" data-chapter-title="Founder / CTO">
+                  <div class="chapter-bubble">
+                    <div class="chapter-bubble-copy">
+                      <span class="chapter-step">05 / Execution</span>
+                      <h3 class="chapter-bubble-title">Founder mode: build the company, not just the code</h3>
+                      <p class="chapter-bubble-body">
+                        I built my own company from zero to 20 employees and raised $13.4M. The
+                        role became broader, but the operating style stayed the same: strong
+                        technical leadership, close support for the team, and high standards on
+                        execution while staying near architecture, product, and delivery.
+                      </p>
+                      <div class="chapter-tags">
+                        <span class="signal-pill">Hands-on CTO</span>
+                        <span class="signal-pill">Team building</span>
+                        <span class="signal-pill">$13.4M raised</span>
+                      </div>
+                    </div>
+                    <aside class="chapter-aside">
+                      <div class="chapter-fact">
+                        <span class="chapter-fact-label">Scale</span>
+                        <span class="chapter-fact-value">0 to 20 employees</span>
+                      </div>
+                      <div class="chapter-fact">
+                        <span class="chapter-fact-label">Style</span>
+                        <span class="chapter-fact-value">Lead engineer mindset, CTO scope</span>
+                      </div>
+                    </aside>
+                  </div>
+                </article>
+
+                <article class="chapter-slide" id="chapter-projects" data-chapter-title="Projects">
+                  <div class="chapter-bubble">
+                    <div class="chapter-bubble-copy">
+                      <span class="chapter-step">06 / Repositories</span>
+                      <h3 class="chapter-bubble-title">Selected technical projects</h3>
+                      <p class="chapter-bubble-body">
+                        A smaller surface for the repositories that reflect the work directly:
+                        workflow contracts, GitOps operations, and validator-facing tooling.
+                      </p>
+                      <div class="chapter-project-list">
+                        <a
+                          class="chapter-project-link"
+                          href="https://github.com/v4lproik/github-actionspec-rs"
+                          target="_blank"
+                          rel="noreferrer noopener"
+                        >
+                          github-actionspec-rs
+                        </a>
+                        <a
+                          class="chapter-project-link"
+                          href="https://github.com/v4lproik/home-ops"
+                          target="_blank"
+                          rel="noreferrer noopener"
+                        >
+                          home-ops
+                        </a>
+                        <a
+                          class="chapter-project-link"
+                          href="https://github.com/v4lproik/sol-validator-watcher"
+                          target="_blank"
+                          rel="noreferrer noopener"
+                        >
+                          sol-validator-watcher
+                        </a>
+                      </div>
+                    </div>
+                    <aside class="chapter-aside">
+                      <div class="chapter-fact">
+                        <span class="chapter-fact-label">Themes</span>
+                        <span class="chapter-fact-value">Tooling, operations, observability</span>
+                      </div>
+                      <div class="chapter-fact">
+                        <span class="chapter-fact-label">Surface</span>
+                        <span class="chapter-fact-value">Code that reflects current operating interests</span>
+                      </div>
+                    </aside>
+                  </div>
+                </article>
+
+                <article class="chapter-slide" id="chapter-writing" data-chapter-title="Writing">
+                  <div class="chapter-bubble">
+                    <div class="chapter-bubble-copy">
+                      <span class="chapter-step">07 / Writing</span>
+                      <h3 class="chapter-bubble-title">Long-form work, published deliberately</h3>
+                      <p class="chapter-bubble-body">
+                        Writing comes last. In-progress work stays private until the argument,
+                        implementation, and measurements are solid enough to publish. The public
+                        site should stay curated instead of leaking half-finished drafts.
+                      </p>
+                      <div class="chapter-tags">
+                        <span class="signal-pill">Essays</span>
+                        <span class="signal-pill">Benchmark notes</span>
+                        <span class="signal-pill">Private by default</span>
+                      </div>
+                    </div>
+                    <aside class="chapter-aside">
+                      <div class="chapter-fact">
+                        <span class="chapter-fact-label">Status</span>
+                        <span class="chapter-fact-value">Publishing pipeline in progress</span>
+                      </div>
+                      <div class="chapter-fact">
+                        <span class="chapter-fact-label">Rule</span>
+                        <span class="chapter-fact-value">Completion before publication</span>
+                      </div>
+                    </aside>
+                  </div>
+                </article>
               </div>
-              <div class="info-card">
-                <p class="text-sm font-semibold text-mist-300">Formats</p>
-                <p class="mt-2 text-lg font-semibold text-mist-50">Essays, benchmark notes, field reports</p>
-              </div>
-              <a
-                href="https://github.com/v4lproik"
-                target="_blank"
-                rel="noreferrer noopener"
-                class="button-primary w-full"
-              >
-                Follow the work on GitHub
-              </a>
             </div>
           </div>
         </section>
@@ -389,11 +445,12 @@
           >
             GitHub
           </a>
-          <a href="#chronology" class="nav-link">Chronology</a>
-          <a href="#projects" class="nav-link">Projects</a>
-          <a href="#writing" class="nav-link">Writing</a>
+          <a href="#chapters" class="nav-link" data-chapter-target="chapter-security">Chapters</a>
+          <a href="#chapters" class="nav-link" data-chapter-target="chapter-projects">Projects</a>
+          <a href="#chapters" class="nav-link" data-chapter-target="chapter-writing">Writing</a>
         </div>
       </footer>
     </div>
+    <script src="assets/site.js"></script>
   </body>
 </html>
