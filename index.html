@@ -62,7 +62,7 @@
       </header>
 
       <main id="top" class="space-y-8">
-        <section class="glass-panel rounded-[2.25rem] px-6 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12">
+        <section class="glass-panel hero-shell rounded-[2.25rem] px-6 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12">
           <div class="hero-grid">
             <div>
               <p class="eyebrow">Independent Engineering Notebook</p>
@@ -110,18 +110,6 @@
                 comfortable moving between engineers, operators, investors, and leadership teams
                 without losing precision.
               </p>
-
-              <div class="mt-8 flex flex-wrap gap-3">
-                <a class="button-primary" href="#notebook" data-chapter-target="chapter-chronology">Open the notebook</a>
-                <a
-                  class="button-secondary"
-                  href="https://github.com/v4lproik"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  Browse GitHub
-                </a>
-              </div>
             </div>
 
             <aside class="space-y-4">
@@ -181,6 +169,34 @@
                 <span class="hero-pill hero-pill-orange">Prop AMMs / CLOBs</span>
               </div>
             </aside>
+          </div>
+          <div class="hero-side-controls" aria-label="Notebook page quick switcher">
+            <button
+              type="button"
+              class="hero-side-control hero-side-control-prev"
+              data-carousel-prev
+              data-carousel-scroll="true"
+              aria-label="Open previous notebook page"
+            >
+              <span class="hero-side-kicker">Previous page</span>
+              <span class="hero-side-row">
+                <span class="hero-side-arrow">&lt;</span>
+                <span class="hero-side-name" data-carousel-prev-label>Writing</span>
+              </span>
+            </button>
+            <button
+              type="button"
+              class="hero-side-control hero-side-control-next"
+              data-carousel-next
+              data-carousel-scroll="true"
+              aria-label="Open next notebook page"
+            >
+              <span class="hero-side-kicker">Next page</span>
+              <span class="hero-side-row hero-side-row-next">
+                <span class="hero-side-name" data-carousel-next-label>Practice</span>
+                <span class="hero-side-arrow">&gt;</span>
+              </span>
+            </button>
           </div>
         </section>
 

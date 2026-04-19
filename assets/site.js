@@ -9,21 +9,21 @@
 
   const track = carousel.querySelector("[data-carousel-track]");
   const slides = Array.from(carousel.querySelectorAll(".chapter-slide"));
-  const prevButton = carousel.querySelector("[data-carousel-prev]");
-  const nextButton = carousel.querySelector("[data-carousel-next]");
-  const prevLabel = carousel.querySelector("[data-carousel-prev-label]");
-  const nextLabel = carousel.querySelector("[data-carousel-next-label]");
-  const statusPrev = carousel.querySelector("[data-carousel-status-prev]");
-  const statusNext = carousel.querySelector("[data-carousel-status-next]");
-  const currentLabel = carousel.querySelector("[data-carousel-current-label]");
-  const currentIndexLabel = carousel.querySelector("[data-carousel-current-index]");
-  const totalLabel = carousel.querySelector("[data-carousel-total]");
+  const prevButtons = Array.from(document.querySelectorAll("[data-carousel-prev]"));
+  const nextButtons = Array.from(document.querySelectorAll("[data-carousel-next]"));
+  const prevLabels = Array.from(document.querySelectorAll("[data-carousel-prev-label]"));
+  const nextLabels = Array.from(document.querySelectorAll("[data-carousel-next-label]"));
+  const statusPrevLabels = Array.from(document.querySelectorAll("[data-carousel-status-prev]"));
+  const statusNextLabels = Array.from(document.querySelectorAll("[data-carousel-status-next]"));
+  const currentLabels = Array.from(document.querySelectorAll("[data-carousel-current-label]"));
+  const currentIndexLabels = Array.from(document.querySelectorAll("[data-carousel-current-index]"));
+  const totalLabels = Array.from(document.querySelectorAll("[data-carousel-total]"));
   const pills = Array.from(carousel.querySelectorAll("[data-carousel-jump]"));
   const triggers = Array.from(document.querySelectorAll("[data-chapter-target]"));
   const viewport = carousel.querySelector("[data-carousel-viewport]");
   const carouselSection = carousel.closest("[data-carousel-section]") || document.getElementById("notebook") || document.getElementById("chapters");
 
-  if (!track || !prevButton || !nextButton || !prevLabel || !nextLabel || !viewport || !slides.length) {
+  if (!track || !prevButtons.length || !nextButtons.length || !viewport || !slides.length) {
     return;
   }
 
@@ -36,9 +36,9 @@
   carousel.dataset.carouselReady = "true";
   carousel.dataset.motion = "idle";
 
-  if (totalLabel) {
-    totalLabel.textContent = String(slides.length);
-  }
+  totalLabels.forEach(function (label) {
+    label.textContent = String(slides.length);
+  });
 
   function normalizeIndex(index) {
     return (index + slides.length) % slides.length;
@@ -83,29 +83,23 @@
     resizeFrame = window.requestAnimationFrame(syncViewportHeight);
   }
 
+  function setText(elements, value) {
+    elements.forEach(function (element) {
+      element.textContent = value;
+    });
+  }
+
   function updateLabels() {
     const previousTitle = chapterTitle(currentIndex - 1);
     const activeTitle = chapterTitle(currentIndex);
     const upcomingTitle = chapterTitle(currentIndex + 1);
 
-    prevLabel.textContent = previousTitle;
-    nextLabel.textContent = upcomingTitle;
-
-    if (statusPrev) {
-      statusPrev.textContent = previousTitle;
-    }
-
-    if (statusNext) {
-      statusNext.textContent = upcomingTitle;
-    }
-
-    if (currentLabel) {
-      currentLabel.textContent = activeTitle;
-    }
-
-    if (currentIndexLabel) {
-      currentIndexLabel.textContent = String(currentIndex + 1);
-    }
+    setText(prevLabels, previousTitle);
+    setText(nextLabels, upcomingTitle);
+    setText(statusPrevLabels, previousTitle);
+    setText(statusNextLabels, upcomingTitle);
+    setText(currentLabels, activeTitle);
+    setText(currentIndexLabels, String(currentIndex + 1));
   }
 
   function updateSlides() {
@@ -145,12 +139,22 @@
     }
   }
 
-  prevButton.addEventListener("click", function () {
-    setIndex(currentIndex - 1, { direction: -1 });
+  prevButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      setIndex(currentIndex - 1, {
+        direction: -1,
+        scrollIntoView: button.getAttribute("data-carousel-scroll") === "true"
+      });
+    });
   });
 
-  nextButton.addEventListener("click", function () {
-    setIndex(currentIndex + 1, { direction: 1 });
+  nextButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      setIndex(currentIndex + 1, {
+        direction: 1,
+        scrollIntoView: button.getAttribute("data-carousel-scroll") === "true"
+      });
+    });
   });
 
   pills.forEach(function (pill) {

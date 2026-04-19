@@ -99,49 +99,6 @@
     text-transform: uppercase;
   }
 
-  .button-primary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 9999px;
-    background: linear-gradient(135deg, #ffb36b 0%, #ff8e42 100%);
-    color: #081018;
-    padding: 0.9rem 1.25rem;
-    font-weight: 600;
-    box-shadow: 0 16px 34px rgba(255, 142, 66, 0.22);
-    transition:
-      transform 180ms ease,
-      box-shadow 180ms ease,
-      opacity 180ms ease;
-  }
-
-  .button-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 20px 40px rgba(255, 142, 66, 0.3);
-  }
-
-  .button-secondary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 9999px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.03);
-    color: #f4f8fb;
-    padding: 0.9rem 1.25rem;
-    font-weight: 600;
-    transition:
-      transform 180ms ease,
-      border-color 180ms ease,
-      background-color 180ms ease;
-  }
-
-  .button-secondary:hover {
-    transform: translateY(-2px);
-    border-color: rgba(79, 132, 232, 0.38);
-    background: rgba(255, 255, 255, 0.06);
-  }
-
   .signal-pill {
     border-radius: 9999px;
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -356,6 +313,10 @@
     font-size: clamp(2.75rem, 12vw, 5.6rem);
   }
 
+  .hero-shell {
+    overflow: visible;
+  }
+
   .hero-grid {
     display: grid;
     gap: 2rem;
@@ -528,6 +489,119 @@
     background:
       linear-gradient(180deg, rgba(255, 142, 66, 0.22), rgba(255, 142, 66, 0.08));
     border-color: rgba(255, 179, 107, 0.24);
+  }
+
+  .hero-side-controls {
+    display: grid;
+    gap: 0.85rem;
+    margin-top: 1.4rem;
+  }
+
+  @media (min-width: 40rem) {
+    .hero-side-controls {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .hero-side-control {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.55rem;
+    min-height: 5.5rem;
+    border-radius: 1.35rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025)),
+      rgba(255, 255, 255, 0.035);
+    padding: 0.95rem 1rem;
+    color: #f4f8fb;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.04),
+      0 14px 28px rgba(0, 0, 0, 0.14);
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      background-color 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .hero-side-control:hover {
+    transform: translateY(-2px);
+    border-color: rgba(79, 132, 232, 0.26);
+    background: rgba(255, 255, 255, 0.055);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.04),
+      0 18px 36px rgba(0, 0, 0, 0.18);
+  }
+
+  .hero-side-control-next {
+    text-align: right;
+    align-items: flex-end;
+  }
+
+  .hero-side-kicker {
+    color: #9db1c1;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .hero-side-row {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+
+  .hero-side-row-next {
+    justify-content: flex-end;
+  }
+
+  .hero-side-name {
+    color: #f4f8fb;
+    font-size: 0.98rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-side-arrow {
+    color: #ffb36b;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  @media (min-width: 72rem) {
+    .hero-shell {
+      position: relative;
+    }
+
+    .hero-side-controls {
+      position: absolute;
+      inset-inline: 0;
+      top: 50%;
+      margin-top: 0;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .hero-side-control {
+      width: min(10.25rem, 14vw);
+      min-height: 8rem;
+      pointer-events: auto;
+    }
+
+    .hero-side-control-prev {
+      margin-left: -2rem;
+    }
+
+    .hero-side-control-next {
+      margin-right: -2rem;
+      margin-left: auto;
+    }
   }
 
   .chapter-carousel {
