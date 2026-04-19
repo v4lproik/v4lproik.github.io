@@ -420,6 +420,26 @@
     }
   }
 
+  .hero-panel-divider {
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin-top: 0.75rem;
+    border-radius: 9999px;
+    background:
+      linear-gradient(90deg,
+        rgba(79, 132, 232, 0.98),
+        rgba(116, 168, 255, 0.82) 34%,
+        rgba(255, 179, 107, 0.84) 68%,
+        rgba(255, 142, 66, 0.98));
+    box-shadow:
+      0 0 16px rgba(79, 132, 232, 0.22),
+      0 0 18px rgba(255, 142, 66, 0.16);
+    opacity: 0.98;
+    transform: scaleY(0.55);
+    transform-origin: center;
+  }
+
   .hero-metrics {
     display: grid;
     gap: 0.85rem;
@@ -427,12 +447,33 @@
   }
 
   .hero-metric {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.45rem;
     padding-top: 0.85rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .hero-metric::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 1px;
+    border-radius: 9999px;
+    background:
+      linear-gradient(90deg,
+        rgba(79, 132, 232, 0.92),
+        rgba(116, 168, 255, 0.68) 36%,
+        rgba(255, 179, 107, 0.72) 68%,
+        rgba(255, 142, 66, 0.92));
+    box-shadow:
+      0 0 12px rgba(79, 132, 232, 0.14),
+      0 0 14px rgba(255, 142, 66, 0.12);
+    transform: scaleY(0.4);
+    transform-origin: top;
   }
 
   @media (min-width: 40rem) {
@@ -1015,15 +1056,55 @@
   }
 
   .chapter-fact {
+    position: relative;
     display: grid;
     gap: 0.35rem;
     padding-top: 0.9rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .chapter-fact::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 1px;
+    border-radius: 9999px;
+    background:
+      linear-gradient(90deg,
+        rgba(79, 132, 232, 0.92),
+        rgba(116, 168, 255, 0.68) 36%,
+        rgba(255, 179, 107, 0.72) 68%,
+        rgba(255, 142, 66, 0.92));
+    box-shadow:
+      0 0 12px rgba(79, 132, 232, 0.14),
+      0 0 14px rgba(255, 142, 66, 0.12);
+    transform: scaleY(0.4);
+    transform-origin: top;
   }
 
   .chapter-fact:first-child {
     padding-top: 0;
-    border-top: 0;
+  }
+
+  .chapter-fact:first-child::before {
+    display: none;
+  }
+
+  .chapter-slide-chronology .chapter-fact:first-child {
+    padding-top: 0.9rem;
+  }
+
+  .chapter-slide-chronology .chapter-fact:first-child::before {
+    display: block;
+  }
+
+  .chapter-slide-projects .chapter-fact:first-child {
+    padding-top: 0.9rem;
+  }
+
+  .chapter-slide-projects .chapter-fact:first-child::before {
+    display: block;
   }
 
   .chapter-fact-label {
