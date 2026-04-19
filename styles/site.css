@@ -591,13 +591,6 @@
     flex-direction: column;
   }
 
-  .chapter-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: 1.6rem;
-  }
-
   .chapter-step {
     color: #ffb36b;
     font-size: 0.75rem;
@@ -624,12 +617,6 @@
     line-height: 1.9;
   }
 
-  .chapter-bubble-body-compact {
-    margin-top: 0.6rem;
-    max-width: 38rem;
-    color: #9db1c1;
-  }
-
   .chapter-tags {
     display: flex;
     flex-wrap: wrap;
@@ -650,12 +637,6 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
     background: rgba(255, 255, 255, 0.035);
     padding: 1.1rem;
-  }
-
-  .chapter-aside-hero {
-    background:
-      radial-gradient(circle at top right, rgba(79, 132, 232, 0.12), transparent 42%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025));
   }
 
   .chapter-fact {
@@ -795,23 +776,14 @@
     text-transform: uppercase;
   }
 
-  .chapter-slide-intro .chapter-bubble {
-    min-height: 35rem;
-  }
+  @media (min-width: 64rem) {
+    .chapter-slide-chronology .chapter-bubble {
+      grid-template-columns: minmax(0, 1fr);
+    }
 
-  .chapter-slide-intro .chapter-bubble-title {
-    max-width: 12ch;
-    font-size: clamp(3rem, 6vw, 5.5rem);
-    line-height: 0.92;
-  }
-
-  .chapter-slide-intro .chapter-bubble-copy {
-    justify-content: center;
-  }
-
-  @media (max-width: 63.999rem) {
-    .chapter-slide-intro .chapter-bubble-title {
-      max-width: 10ch;
+    .chapter-slide-chronology .chapter-aside {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: start;
     }
   }
 
