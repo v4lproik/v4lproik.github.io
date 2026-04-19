@@ -737,9 +737,9 @@
     .hero-side-control {
       position: absolute;
       top: 50%;
-      width: 8.4rem;
-      min-height: 10rem;
-      padding: 1.1rem 1.05rem;
+      width: 9.4rem;
+      min-height: 10.35rem;
+      padding: 1.18rem 1.18rem;
       pointer-events: auto;
     }
 
@@ -769,7 +769,7 @@
 
     .hero-side-name {
       color: #ffb36b;
-      font-size: 0.94rem;
+      font-size: 0.98rem;
       line-height: 1.25;
       white-space: nowrap;
     }
@@ -1068,15 +1068,46 @@
     color: #ffb36b;
   }
 
+  .chronology-layout,
+  .projects-layout,
+  .writing-layout {
+    display: grid;
+    gap: 1.25rem;
+    min-height: 31rem;
+  }
+
+  @media (max-width: 39.999rem) {
+    .chronology-layout,
+    .projects-layout,
+    .writing-layout {
+      min-height: auto;
+    }
+  }
+
   @media (min-width: 64rem) {
-    .chapter-slide-chronology .chapter-bubble {
-      grid-template-columns: minmax(0, 1fr);
+    .chapter-slide-chronology .reading-copy,
+    .chapter-slide-projects .reading-copy,
+    .chapter-slide-writing .reading-copy {
+      max-width: none;
     }
 
-    .chapter-slide-chronology .chapter-aside {
+    .chapter-slide-chronology .chapter-aside,
+    .chapter-slide-projects .chapter-aside,
+    .chapter-slide-writing .chapter-aside {
       grid-template-columns: repeat(3, minmax(0, 1fr));
       align-items: start;
     }
+
+    .chapter-slide-chronology .chapter-fact-value,
+    .chapter-slide-projects .chapter-fact-value,
+    .chapter-slide-writing .chapter-fact-value {
+      text-align: justify;
+    }
+  }
+
+  .writing-layout .chapter-tags {
+    margin-top: 1.5rem;
+    padding-top: 0;
   }
 
   .timeline-shell {
@@ -1279,6 +1310,7 @@
     font-size: 0.9rem;
     line-height: 1.6;
     max-width: 16rem;
+    text-align: justify;
   }
 
   .compact-grid {

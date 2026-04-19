@@ -46,6 +46,15 @@
           </a>
 
           <nav aria-label="Primary" class="site-header-nav">
+            <a href="#notebook" class="nav-link" data-chapter-target="chapter-profile">
+              <span class="nav-link-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 12.25a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Z"/>
+                  <path d="M5 19.25a7 7 0 0 1 14 0"/>
+                </svg>
+              </span>
+              <span class="nav-link-label">Presentation</span>
+            </a>
             <a href="#notebook" class="nav-link" data-chapter-target="chapter-chronology">
               <span class="nav-link-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -54,7 +63,7 @@
                   <path d="M8 14h5.5"/>
                 </svg>
               </span>
-              <span class="nav-link-label">Notebook</span>
+              <span class="nav-link-label">Careers</span>
             </a>
             <a href="#notebook" class="nav-link" data-chapter-target="chapter-projects">
               <span class="nav-link-icon" aria-hidden="true">
@@ -112,10 +121,10 @@
           <div class="chapter-carousel hero-carousel" data-carousel>
             <div class="chapter-viewport hero-carousel-viewport" data-carousel-viewport tabindex="0" aria-live="polite">
               <div class="chapter-track" data-carousel-track>
-                <article class="chapter-slide chapter-slide-profile" id="chapter-profile" data-chapter-title="Profile" data-active="true" aria-hidden="false">
+                <article class="chapter-slide chapter-slide-profile" id="chapter-profile" data-chapter-title="Presentation" data-active="true" aria-hidden="false">
                   <div class="hero-grid">
                     <div>
-                      <p class="eyebrow">Independent Engineering Notebook</p>
+                      <p class="eyebrow">Presentation</p>
                       <h1 class="hero-heading mt-4 max-w-4xl font-semibold leading-[0.95] tracking-[-0.05em] text-mist-50">
                         From French government hacker to founder, CTO, and blockchain engineer.
                       </h1>
@@ -258,16 +267,21 @@
                   </div>
                 </article>
 
-                <article class="chapter-slide chapter-slide-chronology" id="chapter-chronology" data-chapter-title="Chronology" data-active="false" aria-hidden="true">
-                  <div class="chapter-bubble">
-                    <div class="chapter-bubble-copy">
-                      <span class="chapter-step">01 / Chronology</span>
-                      <h3 class="chapter-bubble-title">Chronology of work</h3>
-                      <p class="chapter-bubble-body">
-                        The path started with fan communities and self-taught tooling, then moved
-                        through offensive security, distributed systems, platform engineering, and
-                        blockchain infrastructure. The through-line is consistent: technical work
-                        done close to real constraints, real users, and real operational pressure.
+                <article class="chapter-slide chapter-slide-chronology" id="chapter-chronology" data-chapter-title="Careers" data-active="false" aria-hidden="true">
+                  <div class="chronology-layout">
+                    <div>
+                      <p class="eyebrow">Careers</p>
+                      <h2 class="hero-heading mt-4 max-w-4xl font-semibold leading-[0.95] tracking-[-0.05em] text-mist-50">
+                        Chronology of work
+                      </h2>
+                      <p class="reading-copy mt-6">
+                        The domains changed over time, but the operating mode stayed consistent. I
+                        started with internet communities, release tooling, and small teams, moved
+                        through offensive security and distributed data systems, then into platform
+                        engineering, protocol work, and blockchain infrastructure. The common
+                        thread is straightforward: work close to production, close to failure
+                        modes, and close enough to the system that performance, reliability, and
+                        judgment all matter.
                       </p>
 
                       <div class="timeline-shell">
@@ -277,16 +291,17 @@
                             <span class="timeline-step">Execution</span>
                             <h4 class="timeline-title">Founder and hands-on CTO</h4>
                             <p class="timeline-copy">
-                              Built a company from 0 to 20 employees, scaled engineering from 0 to
-                              10, led fundraising and due diligence through pre-seed to seed, and
-                              stayed directly involved in architecture, hiring, product, delivery,
-                              and engineering quality instead of drifting away from the work.
+                              Built a company from zero to 20 people and grew engineering from zero
+                              to 10. I handled fundraising and investor due diligence through
+                              pre-seed and seed while staying embedded in architecture, hiring,
+                              product definition, and delivery. The role mattered because it
+                              forced business judgment and technical judgment to stay aligned.
                             </p>
                           </div>
                           <div class="timeline-meta">
                             <span class="timeline-index">01</span>
                             <span class="timeline-meta-label">Company building</span>
-                            <span class="timeline-meta-copy">Lead from inside the work, not above it.</span>
+                            <span class="timeline-meta-copy">Fundraising, hiring, architecture, and delivery without stepping away from the engineering work.</span>
                           </div>
                         </div>
 
@@ -296,17 +311,20 @@
                             <span class="timeline-step">Staking</span>
                             <h4 class="timeline-title">Kiln: validator platforms and operator-grade systems</h4>
                             <p class="timeline-copy">
-                              Led backend engineering in a fast-moving staking company building
+                              At Kiln I led backend engineering around validator infrastructure and
                               validator-as-a-service systems across Ethereum and other proof-of-stake
-                              networks. The work ranged from Go service skeletons, shared libraries,
-                              and internal CI to SLAs, alerting, monitoring, resilience, and the
-                              day-to-day realities of operator-grade infrastructure.
+                              networks. The work ranged from shared Go foundations and internal CI
+                              to SLAs, alerting, monitoring, resilience, and the practical boundary
+                              between software teams and operator reality. I was also already
+                              working directly on validator economics, improving APY and operator
+                              returns, and shipping custom modifications where the default client
+                              or stack behaviour was not good enough.
                             </p>
                           </div>
                           <div class="timeline-meta">
                             <span class="timeline-index">02</span>
                             <span class="timeline-meta-label">2022 to 2023 / Kiln</span>
-                            <span class="timeline-meta-copy">Staking systems, software platforms, and infrastructure seen from the operator side.</span>
+                            <span class="timeline-meta-copy">Validator platforms, shared software foundations, custom operator mods, and APY-sensitive reliability work.</span>
                           </div>
                         </div>
 
@@ -318,15 +336,19 @@
                             <p class="timeline-copy">
                               Through the Ethereum Protocol Fellowship, I worked on Lighthouse and
                               Beacon Chain internals in Rust with a focus on consensus-layer
-                              behaviour, performance, metrics, and protocol-facing debugging. That
-                              brought me closer to client code, validator behaviour, and the places
-                              where protocol design meets operator constraints.
+                              behaviour, performance, metrics, and protocol-facing debugging. I
+                              also worked on the implications of moving Ethereum toward
+                              single-slot finality, especially the effect on hardware
+                              requirements, validator location, and the broader operator footprint
+                              of the chain. It made the protocol and operator interface much more
+                              concrete: what matters in client code stops being abstract once
+                              validator behaviour and uptime are on the line.
                             </p>
                           </div>
                           <div class="timeline-meta">
                             <span class="timeline-index">03</span>
                             <span class="timeline-meta-label">2023 / Ethereum Protocol Fellowship</span>
-                            <span class="timeline-meta-copy">Client code, consensus details, and performance work close to the protocol.</span>
+                            <span class="timeline-meta-copy">Consensus-client internals, SSF impact analysis, metrics, and performance work close to the chain.</span>
                           </div>
                         </div>
 
@@ -336,17 +358,17 @@
                             <span class="timeline-step">Platform</span>
                             <h4 class="timeline-title">Yinkozi: principal engineering for security products</h4>
                             <p class="timeline-copy">
-                              Led engineering and architecture for two security products in a
-                              fast-paced environment, working across Golang, Scala, React,
-                              gRPC/Protobuf, Terraform, Kubernetes, Prometheus, and ELK. The role
-                              combined technical direction, delivery, infrastructure design, and
-                              team leadership.
+                              At Yinkozi I led engineering and architecture for two security
+                              products across Golang, Scala, React, gRPC/Protobuf, Terraform,
+                              Kubernetes, Prometheus, and ELK. It was principal-level work in the
+                              practical sense: shaping the system, shipping the platform, and
+                              helping the team keep quality high while moving fast.
                             </p>
                           </div>
                           <div class="timeline-meta">
                             <span class="timeline-index">04</span>
                             <span class="timeline-meta-label">2019 to 2022 / Yinkozi</span>
-                            <span class="timeline-meta-copy">Architecture, multi-cloud systems, product delivery, and team leadership.</span>
+                            <span class="timeline-meta-copy">Architecture, multi-cloud delivery, platform execution, and team leadership in one surface area.</span>
                           </div>
                         </div>
 
@@ -356,17 +378,17 @@
                             <span class="timeline-step">DevSecOps</span>
                             <h4 class="timeline-title">Zendesk: security controls at infrastructure scale</h4>
                             <p class="timeline-copy">
-                              Led DevSecOps work across the EMEA zone, running security reviews,
-                              threat modelling, and control design with engineering teams. The work
-                              spanned CI/CD, application security, infrastructure hardening,
-                              compliance-oriented controls, and internal libraries written across
-                              several languages.
+                              At Zendesk I led DevSecOps work across EMEA, running threat modelling
+                              and security reviews with product and infrastructure teams. The job
+                              was to make controls real inside CI/CD, application architecture, key
+                              management, RBAC, and internal libraries instead of keeping security
+                              separate from the way systems were actually built.
                             </p>
                           </div>
                           <div class="timeline-meta">
                             <span class="timeline-index">05</span>
                             <span class="timeline-meta-label">2017 to 2019 / Zendesk</span>
-                            <span class="timeline-meta-copy">Security engineering embedded into platform and infrastructure teams.</span>
+                            <span class="timeline-meta-copy">Security engineering embedded directly into infrastructure, delivery pipelines, and platform teams.</span>
                           </div>
                         </div>
 
@@ -376,16 +398,18 @@
                             <span class="timeline-step">Consulting</span>
                             <h4 class="timeline-title">Octo: distributed systems and banking-scale throughput</h4>
                             <p class="timeline-copy">
-                              Worked on cross-region Kafka architecture, message-broker frameworks,
-                              AWS infrastructure, Couchbase deployment automation, and performance
-                              testing for high-throughput banking and platform systems. This was a
-                              strong distributed-systems chapter built around scale and reliability.
+                              At Octo I worked on cross-region Kafka architecture, broker
+                              frameworks, Couchbase deployment automation, AWS infrastructure, and
+                              performance testing for banking-scale systems. It was a strong
+                              distributed-systems chapter: throughput, latency, and operational
+                              reliability at a level where small design choices had visible
+                              consequences.
                             </p>
                           </div>
                           <div class="timeline-meta">
                             <span class="timeline-index">06</span>
                             <span class="timeline-meta-label">2016 to 2017 / Octo</span>
-                            <span class="timeline-meta-copy">Latency, messaging, deployment automation, and large-scale platform work.</span>
+                            <span class="timeline-meta-copy">Cross-region messaging, AWS automation, and performance work for high-throughput production systems.</span>
                           </div>
                         </div>
 
@@ -395,17 +419,17 @@
                             <span class="timeline-step">Anti-abuse</span>
                             <h4 class="timeline-title">Viadeo: real-time security and streaming systems</h4>
                             <p class="timeline-copy">
-                              Built and designed anti-abuse and security platforms spanning React,
-                              J2EE CQRS services, real-time spam checks, expression-driven rules,
-                              DynamoDB, and Spark or streaming workloads deployed in AWS with
-                              Ansible. This is where application architecture and security started
-                              blending with large-scale data systems.
+                              At Viadeo I built anti-abuse and security platforms across React,
+                              J2EE/CQRS services, real-time spam detection, expression-driven
+                              rules, DynamoDB, and Spark or streaming workloads in AWS. That is
+                              where application security, product architecture, and data systems
+                              started converging into the same operating surface.
                             </p>
                           </div>
                           <div class="timeline-meta">
                             <span class="timeline-index">07</span>
                             <span class="timeline-meta-label">2015 to 2016 / Viadeo</span>
-                            <span class="timeline-meta-copy">Real-time product security with streaming and anti-abuse systems.</span>
+                            <span class="timeline-meta-copy">Real-time product security, anti-abuse, and streaming workloads tied into product architecture.</span>
                           </div>
                         </div>
 
@@ -415,17 +439,18 @@
                             <span class="timeline-step">Security</span>
                             <h4 class="timeline-title">BULL / ATOS: pentest, incident response, security software</h4>
                             <p class="timeline-copy">
-                              Built security tooling and deployment pipelines for penetration testing
-                              and incident response teams while also working hands-on across
-                              vulnerability assessments, code review, threat modelling, malware
-                              analysis, and team mentoring. That work forced range across the stack,
-                              from low-level internals to operational processes.
+                              At BULL / ATOS I built tooling and deployment pipelines for pentest
+                              and incident-response teams while also working across vulnerability
+                              assessments, threat modelling, malware analysis, code review, and
+                              mentoring. It forced range across the stack: you had to understand
+                              how systems actually failed, not just how they were supposed to look
+                              on paper.
                             </p>
                           </div>
                           <div class="timeline-meta">
                             <span class="timeline-index">08</span>
                             <span class="timeline-meta-label">2011 to 2015 / BULL-ATOS</span>
-                            <span class="timeline-meta-copy">Offensive security and software engineering under real operational constraints.</span>
+                            <span class="timeline-meta-copy">Offensive security, incident-response tooling, and software engineering under operational pressure.</span>
                           </div>
                         </div>
 
@@ -435,16 +460,19 @@
                             <span class="timeline-step">Government</span>
                             <h4 class="timeline-title">Recruited through international CTFs</h4>
                             <p class="timeline-copy">
-                              Recruited by the French government at 20yo through international CTF
-                              competition, then worked there full time while also finishing my
-                              engineering degree. That put real consequences behind the technical
-                              work very early and made rigor non-optional.
+                              International CTFs led to being recruited by the French government
+                              at 20yo while I was still completing my engineering degree. Working
+                              full time in that environment early made rigor, discretion, and
+                              technical depth part of the baseline instead of something to learn
+                              later. In parallel I was finishing an engineering degree with a
+                              security specialisation and also teaching final-year security
+                              students.
                             </p>
                           </div>
                           <div class="timeline-meta">
                             <span class="timeline-index">09</span>
                             <span class="timeline-meta-label">Age 20 / full-time government work + degree</span>
-                            <span class="timeline-meta-copy">Competition turned into operational work under real constraints.</span>
+                            <span class="timeline-meta-copy">Full-time government work, engineering studies in security, and teaching responsibilities running in parallel.</span>
                           </div>
                         </div>
 
@@ -454,17 +482,18 @@
                             <span class="timeline-step">Adversarial</span>
                             <h4 class="timeline-title">C, security tooling, and hacking competition</h4>
                             <p class="timeline-copy">
-                              At 16 I moved into C programming, security tooling, and early malware
-                              experimentation. By 18, while studying application and network
-                              engineering in a French IUT, I was competing in international hacking
-                              events with CoP, Consortium of Pwners, which pushed me deeper into
-                              exploitation, low-level systems, and offensive security.
+                              By 16 I was writing C, building security tooling, and experimenting
+                              with malware. By 18, while studying application and network
+                              engineering in a French IUT, I was competing internationally with
+                              CoP, Consortium of Pwners. That period built the low-level reflexes:
+                              exploitation, reverse engineering, systems thinking, and comfort with
+                              technical ambiguity.
                             </p>
                           </div>
                           <div class="timeline-meta">
                             <span class="timeline-index">10</span>
                             <span class="timeline-meta-label">Age 16 to 18 / IUT + CoP</span>
-                            <span class="timeline-meta-copy">Low-level systems, reverse engineering, and competitive pressure.</span>
+                            <span class="timeline-meta-copy">Low-level systems, exploitation, reverse engineering, and competitive pressure early on.</span>
                           </div>
                         </div>
 
@@ -474,18 +503,18 @@
                             <span class="timeline-step">Start</span>
                             <h4 class="timeline-title">Fansub teams, websites, and release ops</h4>
                             <p class="timeline-copy">
-                              At 13, because there were no streaming platforms and I already had a
-                              strong enough level of English to work from source material, I built
-                              two manga and anime fansub teams. For two years I handled the PHP and
-                              HTML websites, coordinated adaptation and translation work, managed a
-                              team of around 10 people, took care of distribution, and got hands-on
-                              with Lua karaoke scripting, After Effects, and Python bots in IRC.
+                              At 13 I built two manga and anime fansub teams because streaming
+                              platforms did not exist yet and my English was already strong enough
+                              to work from source material. For two years I ran the PHP and HTML
+                              sites, coordinated translation and adaptation, managed about 10
+                              people, handled distribution, and learned release mechanics through
+                              Lua karaoke scripting, After Effects, and Python automation in IRC.
                             </p>
                           </div>
                           <div class="timeline-meta">
                             <span class="timeline-index">11</span>
                             <span class="timeline-meta-label">Age 13 / internet era</span>
-                            <span class="timeline-meta-copy">Early product, tooling, media pipelines, and team coordination before any formal career.</span>
+                            <span class="timeline-meta-copy">Internet-era product building, automation, and team coordination before any formal engineering path.</span>
                           </div>
                         </div>
                       </div>
@@ -507,12 +536,14 @@
                   </div>
                 </article>
 
-                <article class="chapter-slide" id="chapter-projects" data-chapter-title="Projects" data-active="false" aria-hidden="true">
-                  <div class="chapter-bubble">
-                    <div class="chapter-bubble-copy">
-                      <span class="chapter-step">02 / Projects</span>
-                      <h3 class="chapter-bubble-title">Selected technical projects</h3>
-                      <p class="chapter-bubble-body">
+                <article class="chapter-slide chapter-slide-projects" id="chapter-projects" data-chapter-title="Projects" data-active="false" aria-hidden="true">
+                  <div class="projects-layout">
+                    <div>
+                      <p class="eyebrow">Projects</p>
+                      <h2 class="hero-heading mt-4 max-w-4xl font-semibold leading-[0.95] tracking-[-0.05em] text-mist-50">
+                        Selected technical projects
+                      </h2>
+                      <p class="reading-copy mt-6">
                         Repositories that reflect current interests directly: workflow contracts,
                         infrastructure operations, validators, and engineering tooling.
                       </p>
@@ -568,12 +599,14 @@
                   </div>
                 </article>
 
-                <article class="chapter-slide" id="chapter-writing" data-chapter-title="Writing" data-active="false" aria-hidden="true">
-                  <div class="chapter-bubble">
-                    <div class="chapter-bubble-copy">
-                      <span class="chapter-step">03 / Writing</span>
-                      <h3 class="chapter-bubble-title">Long-form work, published deliberately</h3>
-                      <p class="chapter-bubble-body">
+                <article class="chapter-slide chapter-slide-writing" id="chapter-writing" data-chapter-title="Writing" data-active="false" aria-hidden="true">
+                  <div class="writing-layout">
+                    <div>
+                      <p class="eyebrow">Writing</p>
+                      <h2 class="hero-heading mt-4 max-w-4xl font-semibold leading-[0.95] tracking-[-0.05em] text-mist-50">
+                        Long-form work, published deliberately
+                      </h2>
+                      <p class="reading-copy mt-6">
                         Writing stays private until the argument, implementation, and measurements
                         are strong enough to deserve publication. The point is signal, not volume.
                       </p>
@@ -608,12 +641,12 @@
             </div>
           </div>
 
-          <div class="hero-side-controls" aria-label="Notebook page quick switcher">
+          <div class="hero-side-controls" aria-label="Page quick switcher">
             <button
               type="button"
               class="hero-side-control hero-side-control-prev"
               data-carousel-prev
-              aria-label="Open previous notebook page"
+              aria-label="Open previous page"
             >
               <span class="hero-side-kicker">Previous page</span>
               <span class="hero-side-row">
@@ -625,11 +658,11 @@
               type="button"
               class="hero-side-control hero-side-control-next"
               data-carousel-next
-              aria-label="Open next notebook page"
+              aria-label="Open next page"
             >
               <span class="hero-side-kicker">Next page</span>
               <span class="hero-side-row hero-side-row-next">
-                <span class="hero-side-name" data-carousel-next-label>Chronology</span>
+                <span class="hero-side-name" data-carousel-next-label>Careers</span>
                 <span class="hero-side-arrow">&gt;</span>
               </span>
             </button>

@@ -79,6 +79,10 @@
     });
   }
 
+  function scrollToTopTarget() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   function updateLabels() {
     const previousTitle = chapterTitle(currentIndex - 1);
     const upcomingTitle = chapterTitle(currentIndex + 1);
@@ -112,9 +116,7 @@
     }
 
     if (settings.scrollIntoView) {
-      if (carouselSection) {
-        carouselSection.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
+      scrollToTopTarget();
     }
   }
 
