@@ -208,6 +208,11 @@
     color: #dce7f0;
     font-size: 1rem;
     line-height: 1.9;
+    text-align: justify;
+  }
+
+  .hero-panel-copy {
+    text-align: justify;
   }
 
   .muted-copy {
@@ -615,6 +620,7 @@
     color: #dce7f0;
     font-size: 1rem;
     line-height: 1.9;
+    text-align: justify;
   }
 
   .chapter-tags {
@@ -958,6 +964,7 @@
     color: #dce7f0;
     font-size: 0.98rem;
     line-height: 1.8;
+    text-align: justify;
   }
 
   .timeline-links {
@@ -1047,5 +1054,6 @@
     color: #9db1c1;
     font-size: 0.9rem;
     line-height: 1.7;
+    text-align: justify;
   }
 }
