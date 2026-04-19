@@ -13,12 +13,6 @@
   const nextButtons = Array.from(document.querySelectorAll("[data-carousel-next]"));
   const prevLabels = Array.from(document.querySelectorAll("[data-carousel-prev-label]"));
   const nextLabels = Array.from(document.querySelectorAll("[data-carousel-next-label]"));
-  const statusPrevLabels = Array.from(document.querySelectorAll("[data-carousel-status-prev]"));
-  const statusNextLabels = Array.from(document.querySelectorAll("[data-carousel-status-next]"));
-  const currentLabels = Array.from(document.querySelectorAll("[data-carousel-current-label]"));
-  const currentIndexLabels = Array.from(document.querySelectorAll("[data-carousel-current-index]"));
-  const totalLabels = Array.from(document.querySelectorAll("[data-carousel-total]"));
-  const pills = Array.from(carousel.querySelectorAll("[data-carousel-jump]"));
   const triggers = Array.from(document.querySelectorAll("[data-chapter-target]"));
   const viewport = carousel.querySelector("[data-carousel-viewport]");
   const carouselSection = carousel.closest("[data-carousel-section]") || document.getElementById("notebook") || document.getElementById("chapters");
@@ -35,10 +29,6 @@
 
   carousel.dataset.carouselReady = "true";
   carousel.dataset.motion = "idle";
-
-  totalLabels.forEach(function (label) {
-    label.textContent = String(slides.length);
-  });
 
   function normalizeIndex(index) {
     return (index + slides.length) % slides.length;
@@ -91,15 +81,10 @@
 
   function updateLabels() {
     const previousTitle = chapterTitle(currentIndex - 1);
-    const activeTitle = chapterTitle(currentIndex);
     const upcomingTitle = chapterTitle(currentIndex + 1);
 
     setText(prevLabels, previousTitle);
     setText(nextLabels, upcomingTitle);
-    setText(statusPrevLabels, previousTitle);
-    setText(statusNextLabels, upcomingTitle);
-    setText(currentLabels, activeTitle);
-    setText(currentIndexLabels, String(currentIndex + 1));
   }
 
   function updateSlides() {
@@ -107,12 +92,6 @@
       const active = index === currentIndex;
       slide.setAttribute("aria-hidden", String(!active));
       slide.dataset.active = active ? "true" : "false";
-    });
-
-    pills.forEach(function (pill, index) {
-      const active = index === currentIndex;
-      pill.dataset.active = active ? "true" : "false";
-      pill.setAttribute("aria-selected", String(active));
     });
 
     updateLabels();
@@ -154,16 +133,6 @@
         direction: 1,
         scrollIntoView: button.getAttribute("data-carousel-scroll") === "true"
       });
-    });
-  });
-
-  pills.forEach(function (pill) {
-    pill.addEventListener("click", function () {
-      const index = Number(pill.getAttribute("data-carousel-jump"));
-
-      if (!Number.isNaN(index)) {
-        setIndex(index, { direction: inferDirection(normalizeIndex(index)) });
-      }
     });
   });
 
