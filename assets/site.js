@@ -21,6 +21,7 @@
   const pills = Array.from(carousel.querySelectorAll("[data-carousel-jump]"));
   const triggers = Array.from(document.querySelectorAll("[data-chapter-target]"));
   const viewport = carousel.querySelector("[data-carousel-viewport]");
+  const carouselSection = carousel.closest("[data-carousel-section]") || document.getElementById("notebook") || document.getElementById("chapters");
 
   if (!track || !prevButton || !nextButton || !prevLabel || !nextLabel || !viewport || !slides.length) {
     return;
@@ -138,10 +139,8 @@
     }
 
     if (settings.scrollIntoView) {
-      const section = document.getElementById("chapters");
-
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (carouselSection) {
+        carouselSection.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }
   }
