@@ -476,15 +476,6 @@
     transform-origin: top;
   }
 
-  @media (min-width: 40rem) {
-    .hero-metric {
-      flex-direction: row;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-  }
-
   .hero-metric-label {
     color: #9db1c1;
     font-size: 0.72rem;
@@ -500,12 +491,6 @@
     text-align: left;
   }
 
-  @media (min-width: 40rem) {
-    .hero-metric-value {
-      text-align: right;
-    }
-  }
-
   .hero-metric-languages {
     align-items: flex-start;
   }
@@ -516,13 +501,6 @@
     justify-content: flex-start;
     gap: 0.45rem;
     max-width: none;
-  }
-
-  @media (min-width: 40rem) {
-    .hero-language-list {
-      justify-content: flex-end;
-      max-width: 17rem;
-    }
   }
 
   .hero-language-pill {
@@ -1129,14 +1107,13 @@
   }
 
   .chapter-project-link {
-    display: block;
+    display: grid;
+    gap: 0.38rem;
     border-radius: 1.1rem;
     border: 1px solid rgba(255, 255, 255, 0.08);
     background: rgba(255, 255, 255, 0.03);
     padding: 0.95rem 1rem;
-    color: #74a8ff;
-    font-size: 0.95rem;
-    font-weight: 600;
+    color: #f4f8fb;
     transition:
       transform 180ms ease,
       border-color 180ms ease,
@@ -1146,6 +1123,24 @@
   .chapter-project-link:hover {
     transform: translateY(-2px);
     border-color: rgba(255, 179, 107, 0.28);
+    color: #f4f8fb;
+  }
+
+  .chapter-project-name {
+    color: #74a8ff;
+    font-size: 0.97rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .chapter-project-summary {
+    color: #c5d5e3;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    text-align: justify;
+  }
+
+  .chapter-project-link:hover .chapter-project-name {
     color: #ffb36b;
   }
 
