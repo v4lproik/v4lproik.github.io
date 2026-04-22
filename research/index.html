@@ -483,9 +483,10 @@
                         <button type="button" class="chip is-active" data-filter-chip="all" aria-pressed="true">All</button>
                         <button type="button" class="chip" data-filter-chip="ethereum" aria-pressed="false">Ethereum</button>
                         <button type="button" class="chip" data-filter-chip="solana" aria-pressed="false">Solana</button>
+                        <button type="button" class="chip" data-filter-chip="starknet" aria-pressed="false">Starknet</button>
                         <button type="button" class="chip" data-filter-chip="lighthouse" aria-pressed="false">Lighthouse</button>
+                        <button type="button" class="chip" data-filter-chip="prysm" aria-pressed="false">Prysm</button>
                         <button type="button" class="chip" data-filter-chip="benchmarks" aria-pressed="false">Benchmarks</button>
-                        <button type="button" class="chip" data-filter-chip="project" aria-pressed="false">Projects</button>
                       </div>
                     </aside>
                   </div>
@@ -523,8 +524,8 @@
           <a
             class="archive-card archive-card-link"
             data-entry
-            data-tags="ethereum lighthouse talk validators"
-            data-search="streameth presentation improving lighthouse joel rousseau ethereum lighthouse validators consensus performance"
+            data-tags="ethereum lighthouse talk validators client"
+            data-search="streameth presentation improving lighthouse joel rousseau ethereum lighthouse validators consensus client performance"
             href="https://info.streameth.org/65a90bf27932ebe436ba9348/watch?session=65b8f8cda5b2d09b88ec0ff5"
             target="_blank"
             rel="noreferrer noopener"
@@ -566,8 +567,8 @@
           <a
             class="archive-card archive-card-link"
             data-entry
-            data-tags="ethereum lighthouse article validators"
-            data-search="sigma prime article attestation simulator lighthouse ethereum validators research paul hauner"
+            data-tags="ethereum lighthouse article validators client"
+            data-search="sigma prime article attestation simulator lighthouse ethereum validators client research paul hauner"
             href="https://blog.sigmaprime.io/attestation-sim.html"
             target="_blank"
             rel="noreferrer noopener"
@@ -603,6 +604,197 @@
             <div class="archive-tags">
               <span class="tag">Ethereum</span>
               <span class="tag">Lighthouse</span>
+            </div>
+          </a>
+
+          <a
+            class="archive-card archive-card-link"
+            data-entry
+            data-tags="ethereum prysm article validators client slashing"
+            data-search="prysm slasher span bucket visualizer 2d chunking surrounded votes slash protection joel rousseau ethereum prysm validators client"
+            href="https://github.com/OffchainLabs/prysm/pull/13748"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <div class="archive-head">
+              <div class="archive-meta">
+                <span class="meta-pill">Client PR</span>
+                <span class="meta-copy">OffchainLabs / Prysm · Merged upstream contribution</span>
+              </div>
+            </div>
+            <h2 class="archive-title">Prysm slasher span-bucket visualizer</h2>
+            <p class="archive-summary">
+              A CLI surface for inspecting Prysm’s min and max span buckets while
+              tracing 2D chunking behaviour inside the slasher. The goal was to
+              make surrounded-vote and slash-protection debugging concrete instead
+              of trying to reason about it blindly from raw storage.
+            </p>
+            <div class="archive-date-row">
+              <div class="archive-date">
+                <span class="meta-label">Opened</span>
+                <time class="archive-date-value" datetime="2024-03-15">March 15, 2024</time>
+              </div>
+              <div class="archive-date">
+                <span class="meta-label">Merged</span>
+                <time class="archive-date-value" datetime="2024-03-27">March 27, 2024</time>
+              </div>
+            </div>
+            <div class="archive-detail-grid">
+              <div class="archive-detail">
+                <span class="meta-label">Artifact</span>
+                <span class="detail-value">Merged upstream client contribution</span>
+              </div>
+              <div class="archive-detail">
+                <span class="meta-label">Best for</span>
+                <span class="detail-value">Prysm slasher internals, 2D chunking inspection, and making slash-protection state legible</span>
+              </div>
+            </div>
+            <div class="archive-tags">
+              <span class="tag">Ethereum</span>
+              <span class="tag">Prysm</span>
+            </div>
+          </a>
+
+          <a
+            class="archive-card archive-card-link"
+            data-entry
+            data-tags="ethereum prysm article validators client slashing benchmarks"
+            data-search="prysm slasher multi chunk fix disk pressure surrounded votes slash protection joel rousseau ethereum prysm validators client performance"
+            href="https://github.com/OffchainLabs/prysm/pull/13749"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <div class="archive-head">
+              <div class="archive-meta">
+                <span class="meta-pill">Client PR</span>
+                <span class="meta-copy">OffchainLabs / Prysm · Open upstream contribution</span>
+              </div>
+            </div>
+            <h2 class="archive-title">Prysm slasher multi-chunk fix and disk-pressure reduction</h2>
+            <p class="archive-summary">
+              Follow-up work on Prysm’s slasher to fix incorrect min and max span
+              values when a single attestation update crosses multiple chunks,
+              while also avoiding unnecessary chunk writes to disk during normal
+              processing.
+            </p>
+            <div class="archive-date-row">
+              <div class="archive-date">
+                <span class="meta-label">Opened</span>
+                <time class="archive-date-value" datetime="2024-03-15">March 15, 2024</time>
+              </div>
+              <div class="archive-date">
+                <span class="meta-label">Last update</span>
+                <time class="archive-date-value" datetime="2024-06-12">June 12, 2024</time>
+              </div>
+            </div>
+            <div class="archive-detail-grid">
+              <div class="archive-detail">
+                <span class="meta-label">Artifact</span>
+                <span class="detail-value">Open upstream client contribution</span>
+              </div>
+              <div class="archive-detail">
+                <span class="meta-label">Best for</span>
+                <span class="detail-value">Surrounded-vote debugging, multi-chunk slasher updates, and persistence-cost tradeoffs in an Ethereum client</span>
+              </div>
+            </div>
+            <div class="archive-tags">
+              <span class="tag">Ethereum</span>
+              <span class="tag">Prysm</span>
+            </div>
+          </a>
+
+          <a
+            class="archive-card archive-card-link"
+            data-entry
+            data-tags="starknet article client juno go infrastructure"
+            data-search="juno starknet logger config json output verbosity k8s operator infra joel rousseau nethermind client"
+            href="https://github.com/NethermindEth/juno/pull/264"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <div class="archive-head">
+              <div class="archive-meta">
+                <span class="meta-pill accent">Client PR</span>
+                <span class="meta-copy">Nethermind / Juno · Merged upstream contribution</span>
+              </div>
+            </div>
+            <h2 class="archive-title">Juno logger configuration and structured output</h2>
+            <p class="archive-summary">
+              Contribution to the Starknet client Juno to expose logger verbosity
+              and JSON output from config, then thread that logger cleanly through
+              the codebase so node operation is easier to run and observe in real
+              infrastructure.
+            </p>
+            <div class="archive-date-row">
+              <div class="archive-date">
+                <span class="meta-label">Opened</span>
+                <time class="archive-date-value" datetime="2022-07-04">July 4, 2022</time>
+              </div>
+              <div class="archive-date">
+                <span class="meta-label">Merged</span>
+                <time class="archive-date-value" datetime="2022-07-10">July 10, 2022</time>
+              </div>
+            </div>
+            <div class="archive-detail-grid">
+              <div class="archive-detail">
+                <span class="meta-label">Artifact</span>
+                <span class="detail-value">Merged upstream client contribution</span>
+              </div>
+              <div class="archive-detail">
+                <span class="meta-label">Best for</span>
+                <span class="detail-value">Starknet client operations, structured logging, and configuration design that holds up in k8s-style environments</span>
+              </div>
+            </div>
+            <div class="archive-tags">
+              <span class="tag">Starknet</span>
+              <span class="tag">Juno</span>
+            </div>
+          </a>
+
+          <a
+            class="archive-card archive-card-link"
+            data-entry
+            data-tags="starknet article client juno go benchmarks"
+            data-search="juno rest tests retry abstraction starknet feeder client test performance joel rousseau nethermind go"
+            href="https://github.com/NethermindEth/juno/pull/267"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <div class="archive-head">
+              <div class="archive-meta">
+                <span class="meta-pill">Client PR</span>
+                <span class="meta-copy">Nethermind / Juno · Merged upstream contribution</span>
+              </div>
+            </div>
+            <h2 class="archive-title">Juno REST retry abstraction and faster failure-path tests</h2>
+            <p class="archive-summary">
+              Refactor of Juno’s REST client retry path so tests can inject custom
+              retry behaviour instead of waiting on the default backoff loop,
+              sharply reducing feedback time on failure-path test runs.
+            </p>
+            <div class="archive-date-row">
+              <div class="archive-date">
+                <span class="meta-label">Opened</span>
+                <time class="archive-date-value" datetime="2022-07-04">July 4, 2022</time>
+              </div>
+              <div class="archive-date">
+                <span class="meta-label">Merged</span>
+                <time class="archive-date-value" datetime="2022-07-05">July 5, 2022</time>
+              </div>
+            </div>
+            <div class="archive-detail-grid">
+              <div class="archive-detail">
+                <span class="meta-label">Artifact</span>
+                <span class="detail-value">Merged upstream client contribution</span>
+              </div>
+              <div class="archive-detail">
+                <span class="meta-label">Best for</span>
+                <span class="detail-value">Client test ergonomics, retry-path design, and reducing wasted latency in protocol-facing Go code</span>
+              </div>
+            </div>
+            <div class="archive-tags">
+              <span class="tag">Starknet</span>
+              <span class="tag">Juno</span>
             </div>
           </a>
 
