@@ -620,8 +620,8 @@
                       </h2>
                       <p class="reading-copy mt-6">
                         Public work that reflects the way I like to build: precise interfaces,
-                        operator-aware tooling, strong engineering surfaces, and systems designed
-                        around real constraints.
+                        operator-aware tooling, security-conscious interfaces, and systems designed
+                        around real constraints rather than demo abstractions.
                       </p>
                       <div class="chapter-project-list">
                         <a
@@ -635,12 +635,12 @@
                         </a>
                         <a
                           class="chapter-project-link"
-                          href="https://github.com/v4lproik/knowledge-db-rs"
+                          href="https://github.com/v4lproik/gin-jwks-rsa"
                           target="_blank"
                           rel="noreferrer noopener"
                         >
-                          <span class="chapter-project-name">knowledge-db-rs</span>
-                          <span class="chapter-project-summary">Rust-first knowledge tooling built around structure, retrieval ergonomics, and sharp interfaces instead of generic note sprawl.</span>
+                          <span class="chapter-project-name">gin-jwks-rsa</span>
+                          <span class="chapter-project-summary">Go middleware that exposes RSA JWKS endpoints for JWT verification flows, with a small surface area and explicit key-handling behaviour.</span>
                         </a>
                         <a
                           class="chapter-project-link"
@@ -660,20 +660,47 @@
                           <span class="chapter-project-name">sol-validator-watcher</span>
                           <span class="chapter-project-summary">Validator-aware monitoring and observability focused on the operating realities that matter to Solana node operators.</span>
                         </a>
+                        <a
+                          class="chapter-project-link"
+                          href="https://github.com/v4lproik/simple-blockchain-quickstart"
+                          target="_blank"
+                          rel="noreferrer noopener"
+                        >
+                          <span class="chapter-project-name">simple-blockchain-quickstart</span>
+                          <span class="chapter-project-summary">A Go blockchain skeleton with wallet, node, transaction, and authentication surfaces kept explicit so the moving parts stay easy to inspect and extend.</span>
+                        </a>
+                        <a
+                          class="chapter-project-link"
+                          href="https://github.com/v4lproik/no-name"
+                          target="_blank"
+                          rel="noreferrer noopener"
+                        >
+                          <span class="chapter-project-name">no-name</span>
+                          <span class="chapter-project-summary">An internal-pentest utility in Go that fingerprints login surfaces, extracts authentication forms, tests credential paths, and emits reports for follow-up.</span>
+                        </a>
+                        <a
+                          class="chapter-project-link"
+                          href="https://github.com/v4lproik/spam-should-not-pass"
+                          target="_blank"
+                          rel="noreferrer noopener"
+                        >
+                          <span class="chapter-project-name">spam-should-not-pass</span>
+                          <span class="chapter-project-summary">A moderation platform built around configurable spam checks and multiple backend services, reflecting earlier work on rule systems and operational plumbing.</span>
+                        </a>
                       </div>
                     </div>
                     <aside class="chapter-aside">
                       <div class="chapter-fact">
                         <span class="chapter-fact-label">Themes</span>
-                        <span class="chapter-fact-value">Tooling, operations, observability, validators</span>
+                        <span class="chapter-fact-value">CI contracts, validator ops, auth infrastructure, blockchain scaffolds, security tooling</span>
                       </div>
                       <div class="chapter-fact">
                         <span class="chapter-fact-label">Bias</span>
-                        <span class="chapter-fact-value">Build surfaces that reflect real operating concerns</span>
+                        <span class="chapter-fact-value">Keep the operational and protocol surface explicit enough to inspect, test, and extend</span>
                       </div>
                       <div class="chapter-fact">
                         <span class="chapter-fact-label">Output</span>
-                        <span class="chapter-fact-value">Smaller, sharper public repos instead of noisy sprawl</span>
+                        <span class="chapter-fact-value">Smaller public tools that show how I think about interfaces, failure modes, and implementation detail</span>
                       </div>
                     </aside>
                   </div>
