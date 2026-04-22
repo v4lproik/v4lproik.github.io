@@ -14,8 +14,10 @@
   const prevLabels = Array.from(document.querySelectorAll("[data-carousel-prev-label]"));
   const nextLabels = Array.from(document.querySelectorAll("[data-carousel-next-label]"));
   const triggers = Array.from(document.querySelectorAll("[data-chapter-target]"));
+  const navLinks = Array.from(document.querySelectorAll(".site-header-nav .nav-link[data-nav-id]"));
   const viewport = carousel.querySelector("[data-carousel-viewport]");
   const carouselSection = carousel.closest("[data-carousel-section]") || document.getElementById("notebook") || document.getElementById("chapters");
+  const researchRoute = { title: "Research", href: "/research/index.html" };
 
   if (!track || !prevButtons.length || !nextButtons.length || !viewport || !slides.length) {
     return;
@@ -79,16 +81,35 @@
     });
   }
 
+  function navigateTo(url) {
+    window.location.href = url;
+  }
+
   function scrollToTopTarget() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   function updateLabels() {
-    const previousTitle = chapterTitle(currentIndex - 1);
-    const upcomingTitle = chapterTitle(currentIndex + 1);
+    const previousTitle = currentIndex === 0 ? researchRoute.title : chapterTitle(currentIndex - 1);
+    const upcomingTitle = currentIndex === slides.length - 1 ? researchRoute.title : chapterTitle(currentIndex + 1);
 
     setText(prevLabels, previousTitle);
     setText(nextLabels, upcomingTitle);
+  }
+
+  function updateActiveNav() {
+    const activeId = currentId();
+
+    navLinks.forEach(function (link) {
+      const active = link.getAttribute("data-nav-id") === activeId;
+      link.classList.toggle("is-active", active);
+
+      if (active) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
   }
 
   function updateSlides() {
@@ -98,6 +119,7 @@
       slide.dataset.active = active ? "true" : "false";
     });
 
+    updateActiveNav();
     updateLabels();
     scheduleViewportHeightSync();
   }
@@ -122,6 +144,11 @@
 
   prevButtons.forEach(function (button) {
     button.addEventListener("click", function () {
+      if (currentIndex === 0) {
+        navigateTo(researchRoute.href);
+        return;
+      }
+
       setIndex(currentIndex - 1, {
         direction: -1,
         scrollIntoView: button.getAttribute("data-carousel-scroll") === "true"
@@ -131,6 +158,11 @@
 
   nextButtons.forEach(function (button) {
     button.addEventListener("click", function () {
+      if (currentIndex === slides.length - 1) {
+        navigateTo(researchRoute.href);
+        return;
+      }
+
       setIndex(currentIndex + 1, {
         direction: 1,
         scrollIntoView: button.getAttribute("data-carousel-scroll") === "true"
@@ -157,11 +189,23 @@
   viewport.addEventListener("keydown", function (event) {
     if (event.key === "ArrowLeft") {
       event.preventDefault();
+
+      if (currentIndex === 0) {
+        navigateTo(researchRoute.href);
+        return;
+      }
+
       setIndex(currentIndex - 1, { direction: -1 });
     }
 
     if (event.key === "ArrowRight") {
       event.preventDefault();
+
+      if (currentIndex === slides.length - 1) {
+        navigateTo(researchRoute.href);
+        return;
+      }
+
       setIndex(currentIndex + 1, { direction: 1 });
     }
   });
@@ -185,6 +229,16 @@
     swipePointerId = null;
 
     if (Math.abs(deltaX) < 56) {
+      return;
+    }
+
+    if (deltaX < 0 && currentIndex === slides.length - 1) {
+      navigateTo(researchRoute.href);
+      return;
+    }
+
+    if (deltaX > 0 && currentIndex === 0) {
+      navigateTo(researchRoute.href);
       return;
     }
 
