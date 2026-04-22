@@ -85,8 +85,26 @@
     window.location.href = url;
   }
 
-  function scrollToTopTarget() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  function setScrollTop(value) {
+    document.documentElement.scrollTop = value;
+    document.body.scrollTop = value;
+  }
+
+  function scrollToTopTarget(options) {
+    const settings = Object.assign({ behavior: "smooth" }, options);
+
+    window.scrollTo({ top: 0, left: 0, behavior: settings.behavior });
+    setScrollTop(0);
+
+    window.requestAnimationFrame(function () {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      setScrollTop(0);
+    });
+
+    window.setTimeout(function () {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      setScrollTop(0);
+    }, 120);
   }
 
   function updateLabels() {
@@ -255,6 +273,7 @@
 
     if (idToIndex.has(hash)) {
       setIndex(idToIndex.get(hash), { updateHash: false, animate: false });
+      scrollToTopTarget({ behavior: "auto" });
     }
   });
 
@@ -264,6 +283,7 @@
 
   if (idToIndex.has(initialHash)) {
     setIndex(idToIndex.get(initialHash), { updateHash: false, animate: false });
+    scrollToTopTarget({ behavior: "auto" });
   } else {
     setIndex(0, { updateHash: false, animate: false });
   }

@@ -254,6 +254,24 @@
         gap: 0.8rem;
       }
 
+      .archive-date-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem 1.2rem;
+      }
+
+      .archive-date {
+        display: grid;
+        gap: 0.16rem;
+      }
+
+      .archive-date-value {
+        color: var(--color-mist-50);
+        font-size: 0.92rem;
+        font-weight: 600;
+        line-height: 1.45;
+      }
+
       @media (min-width: 48rem) {
         .archive-detail-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -523,6 +541,12 @@
               validator-facing concerns, and consensus-client work carried out
               through the Ethereum Protocol Fellowship.
             </p>
+            <div class="archive-date-row">
+              <div class="archive-date">
+                <span class="meta-label">Published</span>
+                <time class="archive-date-value" datetime="2024-01-30">January 30, 2024</time>
+              </div>
+            </div>
             <div class="archive-detail-grid">
               <div class="archive-detail">
                 <span class="meta-label">Artifact</span>
@@ -536,7 +560,6 @@
             <div class="archive-tags">
               <span class="tag">Ethereum</span>
               <span class="tag">Lighthouse</span>
-              <span class="tag">Talk</span>
             </div>
           </a>
 
@@ -561,6 +584,12 @@
               and the dissemination dynamics behind validator behaviour at the
               consensus layer.
             </p>
+            <div class="archive-date-row">
+              <div class="archive-date">
+                <span class="meta-label">Published</span>
+                <time class="archive-date-value" datetime="2024-06-13">June 13, 2024</time>
+              </div>
+            </div>
             <div class="archive-detail-grid">
               <div class="archive-detail">
                 <span class="meta-label">Artifact</span>
@@ -574,7 +603,6 @@
             <div class="archive-tags">
               <span class="tag">Ethereum</span>
               <span class="tag">Lighthouse</span>
-              <span class="tag">Article</span>
             </div>
           </a>
 
@@ -598,6 +626,16 @@
               tradeoffs, and framework choice across modern Anchor, Anchor v2,
               Pinnocchio, and Quasar.
             </p>
+            <div class="archive-date-row">
+              <div class="archive-date">
+                <span class="meta-label">Draft opened</span>
+                <time class="archive-date-value" datetime="2026-04-22">April 22, 2026</time>
+              </div>
+              <div class="archive-date">
+                <span class="meta-label">Last update</span>
+                <time class="archive-date-value" datetime="2026-04-22">April 22, 2026</time>
+              </div>
+            </div>
             <div class="archive-detail-grid">
               <div class="archive-detail">
                 <span class="meta-label">Artifact</span>
@@ -611,7 +649,6 @@
             <div class="archive-tags">
               <span class="tag">Solana</span>
               <span class="tag">Benchmarks</span>
-              <span class="tag">Draft</span>
             </div>
           </a>
         </section>
