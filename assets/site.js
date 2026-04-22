@@ -18,6 +18,7 @@
   const viewport = carousel.querySelector("[data-carousel-viewport]");
   const carouselSection = carousel.closest("[data-carousel-section]") || document.getElementById("notebook") || document.getElementById("chapters");
   const researchRoute = { title: "Research", href: "/research/index.html" };
+  const chapterParam = "chapter";
 
   if (!track || !prevButtons.length || !nextButtons.length || !viewport || !slides.length) {
     return;
@@ -42,6 +43,30 @@
 
   function currentId() {
     return slides[currentIndex].id;
+  }
+
+  function urlForChapter(chapterId) {
+    const url = new URL(window.location.href);
+    url.hash = "";
+    url.searchParams.set(chapterParam, chapterId);
+    return url.pathname + url.search;
+  }
+
+  function chapterFromLocation() {
+    const url = new URL(window.location.href);
+    const chapter = url.searchParams.get(chapterParam);
+
+    if (chapter && idToIndex.has(chapter)) {
+      return chapter;
+    }
+
+    const legacyHash = window.location.hash.replace(/^#/, "");
+
+    if (legacyHash && idToIndex.has(legacyHash)) {
+      return legacyHash;
+    }
+
+    return "";
   }
 
   function inferDirection(nextIndex) {
@@ -152,7 +177,7 @@
     updateSlides();
 
     if (settings.updateHash) {
-      history.replaceState(null, "", "#" + currentId());
+      history.replaceState(null, "", urlForChapter(currentId()));
     }
 
     if (settings.scrollIntoView) {
@@ -268,23 +293,25 @@
     swipePointerId = null;
   });
 
-  window.addEventListener("hashchange", function () {
-    const hash = window.location.hash.replace(/^#/, "");
+  window.addEventListener("popstate", function () {
+    const chapter = chapterFromLocation();
 
-    if (idToIndex.has(hash)) {
-      setIndex(idToIndex.get(hash), { updateHash: false, animate: false });
+    if (idToIndex.has(chapter)) {
+      setIndex(idToIndex.get(chapter), { updateHash: false, animate: false });
       scrollToTopTarget({ behavior: "auto" });
     }
   });
 
   window.addEventListener("resize", scheduleViewportHeightSync);
 
-  const initialHash = window.location.hash.replace(/^#/, "");
+  const initialChapter = chapterFromLocation();
 
-  if (idToIndex.has(initialHash)) {
-    setIndex(idToIndex.get(initialHash), { updateHash: false, animate: false });
+  if (idToIndex.has(initialChapter)) {
+    setIndex(idToIndex.get(initialChapter), { updateHash: false, animate: false });
+    history.replaceState(null, "", urlForChapter(initialChapter));
     scrollToTopTarget({ behavior: "auto" });
   } else {
     setIndex(0, { updateHash: false, animate: false });
+    history.replaceState(null, "", urlForChapter(currentId()));
   }
 })();
