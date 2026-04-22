@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Research / Joel Rousseau</title>
+    <meta
+      name="description"
+      content="A small, curated archive of public research artifacts, technical talks, and supporting benchmark projects."
+    >
+    <meta name="theme-color" content="#081018">
+    <meta property="og:title" content="Research / Joel Rousseau">
+    <meta
+      property="og:description"
+      content="A small, curated archive of public research artifacts, technical talks, and supporting benchmark projects."
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://v4lproik.github.io/research/">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="../assets/site.css">
+    <style>
+      .research-stack {
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .archive-card,
+      .search-panel,
+      .archive-note {
+        position: relative;
+        overflow: hidden;
+        display: grid;
+        gap: 0.8rem;
+        padding: 1.15rem;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 1.6rem;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+        box-shadow: 0 18px 38px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+
+      .search-panel {
+        gap: 0.9rem;
+      }
+
+      .archive-list {
+        display: grid;
+        gap: 0.9rem;
+      }
+
+      .archive-card[hidden] {
+        display: none !important;
+      }
+
+      .archive-title {
+        color: var(--color-mist-50);
+        letter-spacing: -0.04em;
+        line-height: 1.08;
+        font-size: 1.22rem;
+        font-weight: 700;
+      }
+
+      .archive-summary,
+      .archive-note-copy {
+        color: var(--color-mist-100);
+        line-height: 1.75;
+      }
+
+      .archive-topbar,
+      .archive-meta,
+      .archive-actions,
+      .archive-tags,
+      .chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+      }
+
+      .archive-topbar {
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .archive-label,
+      .result-count,
+      .meta-label,
+      .archive-note-title {
+        color: var(--color-mist-300);
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 0.72rem;
+        font-weight: 700;
+      }
+
+      .search-input {
+        width: 100%;
+        min-height: 3rem;
+        padding: 0.85rem 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 1rem;
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--color-mist-50);
+        font: inherit;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+
+      .search-input::placeholder {
+        color: var(--color-mist-300);
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 2.2rem;
+        padding: 0.42rem 0.82rem;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--color-mist-100);
+        font: inherit;
+        font-size: 0.84rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: color 0.18s ease, border-color 0.18s ease, background-color 0.18s ease, transform 0.18s ease;
+      }
+
+      .chip:hover {
+        color: var(--color-mist-50);
+        border-color: rgba(255, 179, 107, 0.28);
+        transform: translateY(-1px);
+      }
+
+      .chip.is-active,
+      .chip[aria-pressed="true"] {
+        color: #ffb36b;
+        border-color: rgba(255, 179, 107, 0.32);
+        background: linear-gradient(90deg, rgba(255, 179, 107, 0.13), rgba(255, 255, 255, 0.05));
+      }
+
+      .meta-pill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 1.9rem;
+        padding: 0.25rem 0.65rem;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--color-mist-300);
+        font-size: 0.76rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .meta-pill.accent {
+        color: #ffb36b;
+        border-color: rgba(255, 179, 107, 0.22);
+        background: rgba(255, 179, 107, 0.08);
+      }
+
+      .meta-copy {
+        color: var(--color-mist-300);
+        font-size: 0.92rem;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        min-height: 1.9rem;
+        padding: 0.28rem 0.68rem;
+        border: 1px solid rgba(79, 132, 232, 0.2);
+        border-radius: 999px;
+        background: rgba(79, 132, 232, 0.08);
+        color: #cfe0ff;
+        font-size: 0.78rem;
+        font-weight: 600;
+      }
+
+      .archive-note-grid {
+        display: grid;
+        gap: 1rem;
+      }
+
+      @media (min-width: 64rem) {
+        .archive-note-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      .empty-state {
+        display: none;
+        padding: 1rem 1.1rem;
+        border: 1px solid rgba(255, 179, 107, 0.18);
+        border-radius: 1.2rem;
+        background: rgba(255, 179, 107, 0.08);
+        color: var(--color-mist-100);
+      }
+
+      .empty-state.is-visible {
+        display: block;
+      }
+    </style>
+  </head>
+  <body class="font-sans antialiased">
+    <div class="pointer-events-none fixed inset-0 overflow-hidden">
+      <div class="soft-grid absolute inset-0 opacity-60"></div>
+      <div class="absolute left-1/2 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-brand-blue-500/16 blur-3xl"></div>
+      <div class="absolute right-0 top-32 h-80 w-80 rounded-full bg-brand-orange-500/12 blur-3xl"></div>
+    </div>
+
+    <div class="site-shell relative px-4 pb-16 pt-6 sm:px-6 lg:px-8">
+      <header class="glass-panel site-header sticky top-3 z-20 mb-6 px-4 py-3 sm:top-4 sm:px-6">
+        <div class="site-header-inner">
+          <a href="../index.html#top" class="brand-lockup">
+            <span class="brand-mark">
+              <img src="../assets/github-avatar.jpg" alt="Joel Rousseau avatar">
+            </span>
+            <span class="brand-text">
+              <span class="brand-name">Joel Rousseau</span>
+              <span class="brand-subtitle">v4lproik</span>
+            </span>
+          </a>
+
+          <nav aria-label="Primary" class="site-header-nav">
+            <a href="../index.html" class="nav-link">Portfolio</a>
+            <a href="index.html" class="nav-link is-active" aria-current="page">Research</a>
+            <a href="https://x.com/valproik" class="nav-link" target="_blank" rel="noreferrer noopener">X</a>
+            <a href="https://github.com/v4lproik" class="nav-link" target="_blank" rel="noreferrer noopener">GitHub</a>
+          </nav>
+        </div>
+      </header>
+
+      <main class="research-stack" data-public-archive>
+        <section class="glass-panel rounded-[2.25rem] px-6 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12">
+          <div class="hero-grid">
+            <div>
+              <p class="eyebrow">Research</p>
+              <h1 class="hero-heading mt-4 max-w-4xl font-semibold leading-[0.95] tracking-[-0.05em] text-mist-50">
+                A small, curated archive of public technical work
+              </h1>
+              <p class="reading-copy mt-6">
+                This page stays intentionally small. It lists only public research
+                artifacts, talks, and supporting projects that are already ready
+                to stand on their own. Longer article series stay in private
+                review until they are ready to be promoted into the public archive.
+              </p>
+              <div class="hero-pill-rack mt-6">
+                <span class="signal-pill">Curated</span>
+                <span class="signal-pill">Measured work</span>
+                <span class="signal-pill">Public artifacts only</span>
+              </div>
+            </div>
+
+            <aside class="chapter-aside">
+              <div class="chapter-fact">
+                <span class="chapter-fact-label">Published now</span>
+                <span class="chapter-fact-value">Public talks, external writeups, and supporting benchmark projects</span>
+              </div>
+              <div class="chapter-fact">
+                <span class="chapter-fact-label">Best use</span>
+                <span class="chapter-fact-value">Search by system, tag, or artifact type and open the public material directly</span>
+              </div>
+              <div class="chapter-fact">
+                <span class="chapter-fact-label">Current lane</span>
+                <span class="chapter-fact-value">Ethereum and Solana infrastructure, validator-facing systems, runtime behaviour, and benchmark-driven engineering</span>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="search-panel">
+          <div class="archive-topbar">
+            <span class="archive-label">Search and filter</span>
+            <span class="result-count" data-result-count></span>
+          </div>
+          <input
+            class="search-input"
+            type="search"
+            placeholder="Search articles, talks, projects, tags, authors..."
+            data-search-input
+          >
+          <div class="chip-row">
+            <button type="button" class="chip is-active" data-filter-chip="all" aria-pressed="true">All</button>
+            <button type="button" class="chip" data-filter-chip="ethereum" aria-pressed="false">Ethereum</button>
+            <button type="button" class="chip" data-filter-chip="solana" aria-pressed="false">Solana</button>
+            <button type="button" class="chip" data-filter-chip="lighthouse" aria-pressed="false">Lighthouse</button>
+            <button type="button" class="chip" data-filter-chip="benchmarks" aria-pressed="false">Benchmarks</button>
+            <button type="button" class="chip" data-filter-chip="project" aria-pressed="false">Projects</button>
+          </div>
+        </section>
+
+        <section class="archive-list">
+          <article
+            class="archive-card"
+            data-entry
+            data-tags="ethereum lighthouse talk validators"
+            data-search="streameth presentation improving lighthouse joel rousseau ethereum lighthouse validators consensus performance"
+          >
+            <div class="archive-meta">
+              <span class="meta-pill accent">Talk</span>
+              <span class="meta-copy">Joel Rousseau · Public presentation</span>
+            </div>
+            <h2 class="archive-title">StreamETH presentation on Lighthouse work</h2>
+            <p class="archive-summary">
+              Public presentation material around Lighthouse performance,
+              validator-facing concerns, and consensus-client work carried out
+              through the Ethereum Protocol Fellowship.
+            </p>
+            <div class="archive-tags">
+              <span class="tag">Ethereum</span>
+              <span class="tag">Lighthouse</span>
+              <span class="tag">Talk</span>
+            </div>
+            <div class="archive-actions">
+              <a
+                class="timeline-link"
+                href="https://info.streameth.org/65a90bf27932ebe436ba9348/watch?session=65b8f8cda5b2d09b88ec0ff5"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                Open talk
+              </a>
+            </div>
+          </article>
+
+          <article
+            class="archive-card"
+            data-entry
+            data-tags="ethereum lighthouse article validators"
+            data-search="sigma prime article attestation simulator lighthouse ethereum validators research paul hauner"
+          >
+            <div class="archive-meta">
+              <span class="meta-pill">Article</span>
+              <span class="meta-copy">Sigma Prime · Public writeup</span>
+            </div>
+            <h2 class="archive-title">Sigma Prime article on the Lighthouse attestation simulator</h2>
+            <p class="archive-summary">
+              Public article covering the Lighthouse attestation simulator work
+              and the dissemination dynamics behind validator behaviour at the
+              consensus layer.
+            </p>
+            <div class="archive-tags">
+              <span class="tag">Ethereum</span>
+              <span class="tag">Lighthouse</span>
+              <span class="tag">Article</span>
+            </div>
+            <div class="archive-actions">
+              <a
+                class="timeline-link"
+                href="https://blog.sigmaprime.io/attestation-sim.html"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                Open article
+              </a>
+            </div>
+          </article>
+
+          <article
+            class="archive-card"
+            data-entry
+            data-tags="solana benchmarks project frameworks"
+            data-search="solana framework comparison benchmark repository joel rousseau solana benchmarks frameworks project"
+          >
+            <div class="archive-meta">
+              <span class="meta-pill">Project</span>
+              <span class="meta-copy">Joel Rousseau · Public repository</span>
+            </div>
+            <h2 class="archive-title">solana-framework-comparison</h2>
+            <p class="archive-summary">
+              Supporting benchmark repository for Solana framework evaluation,
+              with the extracted workload, framework tracks, and implementation
+              surface used to build public comparison work.
+            </p>
+            <div class="archive-tags">
+              <span class="tag">Solana</span>
+              <span class="tag">Benchmarks</span>
+              <span class="tag">Project</span>
+            </div>
+            <div class="archive-actions">
+              <a
+                class="timeline-link"
+                href="https://github.com/v4lproik/solana-framework-comparison"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                Open repository
+              </a>
+            </div>
+          </article>
+        </section>
+
+        <div class="empty-state" data-empty-state>
+          No public entries match the current search.
+        </div>
+
+        <section class="archive-note-grid">
+          <article class="archive-note">
+            <span class="archive-note-title">Small by design</span>
+            <p class="archive-note-copy">
+              The public archive stays deliberately compact. It is meant to be
+              browsable in one pass, not expanded into a feed or content farm.
+            </p>
+          </article>
+          <article class="archive-note">
+            <span class="archive-note-title">Public only</span>
+            <p class="archive-note-copy">
+              Draft articles and review material stay in a separate private repo
+              until they are ready to be promoted into the public portfolio.
+            </p>
+          </article>
+          <article class="archive-note">
+            <span class="archive-note-title">Direct routes</span>
+            <p class="archive-note-copy">
+              Every entry should open directly into the public artifact itself:
+              a talk, a writeup, or a supporting project repository.
+            </p>
+          </article>
+        </section>
+      </main>
+
+      <footer class="back-to-top-shell">
+        <a href="#top" class="back-to-top-link" aria-label="Back to top">
+          <span class="back-to-top-arrow">↑</span>
+        </a>
+      </footer>
+    </div>
+
+    <script src="../assets/site.js"></script>
+    <script>
+      (function () {
+        const root = document.querySelector("[data-public-archive]");
+        if (!root) {
+          return;
+        }
+
+        const input = root.querySelector("[data-search-input]");
+        const chips = Array.from(root.querySelectorAll("[data-filter-chip]"));
+        const entries = Array.from(root.querySelectorAll("[data-entry]"));
+        const countNode = root.querySelector("[data-result-count]");
+        const emptyNode = root.querySelector("[data-empty-state]");
+        let activeTag = "all";
+
+        function syncChips() {
+          chips.forEach(function (chip) {
+            const active = chip.getAttribute("data-filter-chip") === activeTag;
+            chip.classList.toggle("is-active", active);
+            chip.setAttribute("aria-pressed", String(active));
+          });
+        }
+
+        function applyFilters() {
+          const query = input ? input.value.trim().toLowerCase() : "";
+          let visible = 0;
+
+          entries.forEach(function (entry) {
+            const tags = (entry.getAttribute("data-tags") || "").split(/\s+/).filter(Boolean);
+            const search = (entry.getAttribute("data-search") || "").toLowerCase();
+            const tagMatch = activeTag === "all" || tags.includes(activeTag);
+            const queryMatch = !query || search.includes(query);
+            const show = tagMatch && queryMatch;
+
+            entry.hidden = !show;
+            if (show) {
+              visible += 1;
+            }
+          });
+
+          if (countNode) {
+            countNode.textContent = visible + " " + (visible === 1 ? "result" : "results");
+          }
+
+          if (emptyNode) {
+            emptyNode.classList.toggle("is-visible", visible === 0);
+          }
+
+          syncChips();
+        }
+
+        if (input) {
+          input.addEventListener("input", applyFilters);
+        }
+
+        chips.forEach(function (chip) {
+          chip.addEventListener("click", function () {
+            activeTag = chip.getAttribute("data-filter-chip") || "all";
+            applyFilters();
+          });
+        });
+
+        applyFilters();
+      })();
+    </script>
+  </body>
+</html>

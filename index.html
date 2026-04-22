@@ -76,7 +76,7 @@
               </span>
               <span class="nav-link-label">Projects</span>
             </a>
-            <a href="#notebook" class="nav-link" data-chapter-target="chapter-writing">
+            <a href="research/index.html" class="nav-link">
               <span class="nav-link-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M5.25 18.75 6 15.2a2 2 0 0 1 .54-1L14.7 6.06a2.1 2.1 0 0 1 2.98 0l.26.26a2.1 2.1 0 0 1 0 2.98l-8.15 8.15a2 2 0 0 1-1 .54z"/>
@@ -98,6 +98,19 @@
                 </svg>
               </span>
               <span class="nav-link-label">LinkedIn</span>
+            </a>
+            <a
+              href="https://x.com/valproik"
+              target="_blank"
+              rel="noreferrer noopener"
+              class="nav-link"
+            >
+              <span class="nav-link-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M18.9 2H21l-6.87 7.85L22 22h-6.18l-4.84-7.4L4.5 22H2.4l7.35-8.4L2 2h6.33l4.38 6.7zm-1.08 18h1.16L7.7 3.9H6.46z"/>
+                </svg>
+              </span>
+              <span class="nav-link-label">X</span>
             </a>
             <a
               href="https://github.com/v4lproik"
@@ -667,36 +680,81 @@
                     <div>
                       <p class="eyebrow">Research</p>
                       <h2 class="hero-heading mt-4 max-w-4xl font-semibold leading-[0.95] tracking-[-0.05em] text-mist-50">
-                        Research, benchmarks, and long-form work published selectively
+                        A small, curated archive of public technical work
                       </h2>
                       <p class="reading-copy mt-6">
-                        Most of this work stays private until the argument, implementation, and
-                        measurements are strong enough to deserve publication. The focus is on
-                        framework comparisons, benchmarking, CU profiling, CPI-heavy workloads,
-                        and protocol-aware engineering notes rather than feed-style output.
+                        The public research surface stays intentionally small. It
+                        only includes material that is already public and ready to
+                        stand on its own: talks, external writeups, and supporting
+                        projects. Longer article series stay in private review
+                        until they are ready to be promoted into the public archive.
                       </p>
                       <div class="chapter-tags">
-                        <span class="signal-pill">Framework comparisons</span>
-                        <span class="signal-pill">Benchmark notes</span>
-                        <span class="signal-pill">Private by default</span>
+                        <span class="signal-pill">Research archive</span>
+                        <span class="signal-pill">Ethereum</span>
+                        <span class="signal-pill">Solana</span>
+                        <span class="signal-pill">Benchmarks</span>
                       </div>
-                      <div class="timeline-links">
-                        <span class="timeline-link">Anchor v1, modern Anchor, Pinocchio, Quasar</span>
-                        <span class="timeline-link">Performance, latency, and CU profiling</span>
+                      <div class="chapter-project-list">
+                        <a class="chapter-project-link" href="research/index.html">
+                          <span class="chapter-project-name">Research archive</span>
+                          <span class="chapter-project-summary">A minimal public index of technical talks, external writeups, and supporting repositories that are already public.</span>
+                        </a>
+                        <a
+                          class="chapter-project-link"
+                          href="https://info.streameth.org/65a90bf27932ebe436ba9348/watch?session=65b8f8cda5b2d09b88ec0ff5"
+                          target="_blank"
+                          rel="noreferrer noopener"
+                        >
+                          <span class="chapter-project-name">StreamETH presentation on Lighthouse work</span>
+                          <span class="chapter-project-summary">Public presentation material around Lighthouse performance, validator-facing concerns, and Ethereum consensus-client work.</span>
+                        </a>
+                        <a
+                          class="chapter-project-link"
+                          href="https://blog.sigmaprime.io/attestation-sim.html"
+                          target="_blank"
+                          rel="noreferrer noopener"
+                        >
+                          <span class="chapter-project-name">Sigma Prime article on the Lighthouse attestation simulator</span>
+                          <span class="chapter-project-summary">Public writeup covering Lighthouse attestation dissemination work and validator behaviour at the consensus layer.</span>
+                        </a>
+                        <a
+                          class="chapter-project-link"
+                          href="https://github.com/v4lproik/solana-framework-comparison"
+                          target="_blank"
+                          rel="noreferrer noopener"
+                        >
+                          <span class="chapter-project-name">solana-framework-comparison</span>
+                          <span class="chapter-project-summary">Public benchmark repository with the extracted workload, framework tracks, and implementation surface used for comparison work.</span>
+                        </a>
+                      </div>
+                      <div class="compact-grid">
+                        <div class="compact-card">
+                          <p class="compact-card-title">Published now</p>
+                          <p class="compact-card-copy">Public talks, external writeups, and supporting benchmark projects only.</p>
+                        </div>
+                        <div class="compact-card">
+                          <p class="compact-card-title">Research shape</p>
+                          <p class="compact-card-copy">Ethereum and Solana infrastructure, validator-facing systems, benchmark work, and runtime-aware engineering.</p>
+                        </div>
+                        <div class="compact-card">
+                          <p class="compact-card-title">Editorial rule</p>
+                          <p class="compact-card-copy">Draft articles stay in private review until they are ready to be promoted into the public archive.</p>
+                        </div>
                       </div>
                     </div>
                     <aside class="chapter-aside">
                       <div class="chapter-fact">
-                        <span class="chapter-fact-label">Status</span>
-                        <span class="chapter-fact-value">Publishing pipeline still curated</span>
+                        <span class="chapter-fact-label">Published surface</span>
+                        <span class="chapter-fact-value">Research archive, public talks, external writeups, and supporting benchmark repositories</span>
                       </div>
                       <div class="chapter-fact">
-                        <span class="chapter-fact-label">Rule</span>
-                        <span class="chapter-fact-value">Measured work before publication</span>
+                        <span class="chapter-fact-label">Best first click</span>
+                        <span class="chapter-fact-value">Open the archive if browsing, then choose the public artifact that matches the system or benchmark thread you care about</span>
                       </div>
                       <div class="chapter-fact">
-                        <span class="chapter-fact-label">Intent</span>
-                        <span class="chapter-fact-value">Deep technical research over generic content production</span>
+                        <span class="chapter-fact-label">Primary lane</span>
+                        <span class="chapter-fact-value">Ethereum and Solana infrastructure, validator behaviour, performance tradeoffs, and runtime-aware engineering</span>
                       </div>
                     </aside>
                   </div>
