@@ -6,13 +6,13 @@
     <title>Research / Joel Rousseau</title>
     <meta
       name="description"
-      content="A small, curated archive of public research artifacts, technical talks, and supporting benchmark projects."
+      content="Public writing, benchmark work, technical talks, and a curated shelf of external articles worth sharing."
     >
     <meta name="theme-color" content="#081018">
     <meta property="og:title" content="Research / Joel Rousseau">
     <meta
       property="og:description"
-      content="A small, curated archive of public research artifacts, technical talks, and supporting benchmark projects."
+      content="Public writing, benchmark work, technical talks, and a curated shelf of external articles worth sharing."
     >
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://v4lproik.github.io/research/">
@@ -36,16 +36,73 @@
         position: relative;
         overflow: hidden;
         display: grid;
-        gap: 0.8rem;
-        padding: 1.15rem;
-        border: 1px solid rgba(255, 255, 255, 0.12);
+        gap: 1rem;
+        padding: 1.25rem;
+        border: 1px solid rgba(255, 255, 255, 0.14);
         border-radius: 1.6rem;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
-        box-shadow: 0 18px 38px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      }
+
+      .archive-card {
+        transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      }
+
+      .archive-card::before {
+        content: "";
+        position: absolute;
+        inset: -18% -10% auto auto;
+        width: 14rem;
+        height: 14rem;
+        border-radius: 999px;
+        background:
+          radial-gradient(circle, rgba(255, 179, 107, 0.2) 0%, rgba(255, 179, 107, 0.08) 34%, transparent 68%),
+          radial-gradient(circle at 30% 30%, rgba(116, 168, 255, 0.16) 0%, transparent 62%);
+        opacity: 0.28;
+        pointer-events: none;
+        transition: opacity 0.18s ease, transform 0.18s ease;
+      }
+
+      .archive-card > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .archive-card-link {
+        color: inherit;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .archive-card:hover,
+      .archive-card-link:focus-visible {
+        transform: translateY(-3px);
+        border-color: rgba(255, 179, 107, 0.4);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+        box-shadow:
+          0 26px 52px rgba(0, 0, 0, 0.26),
+          0 0 0 1px rgba(255, 179, 107, 0.06),
+          0 0 28px rgba(255, 179, 107, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      }
+
+      .archive-card:hover::before,
+      .archive-card-link:focus-visible::before {
+        opacity: 0.72;
+        transform: translate3d(-0.2rem, 0.2rem, 0) scale(1.04);
+      }
+
+      .archive-card-link:focus-visible {
+        outline: 2px solid rgba(255, 179, 107, 0.72);
+        outline-offset: 3px;
       }
 
       .search-panel {
         gap: 0.9rem;
+      }
+
+      .search-panel-hero {
+        align-content: start;
       }
 
       .archive-list {
@@ -58,11 +115,17 @@
       }
 
       .archive-title {
-        color: var(--color-mist-50);
+        color: #74a8ff;
         letter-spacing: -0.04em;
         line-height: 1.08;
         font-size: 1.22rem;
         font-weight: 700;
+        max-width: 34rem;
+      }
+
+      .archive-card:hover .archive-title,
+      .archive-card-link:focus-visible .archive-title {
+        color: #ffbe7f;
       }
 
       .archive-summary,
@@ -73,9 +136,9 @@
 
       .archive-topbar,
       .archive-meta,
-      .archive-actions,
       .archive-tags,
-      .chip-row {
+      .chip-row,
+      .archive-head {
         display: flex;
         flex-wrap: wrap;
         gap: 0.7rem;
@@ -84,6 +147,12 @@
       .archive-topbar {
         align-items: center;
         justify-content: space-between;
+      }
+
+      .archive-head {
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 1rem;
       }
 
       .archive-label,
@@ -111,6 +180,12 @@
 
       .search-input::placeholder {
         color: var(--color-mist-300);
+      }
+
+      .search-hint {
+        color: var(--color-mist-300);
+        font-size: 0.92rem;
+        line-height: 1.65;
       }
 
       .chip {
@@ -163,22 +238,58 @@
         background: rgba(255, 179, 107, 0.08);
       }
 
+      .meta-pill.draft {
+        color: #ffcf9f;
+        border-color: rgba(255, 179, 107, 0.32);
+        background: linear-gradient(90deg, rgba(255, 179, 107, 0.16), rgba(255, 255, 255, 0.05));
+      }
+
       .meta-copy {
         color: var(--color-mist-300);
         font-size: 0.92rem;
+      }
+
+      .archive-detail-grid {
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      @media (min-width: 48rem) {
+        .archive-detail-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      .archive-detail {
+        position: relative;
+        display: grid;
+        gap: 0.2rem;
+        padding: 0.9rem 0.95rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 1rem;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      }
+
+      .detail-value {
+        color: var(--color-mist-50);
+        line-height: 1.55;
+        font-size: 0.96rem;
+        font-weight: 600;
       }
 
       .tag {
         display: inline-flex;
         align-items: center;
         min-height: 1.9rem;
-        padding: 0.28rem 0.68rem;
+        padding: 0.32rem 0.72rem;
         border: 1px solid rgba(79, 132, 232, 0.2);
         border-radius: 999px;
-        background: rgba(79, 132, 232, 0.08);
+        background: linear-gradient(180deg, rgba(79, 132, 232, 0.12), rgba(79, 132, 232, 0.06));
         color: #cfe0ff;
         font-size: 0.78rem;
         font-weight: 600;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
       }
 
       .archive-note-grid {
@@ -216,7 +327,7 @@
     <div class="site-shell relative px-4 pb-16 pt-6 sm:px-6 lg:px-8">
       <header class="glass-panel site-header sticky top-3 z-20 mb-6 px-4 py-3 sm:top-4 sm:px-6">
         <div class="site-header-inner">
-          <a href="../index.html#top" class="brand-lockup">
+          <a href="../index.html#chapter-profile" class="brand-lockup">
             <span class="brand-mark">
               <img src="../assets/github-avatar.jpg" alt="Joel Rousseau avatar">
             </span>
@@ -227,83 +338,184 @@
           </a>
 
           <nav aria-label="Primary" class="site-header-nav">
-            <a href="../index.html" class="nav-link">Portfolio</a>
-            <a href="index.html" class="nav-link is-active" aria-current="page">Research</a>
-            <a href="https://x.com/valproik" class="nav-link" target="_blank" rel="noreferrer noopener">X</a>
-            <a href="https://github.com/v4lproik" class="nav-link" target="_blank" rel="noreferrer noopener">GitHub</a>
+            <div class="site-header-nav-row site-header-nav-row-sections">
+              <a href="../index.html#chapter-profile" class="nav-link">
+                <span class="nav-link-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 12.25a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Z"/>
+                    <path d="M5 19.25a7 7 0 0 1 14 0"/>
+                  </svg>
+                </span>
+                <span class="nav-link-label">Presentation</span>
+              </a>
+              <a href="../index.html#chapter-chronology" class="nav-link">
+                <span class="nav-link-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.75 6.75c0-1.1.9-2 2-2h4.7c.72 0 1.41.31 1.88.85l.34.4c.47.54 1.16.85 1.88.85h1.75c1.1 0 2 .9 2 2v8.4c0 1.1-.9 2-2 2H6.75c-1.1 0-2-.9-2-2z"/>
+                    <path d="M8 10.5h8"/>
+                    <path d="M8 14h5.5"/>
+                  </svg>
+                </span>
+                <span class="nav-link-label">Careers</span>
+              </a>
+              <a href="../index.html#chapter-projects" class="nav-link">
+                <span class="nav-link-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4.5" y="4.5" width="6.5" height="6.5" rx="1.4"/>
+                    <rect x="13" y="4.5" width="6.5" height="6.5" rx="1.4"/>
+                    <rect x="4.5" y="13" width="6.5" height="6.5" rx="1.4"/>
+                    <rect x="13" y="13" width="6.5" height="6.5" rx="1.4"/>
+                  </svg>
+                </span>
+                <span class="nav-link-label">Projects</span>
+              </a>
+              <a href="index.html" class="nav-link is-active" aria-current="page">
+                <span class="nav-link-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5.25 18.75 6 15.2a2 2 0 0 1 .54-1L14.7 6.06a2.1 2.1 0 0 1 2.98 0l.26.26a2.1 2.1 0 0 1 0 2.98l-8.15 8.15a2 2 0 0 1-1 .54z"/>
+                    <path d="M12.8 7.95 16.05 11.2"/>
+                    <path d="M5 19h14"/>
+                  </svg>
+                </span>
+                <span class="nav-link-label">Research</span>
+              </a>
+            </div>
+            <div class="site-header-nav-row site-header-nav-row-socials">
+              <a
+                href="https://www.linkedin.com/in/joelrousseau/"
+                target="_blank"
+                rel="noreferrer noopener"
+                class="nav-link"
+              >
+                <span class="nav-link-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M19 3A2 2 0 0 1 21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-9.5 6.75h-3v8.5h3zm-1.5-4A1.75 1.75 0 1 0 8 9.25a1.75 1.75 0 0 0 0-3.5M17.5 13c0-2.54-1.35-3.72-3.15-3.72a2.72 2.72 0 0 0-2.35 1.29v-1.07h-3v8.5h3v-4.74c0-1.25.24-2.45 1.79-2.45 1.53 0 1.55 1.43 1.55 2.53v4.66h3z"/>
+                  </svg>
+                </span>
+                <span class="nav-link-label">LinkedIn</span>
+              </a>
+              <a
+                href="https://x.com/valproik"
+                target="_blank"
+                rel="noreferrer noopener"
+                class="nav-link"
+              >
+                <span class="nav-link-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M18.9 2H21l-6.87 7.85L22 22h-6.18l-4.84-7.4L4.5 22H2.4l7.35-8.4L2 2h6.33l4.38 6.7zm-1.08 18h1.16L7.7 3.9H6.46z"/>
+                  </svg>
+                </span>
+                <span class="nav-link-label">X</span>
+              </a>
+              <a
+                href="https://github.com/v4lproik"
+                target="_blank"
+                rel="noreferrer noopener"
+                class="nav-link"
+              >
+                <span class="nav-link-icon" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                    <path d="M6.766 11.328c-2.063-.25-3.516-1.734-3.516-3.656 0-.781.281-1.625.75-2.188-.203-.515-.172-1.609.063-2.062.625-.078 1.468.25 1.968.703.594-.187 1.219-.281 1.985-.281.765 0 1.39.094 1.953.265.484-.437 1.344-.765 1.969-.687.218.422.25 1.515.046 2.047.5.593.766 1.39.766 2.203 0 1.922-1.453 3.375-3.547 3.64.531.344.89 1.094.89 1.954v1.625c0 .468.391.734.86.547C13.781 14.359 16 11.53 16 8.03 16 3.61 12.406 0 7.984 0 3.563 0 0 3.61 0 8.031a7.88 7.88 0 0 0 5.172 7.422c.422.156.828-.125.828-.547v-1.25c-.219.094-.5.156-.75.156-1.031 0-1.64-.562-2.078-1.609-.172-.422-.36-.672-.719-.719-.187-.015-.25-.093-.25-.187 0-.188.313-.328.625-.328.453 0 .844.281 1.25.86.313.452.64.655 1.031.655s.641-.14 1-.5c.266-.265.47-.5.657-.656"/>
+                  </svg>
+                </span>
+                <span class="nav-link-label">GitHub</span>
+              </a>
+            </div>
           </nav>
         </div>
       </header>
 
       <main class="research-stack" data-public-archive>
-        <section class="glass-panel rounded-[2.25rem] px-6 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12">
-          <div class="hero-grid">
-            <div>
-              <p class="eyebrow">Research</p>
-              <h1 class="hero-heading mt-4 max-w-4xl font-semibold leading-[0.95] tracking-[-0.05em] text-mist-50">
-                A small, curated archive of public technical work
-              </h1>
-              <p class="reading-copy mt-6">
-                This page stays intentionally small. It lists only public research
-                artifacts, talks, and supporting projects that are already ready
-                to stand on their own. Longer article series stay in private
-                review until they are ready to be promoted into the public archive.
-              </p>
-              <div class="hero-pill-rack mt-6">
-                <span class="signal-pill">Curated</span>
-                <span class="signal-pill">Measured work</span>
-                <span class="signal-pill">Public artifacts only</span>
+        <section class="glass-panel hero-shell rounded-[2.25rem] px-6 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12">
+          <div class="chapter-carousel hero-carousel">
+            <div class="chapter-viewport hero-carousel-viewport">
+              <div class="chapter-track">
+                <article class="chapter-slide chapter-slide-projects" data-active="true" aria-hidden="false">
+                  <div class="projects-layout">
+                    <div>
+                      <p class="eyebrow">Research</p>
+                      <h1 class="hero-heading mt-4 max-w-4xl font-semibold leading-[0.95] tracking-[-0.05em] text-mist-50">
+                        My writing, talks, and a short reading list
+                      </h1>
+                      <p class="reading-copy mt-6">
+                        Most of what is here is mine: articles, talks, and benchmark
+                        work. I also keep a small number of outside pieces that I think
+                        are genuinely worth reading if you work on protocols,
+                        infrastructure, or systems where performance really matters.
+                        I’d rather keep this page tight and useful than turn it into a
+                        stream of links.
+                      </p>
+                    </div>
+
+                    <aside class="search-panel search-panel-hero">
+                      <div class="archive-topbar">
+                        <span class="archive-label">Browse the hub</span>
+                        <span class="result-count" data-result-count></span>
+                      </div>
+                      <input
+                        class="search-input"
+                        type="search"
+                        placeholder="Search articles, talks, projects, tags, authors..."
+                        data-search-input
+                      >
+                      <p class="search-hint">
+                        Search matches titles, summaries, tags, and authors. Labels can be combined.
+                      </p>
+                      <div class="chip-row">
+                        <button type="button" class="chip is-active" data-filter-chip="all" aria-pressed="true">All</button>
+                        <button type="button" class="chip" data-filter-chip="ethereum" aria-pressed="false">Ethereum</button>
+                        <button type="button" class="chip" data-filter-chip="solana" aria-pressed="false">Solana</button>
+                        <button type="button" class="chip" data-filter-chip="lighthouse" aria-pressed="false">Lighthouse</button>
+                        <button type="button" class="chip" data-filter-chip="benchmarks" aria-pressed="false">Benchmarks</button>
+                        <button type="button" class="chip" data-filter-chip="project" aria-pressed="false">Projects</button>
+                      </div>
+                    </aside>
+                  </div>
+                </article>
               </div>
             </div>
-
-            <aside class="chapter-aside">
-              <div class="chapter-fact">
-                <span class="chapter-fact-label">Published now</span>
-                <span class="chapter-fact-value">Public talks, external writeups, and supporting benchmark projects</span>
-              </div>
-              <div class="chapter-fact">
-                <span class="chapter-fact-label">Best use</span>
-                <span class="chapter-fact-value">Search by system, tag, or artifact type and open the public material directly</span>
-              </div>
-              <div class="chapter-fact">
-                <span class="chapter-fact-label">Current lane</span>
-                <span class="chapter-fact-value">Ethereum and Solana infrastructure, validator-facing systems, runtime behaviour, and benchmark-driven engineering</span>
-              </div>
-            </aside>
           </div>
         </section>
-
-        <section class="search-panel">
-          <div class="archive-topbar">
-            <span class="archive-label">Search and filter</span>
-            <span class="result-count" data-result-count></span>
-          </div>
-          <input
-            class="search-input"
-            type="search"
-            placeholder="Search articles, talks, projects, tags, authors..."
-            data-search-input
+        <div class="hero-side-controls" aria-label="Page quick switcher">
+          <a
+            href="../index.html#chapter-projects"
+            class="hero-side-control hero-side-control-prev"
+            aria-label="Open previous page"
           >
-          <div class="chip-row">
-            <button type="button" class="chip is-active" data-filter-chip="all" aria-pressed="true">All</button>
-            <button type="button" class="chip" data-filter-chip="ethereum" aria-pressed="false">Ethereum</button>
-            <button type="button" class="chip" data-filter-chip="solana" aria-pressed="false">Solana</button>
-            <button type="button" class="chip" data-filter-chip="lighthouse" aria-pressed="false">Lighthouse</button>
-            <button type="button" class="chip" data-filter-chip="benchmarks" aria-pressed="false">Benchmarks</button>
-            <button type="button" class="chip" data-filter-chip="project" aria-pressed="false">Projects</button>
-          </div>
-        </section>
+            <span class="hero-side-kicker">Previous page</span>
+            <span class="hero-side-row">
+              <span class="hero-side-arrow">&lt;</span>
+              <span class="hero-side-name">Projects</span>
+            </span>
+          </a>
+          <a
+            href="../index.html#chapter-profile"
+            class="hero-side-control hero-side-control-next"
+            aria-label="Open next page"
+          >
+            <span class="hero-side-kicker">Next page</span>
+            <span class="hero-side-row hero-side-row-next">
+              <span class="hero-side-name">Presentation</span>
+              <span class="hero-side-arrow">&gt;</span>
+            </span>
+          </a>
+        </div>
 
         <section class="archive-list">
-          <article
-            class="archive-card"
+          <a
+            class="archive-card archive-card-link"
             data-entry
             data-tags="ethereum lighthouse talk validators"
             data-search="streameth presentation improving lighthouse joel rousseau ethereum lighthouse validators consensus performance"
+            href="https://info.streameth.org/65a90bf27932ebe436ba9348/watch?session=65b8f8cda5b2d09b88ec0ff5"
+            target="_blank"
+            rel="noreferrer noopener"
           >
-            <div class="archive-meta">
-              <span class="meta-pill accent">Talk</span>
-              <span class="meta-copy">Joel Rousseau · Public presentation</span>
+            <div class="archive-head">
+              <div class="archive-meta">
+                <span class="meta-pill accent">Talk</span>
+                <span class="meta-copy">Joel Rousseau · Public presentation</span>
+              </div>
             </div>
             <h2 class="archive-title">StreamETH presentation on Lighthouse work</h2>
             <p class="archive-summary">
@@ -311,32 +523,37 @@
               validator-facing concerns, and consensus-client work carried out
               through the Ethereum Protocol Fellowship.
             </p>
+            <div class="archive-detail-grid">
+              <div class="archive-detail">
+                <span class="meta-label">Artifact</span>
+                <span class="detail-value">Recorded technical presentation</span>
+              </div>
+              <div class="archive-detail">
+                <span class="meta-label">Best for</span>
+                <span class="detail-value">Lighthouse context, validator-facing concerns, and client-performance discussion</span>
+              </div>
+            </div>
             <div class="archive-tags">
               <span class="tag">Ethereum</span>
               <span class="tag">Lighthouse</span>
               <span class="tag">Talk</span>
             </div>
-            <div class="archive-actions">
-              <a
-                class="timeline-link"
-                href="https://info.streameth.org/65a90bf27932ebe436ba9348/watch?session=65b8f8cda5b2d09b88ec0ff5"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Open talk
-              </a>
-            </div>
-          </article>
+          </a>
 
-          <article
-            class="archive-card"
+          <a
+            class="archive-card archive-card-link"
             data-entry
             data-tags="ethereum lighthouse article validators"
             data-search="sigma prime article attestation simulator lighthouse ethereum validators research paul hauner"
+            href="https://blog.sigmaprime.io/attestation-sim.html"
+            target="_blank"
+            rel="noreferrer noopener"
           >
-            <div class="archive-meta">
-              <span class="meta-pill">Article</span>
-              <span class="meta-copy">Sigma Prime · Public writeup</span>
+            <div class="archive-head">
+              <div class="archive-meta">
+                <span class="meta-pill">Article</span>
+                <span class="meta-copy">Sigma Prime · Public writeup</span>
+              </div>
             </div>
             <h2 class="archive-title">Sigma Prime article on the Lighthouse attestation simulator</h2>
             <p class="archive-summary">
@@ -344,84 +561,64 @@
               and the dissemination dynamics behind validator behaviour at the
               consensus layer.
             </p>
+            <div class="archive-detail-grid">
+              <div class="archive-detail">
+                <span class="meta-label">Artifact</span>
+                <span class="detail-value">External technical writeup</span>
+              </div>
+              <div class="archive-detail">
+                <span class="meta-label">Best for</span>
+                <span class="detail-value">Attestation simulator details, dissemination behaviour, and consensus-layer intuition</span>
+              </div>
+            </div>
             <div class="archive-tags">
               <span class="tag">Ethereum</span>
               <span class="tag">Lighthouse</span>
               <span class="tag">Article</span>
             </div>
-            <div class="archive-actions">
-              <a
-                class="timeline-link"
-                href="https://blog.sigmaprime.io/attestation-sim.html"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Open article
-              </a>
-            </div>
-          </article>
+          </a>
 
-          <article
-            class="archive-card"
+          <a
+            class="archive-card archive-card-link"
             data-entry
-            data-tags="solana benchmarks project frameworks"
-            data-search="solana framework comparison benchmark repository joel rousseau solana benchmarks frameworks project"
+            data-tags="solana benchmarks article frameworks draft"
+            data-search="solana framework comparison draft article series joel rousseau solana benchmarks frameworks anchor v2 pinnocchio quasar"
+            href="https://drafts.valproik.com/solana-frameworks-2026/"
           >
-            <div class="archive-meta">
-              <span class="meta-pill">Project</span>
-              <span class="meta-copy">Joel Rousseau · Public repository</span>
+            <div class="archive-head">
+              <div class="archive-meta">
+                <span class="meta-pill">Article series</span>
+                <span class="meta-pill draft">Draft</span>
+                <span class="meta-copy">Joel Rousseau · Reviewer-only draft</span>
+              </div>
             </div>
-            <h2 class="archive-title">solana-framework-comparison</h2>
+            <h2 class="archive-title">Solana framework comparison</h2>
             <p class="archive-summary">
-              Supporting benchmark repository for Solana framework evaluation,
-              with the extracted workload, framework tracks, and implementation
-              surface used to build public comparison work.
+              Three-part benchmark writeup covering the workload boundary, CU
+              tradeoffs, and framework choice across modern Anchor, Anchor v2,
+              Pinnocchio, and Quasar.
             </p>
+            <div class="archive-detail-grid">
+              <div class="archive-detail">
+                <span class="meta-label">Artifact</span>
+                <span class="detail-value">Protected draft article series</span>
+              </div>
+              <div class="archive-detail">
+                <span class="meta-label">Best for</span>
+                <span class="detail-value">Reviewing the benchmark narrative in portfolio context before it is promoted to the public site</span>
+              </div>
+            </div>
             <div class="archive-tags">
               <span class="tag">Solana</span>
               <span class="tag">Benchmarks</span>
-              <span class="tag">Project</span>
+              <span class="tag">Draft</span>
             </div>
-            <div class="archive-actions">
-              <a
-                class="timeline-link"
-                href="https://github.com/v4lproik/solana-framework-comparison"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Open repository
-              </a>
-            </div>
-          </article>
+          </a>
         </section>
 
         <div class="empty-state" data-empty-state>
           No public entries match the current search.
         </div>
-
-        <section class="archive-note-grid">
-          <article class="archive-note">
-            <span class="archive-note-title">Small by design</span>
-            <p class="archive-note-copy">
-              The public archive stays deliberately compact. It is meant to be
-              browsable in one pass, not expanded into a feed or content farm.
-            </p>
-          </article>
-          <article class="archive-note">
-            <span class="archive-note-title">Public only</span>
-            <p class="archive-note-copy">
-              Draft articles and review material stay in a separate private repo
-              until they are ready to be promoted into the public portfolio.
-            </p>
-          </article>
-          <article class="archive-note">
-            <span class="archive-note-title">Direct routes</span>
-            <p class="archive-note-copy">
-              Every entry should open directly into the public artifact itself:
-              a talk, a writeup, or a supporting project repository.
-            </p>
-          </article>
-        </section>
       </main>
 
       <footer class="back-to-top-shell">
@@ -444,11 +641,12 @@
         const entries = Array.from(root.querySelectorAll("[data-entry]"));
         const countNode = root.querySelector("[data-result-count]");
         const emptyNode = root.querySelector("[data-empty-state]");
-        let activeTag = "all";
+        const activeTags = new Set();
 
         function syncChips() {
           chips.forEach(function (chip) {
-            const active = chip.getAttribute("data-filter-chip") === activeTag;
+            const tag = chip.getAttribute("data-filter-chip");
+            const active = tag === "all" ? activeTags.size === 0 : activeTags.has(tag);
             chip.classList.toggle("is-active", active);
             chip.setAttribute("aria-pressed", String(active));
           });
@@ -461,7 +659,9 @@
           entries.forEach(function (entry) {
             const tags = (entry.getAttribute("data-tags") || "").split(/\s+/).filter(Boolean);
             const search = (entry.getAttribute("data-search") || "").toLowerCase();
-            const tagMatch = activeTag === "all" || tags.includes(activeTag);
+            const tagMatch = activeTags.size === 0 || Array.from(activeTags).some(function (tag) {
+              return tags.includes(tag);
+            });
             const queryMatch = !query || search.includes(query);
             const show = tagMatch && queryMatch;
 
@@ -488,7 +688,14 @@
 
         chips.forEach(function (chip) {
           chip.addEventListener("click", function () {
-            activeTag = chip.getAttribute("data-filter-chip") || "all";
+            const tag = chip.getAttribute("data-filter-chip") || "all";
+            if (tag === "all") {
+              activeTags.clear();
+            } else if (activeTags.has(tag)) {
+              activeTags.delete(tag);
+            } else {
+              activeTags.add(tag);
+            }
             applyFilters();
           });
         });
