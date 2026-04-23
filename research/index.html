@@ -296,6 +296,21 @@
         font-weight: 600;
       }
 
+      .detail-value a {
+        color: #ffbe7f;
+        text-decoration: none;
+      }
+
+      .detail-value a:hover,
+      .detail-value a:focus-visible {
+        text-decoration: underline;
+      }
+
+      .detail-link-list {
+        display: grid;
+        gap: 0.3rem;
+      }
+
       .tag {
         display: inline-flex;
         align-items: center;
@@ -524,6 +539,7 @@
           <a
             class="archive-card archive-card-link"
             data-entry
+            data-sort-date="2024-01-30"
             data-tags="ethereum lighthouse talk validators client"
             data-search="streameth presentation improving lighthouse joel rousseau ethereum lighthouse validators consensus client performance"
             href="https://info.streameth.org/65a90bf27932ebe436ba9348/watch?session=65b8f8cda5b2d09b88ec0ff5"
@@ -567,6 +583,7 @@
           <a
             class="archive-card archive-card-link"
             data-entry
+            data-sort-date="2024-06-13"
             data-tags="ethereum lighthouse article validators client"
             data-search="sigma prime article attestation simulator lighthouse ethereum validators client research paul hauner"
             href="https://blog.sigmaprime.io/attestation-sim.html"
@@ -610,6 +627,7 @@
           <a
             class="archive-card archive-card-link"
             data-entry
+            data-sort-date="2024-03-27"
             data-tags="ethereum prysm article validators client slashing"
             data-search="prysm slasher span bucket visualizer 2d chunking surrounded votes slash protection joel rousseau ethereum prysm validators client"
             href="https://github.com/OffchainLabs/prysm/pull/13748"
@@ -658,6 +676,7 @@
           <a
             class="archive-card archive-card-link"
             data-entry
+            data-sort-date="2024-06-12"
             data-tags="ethereum prysm article validators client slashing benchmarks"
             data-search="prysm slasher multi chunk fix disk pressure surrounded votes slash protection joel rousseau ethereum prysm validators client performance"
             href="https://github.com/OffchainLabs/prysm/pull/13749"
@@ -703,104 +722,59 @@
             </div>
           </a>
 
-          <a
-            class="archive-card archive-card-link"
+          <article
+            class="archive-card"
             data-entry
-            data-tags="starknet article client juno go infrastructure"
-            data-search="juno starknet logger config json output verbosity k8s operator infra joel rousseau nethermind client"
-            href="https://github.com/NethermindEth/juno/pull/264"
-            target="_blank"
-            rel="noreferrer noopener"
+            data-sort-date="2022-07-10"
+            data-tags="starknet article client juno go infrastructure benchmarks"
+            data-search="juno starknet client learning logger config json output verbosity rest tests retry abstraction feeder client performance joel rousseau nethermind go"
           >
             <div class="archive-head">
               <div class="archive-meta">
-                <span class="meta-pill accent">Client PR</span>
-                <span class="meta-copy">Nethermind / Juno · Merged upstream contribution</span>
+                <span class="meta-pill accent">Client work</span>
+                <span class="meta-copy">Nethermind / Juno · Upstream Starknet client contributions</span>
               </div>
             </div>
-            <h2 class="archive-title">Juno logger configuration and structured output</h2>
+            <h2 class="archive-title">Learning Starknet through Juno client work</h2>
             <p class="archive-summary">
-              Contribution to the Starknet client Juno to expose logger verbosity
-              and JSON output from config, then thread that logger cleanly through
-              the codebase so node operation is easier to run and observe in real
-              infrastructure.
+              Starknet client work done to understand Juno from the inside:
+              logging configuration for real node operation, then a REST retry
+              abstraction that made failure-path tests fast enough to use while
+              working through the client internals.
             </p>
             <div class="archive-date-row">
               <div class="archive-date">
-                <span class="meta-label">Opened</span>
+                <span class="meta-label">Started</span>
                 <time class="archive-date-value" datetime="2022-07-04">July 4, 2022</time>
               </div>
               <div class="archive-date">
-                <span class="meta-label">Merged</span>
+                <span class="meta-label">Latest merge</span>
                 <time class="archive-date-value" datetime="2022-07-10">July 10, 2022</time>
               </div>
             </div>
             <div class="archive-detail-grid">
               <div class="archive-detail">
-                <span class="meta-label">Artifact</span>
-                <span class="detail-value">Merged upstream client contribution</span>
+                <span class="meta-label">Artifacts</span>
+                <span class="detail-value detail-link-list">
+                  <a href="https://github.com/NethermindEth/juno/pull/264" target="_blank" rel="noreferrer noopener">Juno PR #264: configurable structured logging</a>
+                  <a href="https://github.com/NethermindEth/juno/pull/267" target="_blank" rel="noreferrer noopener">Juno PR #267: retry abstraction and faster REST failure tests</a>
+                </span>
               </div>
               <div class="archive-detail">
                 <span class="meta-label">Best for</span>
-                <span class="detail-value">Starknet client operations, structured logging, and configuration design that holds up in k8s-style environments</span>
+                <span class="detail-value">Starknet client architecture, operational logging, feeder-client ergonomics, and learning a protocol by contributing to its implementation</span>
               </div>
             </div>
             <div class="archive-tags">
               <span class="tag">Starknet</span>
               <span class="tag">Juno</span>
             </div>
-          </a>
+          </article>
 
           <a
             class="archive-card archive-card-link"
             data-entry
-            data-tags="starknet article client juno go benchmarks"
-            data-search="juno rest tests retry abstraction starknet feeder client test performance joel rousseau nethermind go"
-            href="https://github.com/NethermindEth/juno/pull/267"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            <div class="archive-head">
-              <div class="archive-meta">
-                <span class="meta-pill">Client PR</span>
-                <span class="meta-copy">Nethermind / Juno · Merged upstream contribution</span>
-              </div>
-            </div>
-            <h2 class="archive-title">Juno REST retry abstraction and faster failure-path tests</h2>
-            <p class="archive-summary">
-              Refactor of Juno’s REST client retry path so tests can inject custom
-              retry behaviour instead of waiting on the default backoff loop,
-              sharply reducing feedback time on failure-path test runs.
-            </p>
-            <div class="archive-date-row">
-              <div class="archive-date">
-                <span class="meta-label">Opened</span>
-                <time class="archive-date-value" datetime="2022-07-04">July 4, 2022</time>
-              </div>
-              <div class="archive-date">
-                <span class="meta-label">Merged</span>
-                <time class="archive-date-value" datetime="2022-07-05">July 5, 2022</time>
-              </div>
-            </div>
-            <div class="archive-detail-grid">
-              <div class="archive-detail">
-                <span class="meta-label">Artifact</span>
-                <span class="detail-value">Merged upstream client contribution</span>
-              </div>
-              <div class="archive-detail">
-                <span class="meta-label">Best for</span>
-                <span class="detail-value">Client test ergonomics, retry-path design, and reducing wasted latency in protocol-facing Go code</span>
-              </div>
-            </div>
-            <div class="archive-tags">
-              <span class="tag">Starknet</span>
-              <span class="tag">Juno</span>
-            </div>
-          </a>
-
-          <a
-            class="archive-card archive-card-link"
-            data-entry
+            data-sort-date="2026-04-22"
             data-tags="solana benchmarks article frameworks draft"
             data-search="solana framework comparison draft article series joel rousseau solana benchmarks frameworks anchor v2 pinnocchio quasar"
             href="https://drafts.valproik.com/solana-frameworks-2026/"
@@ -865,12 +839,26 @@
           return;
         }
 
+        const list = root.querySelector(".archive-list");
         const input = root.querySelector("[data-search-input]");
         const chips = Array.from(root.querySelectorAll("[data-filter-chip]"));
         const entries = Array.from(root.querySelectorAll("[data-entry]"));
         const countNode = root.querySelector("[data-result-count]");
         const emptyNode = root.querySelector("[data-empty-state]");
         const activeTags = new Set();
+
+        if (list) {
+          entries
+            .slice()
+            .sort(function (left, right) {
+              const leftDate = Date.parse(left.getAttribute("data-sort-date") || "") || 0;
+              const rightDate = Date.parse(right.getAttribute("data-sort-date") || "") || 0;
+              return rightDate - leftDate;
+            })
+            .forEach(function (entry) {
+              list.appendChild(entry);
+            });
+        }
 
         function syncChips() {
           chips.forEach(function (chip) {
