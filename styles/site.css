@@ -553,6 +553,19 @@
     text-align: left;
   }
 
+  .hero-metric-link {
+    color: #8fc0ff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: left;
+    text-decoration: none;
+    transition: color 180ms ease, transform 180ms ease;
+  }
+
+  .hero-metric-link:hover {
+    color: #ffb36b;
+  }
+
   .hero-metric-languages {
     align-items: flex-start;
   }
