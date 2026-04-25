@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://valproik.com/sitemap.xml
