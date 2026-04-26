@@ -2,15 +2,25 @@
 
 (function () {
   const headers = Array.from(document.querySelectorAll(".site-header"));
+  const collapseThreshold = 56;
+  const expandThreshold = 20;
 
   if (!headers.length) {
     return;
   }
 
   let frame = 0;
+  let condensed = false;
 
   function syncHeaderDensity() {
-    const condensed = window.scrollY > 36;
+    const scrollY = window.scrollY || window.pageYOffset || 0;
+    const nextCondensed = condensed ? scrollY > expandThreshold : scrollY > collapseThreshold;
+
+    if (nextCondensed === condensed) {
+      return;
+    }
+
+    condensed = nextCondensed;
 
     headers.forEach(function (header) {
       header.classList.toggle("is-condensed", condensed);
@@ -22,7 +32,11 @@
     frame = window.requestAnimationFrame(syncHeaderDensity);
   }
 
-  syncHeaderDensity();
+  condensed = (window.scrollY || window.pageYOffset || 0) > collapseThreshold;
+
+  headers.forEach(function (header) {
+    header.classList.toggle("is-condensed", condensed);
+  });
 
   window.addEventListener("scroll", scheduleHeaderDensitySync, { passive: true });
   window.addEventListener("resize", scheduleHeaderDensitySync);
