@@ -733,8 +733,9 @@
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
   }
 
-  .hero-language-code {
-    color: #8fc0ff;
+  .hero-language-flag {
+    font-size: 0.9rem;
+    line-height: 1;
   }
 
   .hero-language-level {
