@@ -1,6 +1,34 @@
 "use strict";
 
 (function () {
+  const headers = Array.from(document.querySelectorAll(".site-header"));
+
+  if (!headers.length) {
+    return;
+  }
+
+  let frame = 0;
+
+  function syncHeaderDensity() {
+    const condensed = window.scrollY > 36;
+
+    headers.forEach(function (header) {
+      header.classList.toggle("is-condensed", condensed);
+    });
+  }
+
+  function scheduleHeaderDensitySync() {
+    window.cancelAnimationFrame(frame);
+    frame = window.requestAnimationFrame(syncHeaderDensity);
+  }
+
+  syncHeaderDensity();
+
+  window.addEventListener("scroll", scheduleHeaderDensitySync, { passive: true });
+  window.addEventListener("resize", scheduleHeaderDensitySync);
+})();
+
+(function () {
   const carousel = document.querySelector("[data-carousel]");
 
   if (!carousel) {

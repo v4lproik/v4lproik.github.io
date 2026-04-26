@@ -171,6 +171,7 @@
 
   .nav-link-label {
     display: inline-block;
+    transition: opacity 160ms ease, transform 160ms ease;
   }
 
   .nav-link:hover,
@@ -205,6 +206,118 @@
 
   .nav-link:focus-visible {
     outline: none;
+  }
+
+  .site-header.is-condensed {
+    border-radius: 9999px;
+  }
+
+  .site-header.is-condensed .site-header-inner {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .site-header.is-condensed .site-header-nav {
+    width: auto;
+    min-width: 0;
+    flex: 1 1 auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.42rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .site-header.is-condensed .site-header-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-header.is-condensed .site-header-nav-row {
+    display: contents;
+  }
+
+  .site-header.is-condensed .nav-link {
+    flex: 0 0 auto;
+    justify-content: center;
+    min-width: 2.25rem;
+    padding: 0.55rem;
+    gap: 0;
+  }
+
+  .site-header.is-condensed .nav-link-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(-0.1rem);
+  }
+
+  .site-header.is-condensed .brand-lockup {
+    gap: 0.55rem;
+    flex: 0 0 auto;
+  }
+
+  .site-header.is-condensed .brand-text {
+    opacity: 0;
+    max-width: 0;
+    overflow: hidden;
+    transform: translateX(-0.25rem);
+  }
+
+  .site-header.is-condensed .brand-mark {
+    border-radius: 0.85rem;
+  }
+
+  .site-header.is-condensed .brand-mark::after {
+    right: -0.1rem;
+    bottom: -0.1rem;
+    width: 0.55rem;
+    height: 0.55rem;
+    box-shadow: 0 0 0 2px rgba(8, 16, 24, 0.95);
+  }
+
+  .site-header.is-condensed .brand-mark img {
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 0.72rem;
+  }
+
+  @media (max-width: 47.999rem) {
+    .site-header.is-condensed {
+      padding-inline: 0.8rem;
+      padding-block: 0.7rem;
+    }
+
+    .site-header.is-condensed .site-header-inner {
+      justify-content: center;
+    }
+
+    .site-header.is-condensed .brand-lockup {
+      display: none;
+    }
+
+    .site-header.is-condensed .site-header-nav {
+      width: 100%;
+      flex: 0 1 auto;
+      justify-content: center;
+      gap: 0.34rem;
+    }
+
+    .site-header.is-condensed .nav-link {
+      min-width: 2.1rem;
+      padding: 0.5rem;
+    }
   }
 
   .reading-copy {
@@ -312,11 +425,17 @@
     display: inline-flex;
     align-items: center;
     gap: 0.85rem;
+    transition: gap 180ms ease, opacity 180ms ease, transform 180ms ease;
   }
 
   .site-header {
     overflow: visible;
     border-radius: 1.6rem;
+    transition:
+      border-radius 180ms ease,
+      background-color 180ms ease,
+      box-shadow 180ms ease,
+      transform 180ms ease;
   }
 
   @media (min-width: 40rem) {
@@ -330,6 +449,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 0.95rem;
+    transition: gap 180ms ease, transform 180ms ease;
   }
 
   @media (min-width: 48rem) {
@@ -347,6 +467,7 @@
     align-items: stretch;
     gap: 0.6rem;
     width: 100%;
+    transition: gap 180ms ease, width 180ms ease;
   }
 
   .site-header-nav-row {
@@ -354,6 +475,7 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 0.75rem 0.85rem;
+    transition: gap 180ms ease;
   }
 
   .site-header-nav-row-sections {
@@ -389,6 +511,10 @@
     box-shadow:
       0 14px 28px rgba(0, 0, 0, 0.24),
       0 0 0 1px rgba(255, 255, 255, 0.08);
+    transition:
+      border-radius 180ms ease,
+      box-shadow 180ms ease,
+      transform 180ms ease;
   }
 
   .brand-mark::after {
@@ -401,6 +527,12 @@
     border-radius: 9999px;
     background: #ff8e42;
     box-shadow: 0 0 0 3px rgba(8, 16, 24, 0.95);
+    transition:
+      width 180ms ease,
+      height 180ms ease,
+      right 180ms ease,
+      bottom 180ms ease,
+      box-shadow 180ms ease;
   }
 
   .brand-mark img {
@@ -409,6 +541,10 @@
     display: block;
     border-radius: 0.9rem;
     object-fit: cover;
+    transition:
+      width 180ms ease,
+      height 180ms ease,
+      border-radius 180ms ease;
   }
 
   .brand-text {
@@ -416,6 +552,10 @@
     flex-direction: column;
     gap: 0.05rem;
     line-height: 1.1;
+    transition:
+      opacity 180ms ease,
+      max-width 180ms ease,
+      transform 180ms ease;
   }
 
   .brand-name {
