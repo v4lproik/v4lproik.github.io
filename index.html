@@ -37,7 +37,7 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="assets/site.css?v=20260426b">
+    <link rel="stylesheet" href="assets/site.css?v=20260428e">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -45,6 +45,23 @@
         "url": "https://valproik.com/",
         "name": "Joel Rousseau (valproik)",
         "description": "Portfolio of Joel Rousseau (valproik), also searchable as v4lproik: blockchain principal engineer, former founder and CTO working across Ethereum, Solana, distributed systems, validator research, and infrastructure.",
+        "hasPart": [
+          {
+            "@type": "CollectionPage",
+            "name": "Career chronology",
+            "url": "https://valproik.com/careers/"
+          },
+          {
+            "@type": "CollectionPage",
+            "name": "Selected technical projects",
+            "url": "https://valproik.com/projects/"
+          },
+          {
+            "@type": "CollectionPage",
+            "name": "Blockchain infrastructure research",
+            "url": "https://valproik.com/research/"
+          }
+        ],
         "mainEntity": {
           "@type": "Person",
           "name": "Joel Rousseau",
@@ -80,14 +97,12 @@
   <body class="font-sans antialiased">
     <div class="pointer-events-none fixed inset-0 overflow-hidden">
       <div class="soft-grid absolute inset-0 opacity-60"></div>
-      <div class="absolute left-1/2 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-brand-blue-500/16 blur-3xl"></div>
-      <div class="absolute right-0 top-32 h-80 w-80 rounded-full bg-brand-orange-500/12 blur-3xl"></div>
     </div>
 
     <div class="site-shell relative px-4 pb-16 pt-6 sm:px-6 lg:px-8">
       <header class="glass-panel site-header sticky top-3 z-20 mb-6 px-4 py-3 sm:top-4 sm:px-6">
         <div class="site-header-inner">
-          <a href="/index.html?chapter=chapter-profile" class="brand-lockup" data-chapter-target="chapter-profile">
+          <a href="index.html" class="brand-lockup" data-chapter-target="chapter-profile">
             <span class="brand-mark">
               <img src="assets/github-avatar.jpg" alt="Joel Rousseau avatar">
             </span>
@@ -99,7 +114,7 @@
 
           <nav aria-label="Primary" class="site-header-nav">
             <div class="site-header-nav-row site-header-nav-row-sections">
-              <a href="/index.html?chapter=chapter-profile" class="nav-link is-active" data-chapter-target="chapter-profile" data-nav-id="chapter-profile" aria-current="page">
+              <a href="index.html" class="nav-link is-active" data-chapter-target="chapter-profile" data-nav-id="chapter-profile" aria-current="page">
                 <span class="nav-link-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 12.25a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Z"/>
@@ -108,7 +123,7 @@
                 </span>
                 <span class="nav-link-label">Presentation</span>
               </a>
-              <a href="/index.html?chapter=chapter-chronology" class="nav-link" data-chapter-target="chapter-chronology" data-nav-id="chapter-chronology">
+              <a href="careers/" class="nav-link">
                 <span class="nav-link-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4.75 6.75c0-1.1.9-2 2-2h4.7c.72 0 1.41.31 1.88.85l.34.4c.47.54 1.16.85 1.88.85h1.75c1.1 0 2 .9 2 2v8.4c0 1.1-.9 2-2 2H6.75c-1.1 0-2-.9-2-2z"/>
@@ -118,7 +133,7 @@
                 </span>
                 <span class="nav-link-label">Careers</span>
               </a>
-              <a href="/index.html?chapter=chapter-projects" class="nav-link" data-chapter-target="chapter-projects" data-nav-id="chapter-projects">
+              <a href="projects/" class="nav-link">
                 <span class="nav-link-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="4.5" y="4.5" width="6.5" height="6.5" rx="1.4"/>
@@ -129,7 +144,7 @@
                 </span>
                 <span class="nav-link-label">Projects</span>
               </a>
-              <a href="/research/index.html" class="nav-link">
+              <a href="research/" class="nav-link">
                 <span class="nav-link-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M5.25 18.75 6 15.2a2 2 0 0 1 .54-1L14.7 6.06a2.1 2.1 0 0 1 2.98 0l.26.26a2.1 2.1 0 0 1 0 2.98l-8.15 8.15a2 2 0 0 1-1 .54z"/>
@@ -144,7 +159,7 @@
               <a
                 href="https://www.linkedin.com/in/joelrousseau/"
                 target="_blank"
-                rel="noreferrer noopener"
+                rel="me noreferrer noopener"
                 class="nav-link"
               >
                 <span class="nav-link-icon" aria-hidden="true">
@@ -157,7 +172,7 @@
               <a
                 href="https://x.com/valproik"
                 target="_blank"
-                rel="noreferrer noopener"
+                rel="me noreferrer noopener"
                 class="nav-link"
               >
                 <span class="nav-link-icon" aria-hidden="true">
@@ -170,7 +185,7 @@
               <a
                 href="https://github.com/v4lproik"
                 target="_blank"
-                rel="noreferrer noopener"
+                rel="me noreferrer noopener"
                 class="nav-link"
               >
                 <span class="nav-link-icon" aria-hidden="true">
@@ -700,90 +715,194 @@
                         Selected technical projects
                       </h2>
                       <p class="reading-copy mt-6">
-                        Public work that reflects the way I like to build: precise interfaces,
-                        operator-aware tooling, security-conscious interfaces, and systems designed
-                        around real constraints rather than demo abstractions.
+                        This is a mix of public repos and selected private systems that reflects
+                        the kind of work I like doing most: protocol tooling, operator-facing
+                        infrastructure, workflow contracts, and systems built around
+                        real constraints rather than portfolio demos.
                       </p>
+                      <div class="project-stack-strip" aria-label="Technology coverage">
+                        <span>Rust</span>
+                        <span>Go</span>
+                        <span>Solana</span>
+                        <span>Ethereum</span>
+                        <span>GitHub Actions</span>
+                        <span>Prometheus</span>
+                        <span>Grafana</span>
+                        <span>Docker</span>
+                        <span>Kubernetes</span>
+                        <span>GitOps</span>
+                      </div>
                       <div class="chapter-project-list">
+                        <article class="chapter-project-link chapter-project-link-featured">
+                          <span class="chapter-project-topline">
+                            <span class="chapter-project-name">Yieldia</span>
+                            <span class="chapter-project-note">Current</span>
+                          </span>
+                          <span class="chapter-project-domain">Solana revenue market</span>
+                          <span class="chapter-project-summary">A Solana-native revenue market for issuing, distributing, and managing early-stage capital instruments onchain, with a strong bias toward market structure, lifecycle design, and systems that can survive real operating constraints.</span>
+                          <span class="chapter-project-techs" aria-label="Technologies used">
+                            <span class="chapter-project-tech">Solana</span>
+                            <span class="chapter-project-tech">Rust</span>
+                            <span class="chapter-project-tech">Market design</span>
+                            <span class="chapter-project-tech">Lifecycle systems</span>
+                          </span>
+                          <span class="chapter-project-preview">
+                            <span class="preview-window">
+                              <img class="chapter-project-screenshot" src="assets/projects/yieldia.svg" alt="Yieldia market interface screenshot preview">
+                            </span>
+                          </span>
+                        </article>
                         <a
                           class="chapter-project-link"
                           href="https://github.com/v4lproik/github-actionspec-rs"
                           target="_blank"
                           rel="noreferrer noopener"
+                          aria-label="Open the github-actionspec-rs Rust GitHub Actions workflow validation repository on GitHub"
                         >
-                          <span class="chapter-project-name">github-actionspec-rs</span>
+                          <span class="chapter-project-topline">
+                            <span class="chapter-project-name">github-actionspec-rs</span>
+                            <span class="chapter-project-note">Public</span>
+                          </span>
+                          <span class="chapter-project-domain">Workflow contracts</span>
                           <span class="chapter-project-summary">Contract-style validation for GitHub Actions workflows and CI behaviour, with a bias toward making automation safer to reason about.</span>
+                          <span class="chapter-project-techs" aria-label="Technologies used">
+                            <span class="chapter-project-tech">Rust</span>
+                            <span class="chapter-project-tech">GitHub Actions</span>
+                            <span class="chapter-project-tech">CI validation</span>
+                          </span>
+                          <span class="chapter-project-preview">
+                            <span class="preview-window">
+                              <img class="chapter-project-screenshot" src="assets/projects/github-actionspec-rs.svg" alt="github-actionspec-rs workflow validation screenshot preview">
+                            </span>
+                          </span>
                         </a>
                         <a
                           class="chapter-project-link"
                           href="https://github.com/v4lproik/gin-jwks-rsa"
                           target="_blank"
                           rel="noreferrer noopener"
+                          aria-label="Open the gin-jwks-rsa Go JWKS and JWT middleware repository on GitHub"
                         >
-                          <span class="chapter-project-name">gin-jwks-rsa</span>
+                          <span class="chapter-project-topline">
+                            <span class="chapter-project-name">gin-jwks-rsa</span>
+                            <span class="chapter-project-note">Public</span>
+                          </span>
+                          <span class="chapter-project-domain">Auth infrastructure</span>
                           <span class="chapter-project-summary">Go middleware that exposes RSA JWKS endpoints for JWT verification flows, with a small surface area and explicit key-handling behaviour.</span>
+                          <span class="chapter-project-techs" aria-label="Technologies used">
+                            <span class="chapter-project-tech">Go</span>
+                            <span class="chapter-project-tech">Gin</span>
+                            <span class="chapter-project-tech">JWKS</span>
+                            <span class="chapter-project-tech">JWT</span>
+                          </span>
+                          <span class="chapter-project-preview">
+                            <span class="preview-window">
+                              <img class="chapter-project-screenshot" src="assets/projects/gin-jwks-rsa.svg" alt="gin-jwks-rsa authentication flow screenshot preview">
+                            </span>
+                          </span>
+                        </a>
+                        <a
+                          class="chapter-project-link"
+                          href="https://github.com/v4lproik/knowledge-db-rs"
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          aria-label="Open the knowledge-db-rs Rust and Next.js semantic search repository on GitHub"
+                        >
+                          <span class="chapter-project-topline">
+                            <span class="chapter-project-name">knowledge-db-rs</span>
+                            <span class="chapter-project-note">Public</span>
+                          </span>
+                          <span class="chapter-project-domain">Knowledge systems</span>
+                          <span class="chapter-project-summary">A Rust and Next.js knowledge system for ingesting files and links, organizing them with AI, and serving semantic search, backed by a full Docker and GitOps-oriented delivery surface.</span>
+                          <span class="chapter-project-techs" aria-label="Technologies used">
+                            <span class="chapter-project-tech">Rust</span>
+                            <span class="chapter-project-tech">Next.js</span>
+                            <span class="chapter-project-tech">AI</span>
+                            <span class="chapter-project-tech">Docker</span>
+                            <span class="chapter-project-tech">GitOps</span>
+                          </span>
+                          <span class="chapter-project-preview">
+                            <span class="preview-window">
+                              <img class="chapter-project-screenshot" src="assets/projects/knowledge-db-rs.svg" alt="knowledge-db-rs semantic search screenshot preview">
+                            </span>
+                          </span>
                         </a>
                         <a
                           class="chapter-project-link"
                           href="https://github.com/v4lproik/home-ops"
                           target="_blank"
                           rel="noreferrer noopener"
+                          aria-label="Open the home-ops Kubernetes and GitOps infrastructure repository on GitHub"
                         >
-                          <span class="chapter-project-name">home-ops</span>
+                          <span class="chapter-project-topline">
+                            <span class="chapter-project-name">home-ops</span>
+                            <span class="chapter-project-note">Public</span>
+                          </span>
+                          <span class="chapter-project-domain">Infrastructure lab</span>
                           <span class="chapter-project-summary">Bare-metal and lab operations, infrastructure automation, and node-oriented systems work carried out with the same discipline as production infrastructure.</span>
+                          <span class="chapter-project-techs" aria-label="Technologies used">
+                            <span class="chapter-project-tech">Kubernetes</span>
+                            <span class="chapter-project-tech">GitOps</span>
+                            <span class="chapter-project-tech">Bare metal</span>
+                            <span class="chapter-project-tech">Automation</span>
+                          </span>
+                          <span class="chapter-project-preview">
+                            <span class="preview-window">
+                              <img class="chapter-project-screenshot" src="assets/projects/home-ops.svg" alt="home-ops infrastructure dashboard screenshot preview">
+                            </span>
+                          </span>
                         </a>
                         <a
                           class="chapter-project-link"
                           href="https://github.com/v4lproik/sol-validator-watcher"
                           target="_blank"
                           rel="noreferrer noopener"
+                          aria-label="Open the sol-validator-watcher Solana validator monitoring repository on GitHub"
                         >
-                          <span class="chapter-project-name">sol-validator-watcher</span>
+                          <span class="chapter-project-topline">
+                            <span class="chapter-project-name">sol-validator-watcher</span>
+                            <span class="chapter-project-note">Public</span>
+                          </span>
+                          <span class="chapter-project-domain">Validator operations</span>
                           <span class="chapter-project-summary">Validator-aware monitoring and observability focused on the operating realities that matter to Solana node operators.</span>
+                          <span class="chapter-project-techs" aria-label="Technologies used">
+                            <span class="chapter-project-tech">Solana</span>
+                            <span class="chapter-project-tech">Monitoring</span>
+                            <span class="chapter-project-tech">Node ops</span>
+                          </span>
+                          <span class="chapter-project-preview">
+                            <span class="preview-window">
+                              <img class="chapter-project-screenshot" src="assets/projects/sol-validator-watcher.svg" alt="sol-validator-watcher validator monitoring screenshot preview">
+                            </span>
+                          </span>
                         </a>
                         <a
                           class="chapter-project-link"
-                          href="https://github.com/v4lproik/simple-blockchain-quickstart"
+                          href="https://github.com/v4lproik/lighthouse-metrics"
                           target="_blank"
                           rel="noreferrer noopener"
+                          aria-label="Open the lighthouse-metrics Ethereum Lighthouse Prometheus and Grafana repository on GitHub"
                         >
-                          <span class="chapter-project-name">simple-blockchain-quickstart</span>
-                          <span class="chapter-project-summary">A Go blockchain skeleton with wallet, node, transaction, and authentication surfaces kept explicit so the moving parts stay easy to inspect and extend.</span>
-                        </a>
-                        <a
-                          class="chapter-project-link"
-                          href="https://github.com/v4lproik/no-name"
-                          target="_blank"
-                          rel="noreferrer noopener"
-                        >
-                          <span class="chapter-project-name">no-name</span>
-                          <span class="chapter-project-summary">An internal-pentest utility in Go that fingerprints login surfaces, extracts authentication forms, tests credential paths, and emits reports for follow-up.</span>
-                        </a>
-                        <a
-                          class="chapter-project-link"
-                          href="https://github.com/v4lproik/spam-should-not-pass"
-                          target="_blank"
-                          rel="noreferrer noopener"
-                        >
-                          <span class="chapter-project-name">spam-should-not-pass</span>
-                          <span class="chapter-project-summary">A moderation platform built around configurable spam checks and multiple backend services, reflecting earlier work on rule systems and operational plumbing.</span>
+                          <span class="chapter-project-topline">
+                            <span class="chapter-project-name">lighthouse-metrics</span>
+                            <span class="chapter-project-note">Public</span>
+                          </span>
+                          <span class="chapter-project-domain">Ethereum observability</span>
+                          <span class="chapter-project-summary">A Prometheus and Grafana stack for Lighthouse nodes that makes validator and beacon-node metrics easier to scrape, inspect, and operate in practice.</span>
+                          <span class="chapter-project-techs" aria-label="Technologies used">
+                            <span class="chapter-project-tech">Ethereum</span>
+                            <span class="chapter-project-tech">Lighthouse</span>
+                            <span class="chapter-project-tech">Prometheus</span>
+                            <span class="chapter-project-tech">Grafana</span>
+                          </span>
+                          <span class="chapter-project-preview">
+                            <span class="preview-window">
+                              <img class="chapter-project-screenshot" src="assets/projects/lighthouse-metrics.svg" alt="lighthouse-metrics Grafana dashboard screenshot preview">
+                            </span>
+                          </span>
                         </a>
                       </div>
                     </div>
-                    <aside class="chapter-aside">
-                      <div class="chapter-fact">
-                        <span class="chapter-fact-label">Themes</span>
-                        <span class="chapter-fact-value">CI contracts, validator ops, auth infrastructure, blockchain scaffolds, security tooling</span>
-                      </div>
-                      <div class="chapter-fact">
-                        <span class="chapter-fact-label">Bias</span>
-                        <span class="chapter-fact-value">Keep the operational and protocol surface explicit enough to inspect, test, and extend</span>
-                      </div>
-                      <div class="chapter-fact">
-                        <span class="chapter-fact-label">Output</span>
-                        <span class="chapter-fact-value">Smaller public tools that show how I think about interfaces, failure modes, and implementation detail</span>
-                      </div>
-                    </aside>
                   </div>
                 </article>
 
@@ -793,30 +912,28 @@
           </div>
         </section>
         <div class="hero-side-controls" aria-label="Page quick switcher">
-          <button
-            type="button"
+          <a
+            href="research/"
             class="hero-side-control hero-side-control-prev"
-            data-carousel-prev
             aria-label="Open previous page"
           >
             <span class="hero-side-kicker">Previous page</span>
             <span class="hero-side-row">
               <span class="hero-side-arrow">&lt;</span>
-              <span class="hero-side-name" data-carousel-prev-label>Projects</span>
+              <span class="hero-side-name">Research</span>
             </span>
-          </button>
-          <button
-            type="button"
+          </a>
+          <a
+            href="careers/"
             class="hero-side-control hero-side-control-next"
-            data-carousel-next
             aria-label="Open next page"
           >
             <span class="hero-side-kicker">Next page</span>
             <span class="hero-side-row hero-side-row-next">
-              <span class="hero-side-name" data-carousel-next-label>Careers</span>
+              <span class="hero-side-name">Careers</span>
               <span class="hero-side-arrow">&gt;</span>
             </span>
-          </button>
+          </a>
         </div>
       </main>
 
@@ -826,6 +943,6 @@
         </a>
       </footer>
     </div>
-    <script src="assets/site.js?v=20260426a"></script>
+    <script src="assets/site.js?v=20260428c"></script>
   </body>
 </html>
