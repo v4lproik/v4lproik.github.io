@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Yieldia market interface preview</title>
+  <desc id="desc">Dark market dashboard with a revenue curve, tranche cards, and lifecycle status panels.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#10213a"/>
+      <stop offset="0.52" stop-color="#07111d"/>
+      <stop offset="1" stop-color="#25170e"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#74a8ff"/>
+      <stop offset="1" stop-color="#ffb36b"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="960" height="600" rx="34" fill="url(#bg)"/>
+  <rect x="34" y="32" width="892" height="536" rx="26" fill="#ffffff" opacity="0.045" stroke="#ffffff" stroke-opacity="0.13"/>
+  <circle cx="70" cy="66" r="7" fill="#ff8e42"/>
+  <circle cx="94" cy="66" r="7" fill="#ffb36b"/>
+  <circle cx="118" cy="66" r="7" fill="#74a8ff"/>
+  <text x="64" y="124" fill="#f4f8fb" font-family="Manrope, Arial, sans-serif" font-size="38" font-weight="800">Yieldia</text>
+  <text x="64" y="158" fill="#9db1c1" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="3">SOLANA REVENUE MARKET</text>
+  <rect x="64" y="202" width="540" height="268" rx="20" fill="#06111c" stroke="#ffffff" stroke-opacity="0.11"/>
+  <path d="M94 398 C168 336 204 368 258 302 C318 228 372 256 426 206 C489 148 535 194 574 158" fill="none" stroke="url(#line)" stroke-width="6" stroke-linecap="round" filter="url(#glow)"/>
+  <g stroke="#ffffff" stroke-opacity="0.07">
+    <path d="M96 254h470M96 312h470M96 370h470M96 428h470"/>
+    <path d="M164 230v218M256 230v218M348 230v218M440 230v218M532 230v218"/>
+  </g>
+  <rect x="634" y="202" width="250" height="74" rx="18" fill="#ffb36b" opacity="0.14" stroke="#ffb36b" stroke-opacity="0.26"/>
+  <text x="660" y="248" fill="#f4f8fb" font-family="Manrope, Arial, sans-serif" font-size="22" font-weight="800">$4.8M active</text>
+  <rect x="634" y="296" width="250" height="74" rx="18" fill="#74a8ff" opacity="0.13" stroke="#74a8ff" stroke-opacity="0.24"/>
+  <text x="660" y="342" fill="#f4f8fb" font-family="Manrope, Arial, sans-serif" font-size="22" font-weight="800">3 issuances</text>
+  <rect x="634" y="390" width="250" height="80" rx="18" fill="#ffffff" opacity="0.07" stroke="#ffffff" stroke-opacity="0.12"/>
+  <text x="660" y="438" fill="#dce7f0" font-family="Manrope, Arial, sans-serif" font-size="20" font-weight="700">Lifecycle healthy</text>
+</svg>

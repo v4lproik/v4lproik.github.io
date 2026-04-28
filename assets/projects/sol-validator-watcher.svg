@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Solana validator watcher preview</title>
+  <desc id="desc">Validator monitoring dashboard with slot health, delinquency state, and alert lanes.</desc>
+  <rect width="960" height="600" rx="34" fill="#07111d"/>
+  <rect x="34" y="32" width="892" height="536" rx="26" fill="#ffffff" opacity="0.045" stroke="#ffffff" stroke-opacity="0.13"/>
+  <circle cx="70" cy="66" r="7" fill="#ff8e42"/><circle cx="94" cy="66" r="7" fill="#ffb36b"/><circle cx="118" cy="66" r="7" fill="#74a8ff"/>
+  <text x="64" y="122" fill="#f4f8fb" font-family="Manrope, Arial, sans-serif" font-size="34" font-weight="800">sol-validator-watcher</text>
+  <text x="64" y="154" fill="#9db1c1" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="3">VALIDATOR OPERATIONS</text>
+  <rect x="64" y="204" width="252" height="132" rx="20" fill="#74a8ff" opacity="0.13"/>
+  <rect x="354" y="204" width="252" height="132" rx="20" fill="#ffb36b" opacity="0.13"/>
+  <rect x="644" y="204" width="252" height="132" rx="20" fill="#ffffff" opacity="0.07"/>
+  <text x="94" y="264" fill="#f4f8fb" font-family="Manrope, Arial, sans-serif" font-size="30" font-weight="800">99.98%</text>
+  <text x="384" y="264" fill="#f4f8fb" font-family="Manrope, Arial, sans-serif" font-size="30" font-weight="800">0</text>
+  <text x="674" y="264" fill="#f4f8fb" font-family="Manrope, Arial, sans-serif" font-size="30" font-weight="800">412ms</text>
+  <text x="94" y="300" fill="#9db1c1" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="700">vote success</text>
+  <text x="384" y="300" fill="#9db1c1" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="700">delinquent</text>
+  <text x="674" y="300" fill="#9db1c1" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="700">slot lag</text>
+  <g fill="#ffffff" opacity="0.08">
+    <rect x="64" y="382" width="832" height="30" rx="15"/>
+    <rect x="64" y="432" width="712" height="30" rx="15"/>
+    <rect x="64" y="482" width="784" height="30" rx="15"/>
+  </g>
+  <rect x="64" y="382" width="756" height="30" rx="15" fill="#74a8ff" opacity="0.4"/>
+  <rect x="64" y="432" width="612" height="30" rx="15" fill="#ffb36b" opacity="0.32"/>
+  <rect x="64" y="482" width="708" height="30" rx="15" fill="#74a8ff" opacity="0.26"/>
+</svg>
