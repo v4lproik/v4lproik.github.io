@@ -59,15 +59,12 @@
   const navLinks = Array.from(document.querySelectorAll(".site-header-nav .nav-link[data-nav-id]"));
   const viewport = carousel.querySelector("[data-carousel-viewport]");
   const carouselSection = carousel.closest("[data-carousel-section]") || document.getElementById("notebook") || document.getElementById("chapters");
-  const researchRoute = {
-    title: "Research",
-    href: window.location.protocol === "file:" ? "research/index.html" : "/research/"
-  };
   const chapterParam = "chapter";
   const cleanChapterRoutes = {
     "chapter-profile": "/",
     "chapter-chronology": "/careers/",
-    "chapter-projects": "/projects/"
+    "chapter-projects": "/projects/",
+    "chapter-research": "/research/"
   };
 
   if (!track || !viewport || !slides.length) {
@@ -182,11 +179,11 @@
       return "projects/";
     }
 
-    return "index.html";
-  }
+    if (chapterId === "chapter-research") {
+      return "research/";
+    }
 
-  function navigateTo(url) {
-    window.location.href = url;
+    return "index.html";
   }
 
   function setScrollTop(value) {
@@ -212,12 +209,12 @@
   }
 
   function updateLabels() {
-    const previousIsResearch = currentIndex === 0;
-    const upcomingIsResearch = currentIndex === slides.length - 1;
-    const previousTitle = previousIsResearch ? researchRoute.title : chapterTitle(currentIndex - 1);
-    const upcomingTitle = upcomingIsResearch ? researchRoute.title : chapterTitle(currentIndex + 1);
-    const previousHref = previousIsResearch ? researchRoute.href : routeForChapter(slides[normalizeIndex(currentIndex - 1)].id);
-    const upcomingHref = upcomingIsResearch ? researchRoute.href : routeForChapter(slides[normalizeIndex(currentIndex + 1)].id);
+    const previousSlide = slides[normalizeIndex(currentIndex - 1)];
+    const upcomingSlide = slides[normalizeIndex(currentIndex + 1)];
+    const previousTitle = chapterTitle(currentIndex - 1);
+    const upcomingTitle = chapterTitle(currentIndex + 1);
+    const previousHref = routeForChapter(previousSlide.id);
+    const upcomingHref = routeForChapter(upcomingSlide.id);
 
     setText(prevLabels, previousTitle);
     setText(nextLabels, upcomingTitle);
@@ -284,11 +281,6 @@
     button.addEventListener("click", function (event) {
       event.preventDefault();
 
-      if (currentIndex === 0) {
-        navigateTo(researchRoute.href);
-        return;
-      }
-
       setIndex(currentIndex - 1, {
         direction: -1,
         scrollIntoView: button.getAttribute("data-carousel-scroll") === "true"
@@ -299,11 +291,6 @@
   nextButtons.forEach(function (button) {
     button.addEventListener("click", function (event) {
       event.preventDefault();
-
-      if (currentIndex === slides.length - 1) {
-        navigateTo(researchRoute.href);
-        return;
-      }
 
       setIndex(currentIndex + 1, {
         direction: 1,
@@ -332,21 +319,11 @@
     if (event.key === "ArrowLeft") {
       event.preventDefault();
 
-      if (currentIndex === 0) {
-        navigateTo(researchRoute.href);
-        return;
-      }
-
       setIndex(currentIndex - 1, { direction: -1 });
     }
 
     if (event.key === "ArrowRight") {
       event.preventDefault();
-
-      if (currentIndex === slides.length - 1) {
-        navigateTo(researchRoute.href);
-        return;
-      }
 
       setIndex(currentIndex + 1, { direction: 1 });
     }
@@ -371,16 +348,6 @@
     swipePointerId = null;
 
     if (Math.abs(deltaX) < 56) {
-      return;
-    }
-
-    if (deltaX < 0 && currentIndex === slides.length - 1) {
-      navigateTo(researchRoute.href);
-      return;
-    }
-
-    if (deltaX > 0 && currentIndex === 0) {
-      navigateTo(researchRoute.href);
       return;
     }
 

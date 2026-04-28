@@ -144,7 +144,7 @@
                 </span>
                 <span class="nav-link-label">Projects</span>
               </a>
-              <a href="/research/" class="nav-link">
+              <a href="research/" class="nav-link" data-chapter-target="chapter-research" data-nav-id="chapter-research">
                 <span class="nav-link-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M5.25 18.75 6 15.2a2 2 0 0 1 .54-1L14.7 6.06a2.1 2.1 0 0 1 2.98 0l.26.26a2.1 2.1 0 0 1 0 2.98l-8.15 8.15a2 2 0 0 1-1 .54z"/>
@@ -906,6 +906,69 @@
                   </div>
                 </article>
 
+                <article class="chapter-slide chapter-slide-research" id="chapter-research" data-chapter-title="Research" data-active="false" aria-hidden="true">
+                  <div class="projects-layout">
+                    <div>
+                      <p class="eyebrow">Research</p>
+                      <h2 class="hero-heading mt-4 max-w-4xl font-semibold leading-[0.95] tracking-[-0.05em] text-mist-50">
+                        Writing, talks, and technical notes
+                      </h2>
+                      <p class="reading-copy mt-6">
+                        A compact trail of public research, talks, benchmark work, and upstream
+                        client contributions across Ethereum, Solana, Starknet, and systems
+                        performance. The full archive stays available as a dedicated crawlable
+                        page, but this chapter keeps the navigation flow smooth.
+                      </p>
+                      <div class="project-stack-strip" aria-label="Research coverage">
+                        <span>Ethereum</span>
+                        <span>Lighthouse</span>
+                        <span>Prysm</span>
+                        <span>Solana</span>
+                        <span>Starknet</span>
+                        <span>Benchmarks</span>
+                        <span>Client internals</span>
+                      </div>
+                      <div class="research-route-grid">
+                        <a
+                          class="research-route-card"
+                          href="https://info.streameth.org/65a90bf27932ebe436ba9348/watch?session=65b8f8cda5b2d09b88ec0ff5"
+                          target="_blank"
+                          rel="noreferrer noopener"
+                        >
+                          <span class="research-route-kicker">Talk</span>
+                          <span class="research-route-title">StreamETH presentation on Lighthouse work</span>
+                          <span class="research-route-copy">Consensus-client performance, validator-facing concerns, and work from the Ethereum Protocol Fellowship.</span>
+                        </a>
+                        <a
+                          class="research-route-card"
+                          href="https://blog.sigmaprime.io/attestation-sim.html"
+                          target="_blank"
+                          rel="noreferrer noopener"
+                        >
+                          <span class="research-route-kicker">Article</span>
+                          <span class="research-route-title">Lighthouse attestation simulator</span>
+                          <span class="research-route-copy">A public writeup on attestation simulation and dissemination dynamics at the consensus layer.</span>
+                        </a>
+                        <a
+                          class="research-route-card"
+                          href="https://github.com/OffchainLabs/prysm/pull/13748"
+                          target="_blank"
+                          rel="noreferrer noopener"
+                        >
+                          <span class="research-route-kicker">Client PR</span>
+                          <span class="research-route-title">Prysm slasher span-bucket visualizer</span>
+                          <span class="research-route-copy">A debugging surface for inspecting slasher span buckets and making slash-protection state legible.</span>
+                        </a>
+                      </div>
+                      <div class="research-feature-actions">
+                        <a class="nav-link" href="research/">
+                          <span class="nav-link-label">Open full research archive</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
                 </div>
               </div>
             </div>
@@ -913,7 +976,7 @@
         </section>
         <div class="hero-side-controls" aria-label="Page quick switcher">
           <a
-            href="/research/"
+            href="research/"
             class="hero-side-control hero-side-control-prev"
             data-carousel-prev
             aria-label="Open previous page"
@@ -945,6 +1008,6 @@
         </a>
       </footer>
     </div>
-    <script src="assets/site.js?v=20260428e"></script>
+    <script src="assets/site.js?v=20260428f"></script>
   </body>
 </html>
