@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">simple-blockchain-quickstart preview</title>
+  <desc id="desc">A stylized blockchain node and wallet quickstart interface.</desc>
+  <rect width="960" height="600" rx="34" fill="#07111b"/>
+  <rect x="54" y="54" width="852" height="492" rx="24" fill="#0d1b2a" stroke="#263b52"/>
+  <rect x="86" y="96" width="258" height="356" rx="18" fill="#102337"/>
+  <text x="116" y="142" fill="#ffb36b" font-family="Manrope, Arial" font-size="26" font-weight="700">wallet</text>
+  <text x="116" y="190" fill="#dce7f0" font-family="Menlo, monospace" font-size="18">balance: 42.000</text>
+  <text x="116" y="226" fill="#9db1c1" font-family="Menlo, monospace" font-size="16">pubkey: 7f2a...19c</text>
+  <rect x="116" y="282" width="178" height="44" rx="12" fill="#4f84e8"/>
+  <text x="142" y="311" fill="#f4f8fb" font-family="Manrope, Arial" font-size="16" font-weight="700">send tx</text>
+  <g fill="#132b42" stroke="#74a8ff" stroke-opacity=".75">
+    <rect x="410" y="128" width="150" height="84" rx="16"/>
+    <rect x="590" y="212" width="150" height="84" rx="16"/>
+    <rect x="410" y="296" width="150" height="84" rx="16"/>
+    <rect x="590" y="380" width="150" height="84" rx="16"/>
+  </g>
+  <g stroke="#ffb36b" stroke-width="5" stroke-linecap="round" opacity=".9">
+    <path d="M560 170 590 228"/>
+    <path d="M590 254 560 322"/>
+    <path d="M560 342 590 404"/>
+  </g>
+  <g fill="#dce7f0" font-family="Menlo, monospace" font-size="15">
+    <text x="434" y="176">block 01</text>
+    <text x="614" y="260">block 02</text>
+    <text x="434" y="344">block 03</text>
+    <text x="614" y="428">block 04</text>
+  </g>
+</svg>

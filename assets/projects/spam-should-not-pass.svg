@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">spam-should-not-pass preview</title>
+  <desc id="desc">A stylized moderation rule dashboard.</desc>
+  <rect width="960" height="600" rx="34" fill="#07111b"/>
+  <rect x="54" y="54" width="852" height="492" rx="24" fill="#0d1a27" stroke="#263b52"/>
+  <text x="90" y="118" fill="#ffb36b" font-family="Manrope, Arial" font-size="28" font-weight="800">moderation rules</text>
+  <g transform="translate(90 156)">
+    <rect width="780" height="72" rx="16" fill="#10263b"/>
+    <text x="28" y="44" fill="#dce7f0" font-family="Menlo, monospace" font-size="17">if reputation &lt; 12 and links &gt; 2 then quarantine</text>
+  </g>
+  <g transform="translate(90 252)">
+    <rect width="238" height="180" rx="18" fill="#102236"/>
+    <rect x="270" width="238" height="180" rx="18" fill="#102236"/>
+    <rect x="540" width="238" height="180" rx="18" fill="#102236"/>
+    <text x="28" y="48" fill="#74a8ff" font-family="Manrope, Arial" font-size="20" font-weight="700">checks</text>
+    <text x="298" y="48" fill="#74a8ff" font-family="Manrope, Arial" font-size="20" font-weight="700">queues</text>
+    <text x="568" y="48" fill="#74a8ff" font-family="Manrope, Arial" font-size="20" font-weight="700">services</text>
+    <text x="28" y="94" fill="#dce7f0" font-family="Menlo, monospace" font-size="16">rules: 18</text>
+    <text x="28" y="124" fill="#dce7f0" font-family="Menlo, monospace" font-size="16">signals: 7</text>
+    <text x="298" y="94" fill="#dce7f0" font-family="Menlo, monospace" font-size="16">review: 31</text>
+    <text x="298" y="124" fill="#dce7f0" font-family="Menlo, monospace" font-size="16">blocked: 144</text>
+    <text x="568" y="94" fill="#dce7f0" font-family="Menlo, monospace" font-size="16">api: up</text>
+    <text x="568" y="124" fill="#dce7f0" font-family="Menlo, monospace" font-size="16">worker: up</text>
+  </g>
+</svg>
