@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Lighthouse metrics dashboard preview</title>
+  <desc id="desc">Grafana-style Ethereum validator metrics dashboard with beacon node panels and time-series charts.</desc>
+  <rect width="960" height="600" rx="34" fill="#081018"/>
+  <rect x="34" y="32" width="892" height="536" rx="26" fill="#ffffff" opacity="0.045" stroke="#ffffff" stroke-opacity="0.13"/>
+  <circle cx="70" cy="66" r="7" fill="#ff8e42"/><circle cx="94" cy="66" r="7" fill="#ffb36b"/><circle cx="118" cy="66" r="7" fill="#74a8ff"/>
+  <text x="64" y="122" fill="#f4f8fb" font-family="Manrope, Arial, sans-serif" font-size="36" font-weight="800">lighthouse-metrics</text>
+  <text x="64" y="154" fill="#9db1c1" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="3">ETHEREUM OBSERVABILITY</text>
+  <g>
+    <rect x="64" y="206" width="390" height="136" rx="18" fill="#ffffff" opacity="0.07"/>
+    <rect x="506" y="206" width="390" height="136" rx="18" fill="#ffffff" opacity="0.07"/>
+    <rect x="64" y="384" width="390" height="136" rx="18" fill="#ffffff" opacity="0.07"/>
+    <rect x="506" y="384" width="390" height="136" rx="18" fill="#ffffff" opacity="0.07"/>
+  </g>
+  <g fill="none" stroke-linecap="round" stroke-width="4">
+    <path d="M96 298 C146 266 184 306 236 270 S334 236 420 262" stroke="#74a8ff"/>
+    <path d="M538 298 C590 246 624 286 676 260 S786 236 860 278" stroke="#ffb36b"/>
+    <path d="M96 476 C156 420 210 496 270 446 S366 430 420 456" stroke="#ffb36b"/>
+    <path d="M538 474 C610 456 650 424 704 452 S796 496 860 438" stroke="#74a8ff"/>
+  </g>
+  <g fill="#dce7f0" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="800">
+    <text x="96" y="244">Beacon peers</text>
+    <text x="538" y="244">Attestations</text>
+    <text x="96" y="422">Validator balance</text>
+    <text x="538" y="422">Duties latency</text>
+  </g>
+</svg>
