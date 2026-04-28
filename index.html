@@ -123,7 +123,7 @@
                 </span>
                 <span class="nav-link-label">Presentation</span>
               </a>
-              <a href="careers/" class="nav-link">
+              <a href="careers/" class="nav-link" data-chapter-target="chapter-chronology" data-nav-id="chapter-chronology">
                 <span class="nav-link-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4.75 6.75c0-1.1.9-2 2-2h4.7c.72 0 1.41.31 1.88.85l.34.4c.47.54 1.16.85 1.88.85h1.75c1.1 0 2 .9 2 2v8.4c0 1.1-.9 2-2 2H6.75c-1.1 0-2-.9-2-2z"/>
@@ -133,7 +133,7 @@
                 </span>
                 <span class="nav-link-label">Careers</span>
               </a>
-              <a href="projects/" class="nav-link">
+              <a href="projects/" class="nav-link" data-chapter-target="chapter-projects" data-nav-id="chapter-projects">
                 <span class="nav-link-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="4.5" y="4.5" width="6.5" height="6.5" rx="1.4"/>
@@ -144,7 +144,7 @@
                 </span>
                 <span class="nav-link-label">Projects</span>
               </a>
-              <a href="research/" class="nav-link">
+              <a href="/research/" class="nav-link">
                 <span class="nav-link-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M5.25 18.75 6 15.2a2 2 0 0 1 .54-1L14.7 6.06a2.1 2.1 0 0 1 2.98 0l.26.26a2.1 2.1 0 0 1 0 2.98l-8.15 8.15a2 2 0 0 1-1 .54z"/>
@@ -913,24 +913,26 @@
         </section>
         <div class="hero-side-controls" aria-label="Page quick switcher">
           <a
-            href="research/"
+            href="projects/"
             class="hero-side-control hero-side-control-prev"
+            data-carousel-prev
             aria-label="Open previous page"
           >
             <span class="hero-side-kicker">Previous page</span>
             <span class="hero-side-row">
               <span class="hero-side-arrow">&lt;</span>
-              <span class="hero-side-name">Research</span>
+              <span class="hero-side-name" data-carousel-prev-label>Projects</span>
             </span>
           </a>
           <a
             href="careers/"
             class="hero-side-control hero-side-control-next"
+            data-carousel-next
             aria-label="Open next page"
           >
             <span class="hero-side-kicker">Next page</span>
             <span class="hero-side-row hero-side-row-next">
-              <span class="hero-side-name">Careers</span>
+              <span class="hero-side-name" data-carousel-next-label>Careers</span>
               <span class="hero-side-arrow">&gt;</span>
             </span>
           </a>
@@ -943,6 +945,6 @@
         </a>
       </footer>
     </div>
-    <script src="assets/site.js?v=20260428c"></script>
+    <script src="assets/site.js?v=20260428d"></script>
   </body>
 </html>

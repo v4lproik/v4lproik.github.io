@@ -59,7 +59,6 @@
   const navLinks = Array.from(document.querySelectorAll(".site-header-nav .nav-link[data-nav-id]"));
   const viewport = carousel.querySelector("[data-carousel-viewport]");
   const carouselSection = carousel.closest("[data-carousel-section]") || document.getElementById("notebook") || document.getElementById("chapters");
-  const researchRoute = { title: "Research", href: "/research/" };
   const chapterParam = "chapter";
   const cleanChapterRoutes = {
     "chapter-profile": "/",
@@ -166,10 +165,6 @@
     });
   }
 
-  function navigateTo(url) {
-    window.location.href = url;
-  }
-
   function setScrollTop(value) {
     document.documentElement.scrollTop = value;
     document.body.scrollTop = value;
@@ -193,8 +188,8 @@
   }
 
   function updateLabels() {
-    const previousTitle = currentIndex === 0 ? researchRoute.title : chapterTitle(currentIndex - 1);
-    const upcomingTitle = currentIndex === slides.length - 1 ? researchRoute.title : chapterTitle(currentIndex + 1);
+    const previousTitle = chapterTitle(currentIndex - 1);
+    const upcomingTitle = chapterTitle(currentIndex + 1);
 
     setText(prevLabels, previousTitle);
     setText(nextLabels, upcomingTitle);
@@ -237,7 +232,11 @@
     updateSlides();
 
     if (settings.updateHash) {
-      history.replaceState(null, "", urlForChapter(currentId()));
+      const nextUrl = urlForChapter(currentId());
+
+      if (nextUrl !== window.location.pathname + window.location.search + window.location.hash) {
+        history.pushState(null, "", nextUrl);
+      }
     }
 
     if (settings.scrollIntoView) {
@@ -246,11 +245,8 @@
   }
 
   prevButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
-      if (currentIndex === 0) {
-        navigateTo(researchRoute.href);
-        return;
-      }
+    button.addEventListener("click", function (event) {
+      event.preventDefault();
 
       setIndex(currentIndex - 1, {
         direction: -1,
@@ -260,11 +256,8 @@
   });
 
   nextButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
-      if (currentIndex === slides.length - 1) {
-        navigateTo(researchRoute.href);
-        return;
-      }
+    button.addEventListener("click", function (event) {
+      event.preventDefault();
 
       setIndex(currentIndex + 1, {
         direction: 1,
@@ -293,21 +286,11 @@
     if (event.key === "ArrowLeft") {
       event.preventDefault();
 
-      if (currentIndex === 0) {
-        navigateTo(researchRoute.href);
-        return;
-      }
-
       setIndex(currentIndex - 1, { direction: -1 });
     }
 
     if (event.key === "ArrowRight") {
       event.preventDefault();
-
-      if (currentIndex === slides.length - 1) {
-        navigateTo(researchRoute.href);
-        return;
-      }
 
       setIndex(currentIndex + 1, { direction: 1 });
     }
@@ -332,16 +315,6 @@
     swipePointerId = null;
 
     if (Math.abs(deltaX) < 56) {
-      return;
-    }
-
-    if (deltaX < 0 && currentIndex === slides.length - 1) {
-      navigateTo(researchRoute.href);
-      return;
-    }
-
-    if (deltaX > 0 && currentIndex === 0) {
-      navigateTo(researchRoute.href);
       return;
     }
 
