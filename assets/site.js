@@ -150,12 +150,6 @@
   const viewport = carousel.querySelector("[data-carousel-viewport]");
   const carouselSection = carousel.closest("[data-carousel-section]") || document.getElementById("notebook") || document.getElementById("chapters");
   const chapterParam = "chapter";
-  const cleanChapterRoutes = {
-    "chapter-profile": "/",
-    "chapter-chronology": "/careers/",
-    "chapter-projects": "/projects/",
-    "chapter-research": "/research/"
-  };
 
   if (!track || !viewport || !slides.length) {
     return;
@@ -184,26 +178,14 @@
 
   function urlForChapter(chapterId) {
     const url = new URL(window.location.href);
+    url.pathname = url.pathname.replace(/\/index\.html$/, "/");
     url.searchParams.delete(chapterParam);
-
-    if (window.location.protocol !== "file:" && cleanChapterRoutes[chapterId]) {
-      return cleanChapterRoutes[chapterId];
-    }
-
     url.hash = chapterId === slides[0].id ? "" : chapterId;
     return url.pathname + url.search + url.hash;
   }
 
   function chapterFromLocation() {
     const url = new URL(window.location.href);
-    const path = url.pathname.replace(/\/index\.html$/, "/");
-
-    for (const chapterId in cleanChapterRoutes) {
-      if (cleanChapterRoutes[chapterId] === path) {
-        return chapterId;
-      }
-    }
-
     const chapter = url.searchParams.get(chapterParam);
 
     if (chapter && idToIndex.has(chapter)) {
