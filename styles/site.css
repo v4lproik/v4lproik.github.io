@@ -2167,6 +2167,7 @@
     max-width: 68ch;
     font-size: clamp(1.02rem, 1.6vw, 1.18rem);
     line-height: 1.8;
+    text-align: left;
   }
 
   .career-snapshot {
@@ -2206,6 +2207,186 @@
     font-size: 0.88rem;
     font-weight: 600;
     line-height: 1.55;
+  }
+
+  .career-arc {
+    margin-top: clamp(2.75rem, 6vw, 4.75rem);
+  }
+
+  .career-arc-head {
+    display: grid;
+    gap: 1.25rem;
+    align-items: end;
+  }
+
+  .career-arc-title {
+    max-width: 22ch;
+    margin-top: 0.65rem;
+    color: rgba(244, 248, 251, 0.96);
+    font-size: clamp(1.55rem, 3vw, 2.25rem);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+
+  .career-arc-summary {
+    max-width: 42rem;
+    color: rgba(157, 177, 193, 0.82);
+    font-size: 0.94rem;
+    line-height: 1.75;
+    text-wrap: pretty;
+  }
+
+  .career-arc-grid {
+    display: grid;
+    gap: 1rem;
+    margin: clamp(1.75rem, 4vw, 2.5rem) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .career-arc-card {
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
+    padding: clamp(1.25rem, 2.6vw, 1.75rem);
+    border: 1px solid rgba(163, 196, 220, 0.14);
+    border-radius: 1.35rem;
+    background:
+      radial-gradient(circle at 100% 0%, rgba(116, 168, 255, 0.08), transparent 42%),
+      rgba(7, 17, 28, 0.5);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025);
+  }
+
+  .career-arc-card::before {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 2px;
+    background: linear-gradient(180deg, rgba(255, 179, 107, 0.72), rgba(116, 168, 255, 0.2));
+    content: "";
+  }
+
+  .career-arc-card:nth-child(2)::before {
+    background: linear-gradient(180deg, rgba(116, 168, 255, 0.72), rgba(255, 179, 107, 0.2));
+  }
+
+  .career-arc-index {
+    color: rgba(255, 179, 107, 0.78);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .career-arc-card:nth-child(2) .career-arc-index {
+    color: rgba(151, 188, 255, 0.84);
+  }
+
+  .career-arc-card-title {
+    margin-top: 0.75rem;
+    color: rgba(244, 248, 251, 0.96);
+    font-size: 1.08rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    text-wrap: balance;
+  }
+
+  .career-arc-card-copy {
+    margin-top: 0.75rem;
+    color: rgba(207, 220, 231, 0.78);
+    font-size: 0.86rem;
+    line-height: 1.7;
+    text-wrap: pretty;
+  }
+
+  .career-arc-stack {
+    margin-top: 1rem;
+    color: rgba(157, 177, 193, 0.64);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.035em;
+    line-height: 1.6;
+  }
+
+  .timeline-era-section {
+    margin-top: clamp(2.25rem, 5vw, 3.75rem);
+  }
+
+  .timeline-era-section + .timeline-era-section {
+    margin-top: clamp(3.5rem, 8vw, 6.5rem);
+  }
+
+  .timeline-era-head {
+    display: grid;
+    gap: 0.85rem 2rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid rgba(163, 196, 220, 0.16);
+  }
+
+  .timeline-era-range {
+    display: block;
+    color: rgba(255, 179, 107, 0.78);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .timeline-era-title {
+    max-width: 30ch;
+    margin-top: 0.55rem;
+    color: rgba(244, 248, 251, 0.94);
+    font-size: clamp(1.2rem, 2.1vw, 1.65rem);
+    font-weight: 700;
+    letter-spacing: -0.027em;
+    line-height: 1.2;
+    text-wrap: balance;
+  }
+
+  .timeline-era-copy {
+    max-width: 44rem;
+    color: rgba(157, 177, 193, 0.72);
+    font-size: 0.84rem;
+    line-height: 1.7;
+    text-wrap: pretty;
+  }
+
+  .timeline-detail-grid {
+    display: grid;
+    gap: 0.75rem;
+    margin: 1.1rem 0 0;
+    padding: 1rem 0 0;
+    border-top: 1px solid rgba(163, 196, 220, 0.11);
+  }
+
+  .timeline-detail-grid > div {
+    display: grid;
+    gap: 0.35rem;
+    align-content: start;
+    min-width: 0;
+  }
+
+  .timeline-detail-grid dt {
+    color: rgba(255, 179, 107, 0.78);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .timeline-detail-grid dd {
+    margin: 0;
+    color: rgba(196, 212, 224, 0.76);
+    font-size: 0.77rem;
+    line-height: 1.58;
   }
 
   .career-timeline-head {
@@ -2422,9 +2603,28 @@
     }
   }
 
+    .career-arc-summary,
+    .timeline-era-copy {
+      max-width: 48rem;
+    }
+
   @media (min-width: 64rem) {
     .career-intro-grid {
       grid-template-columns: minmax(0, 1.55fr) minmax(17rem, 0.72fr);
+    }
+
+    .career-arc-head,
+    .timeline-era-head {
+      grid-template-columns: minmax(0, 1.55fr) minmax(17rem, 0.72fr);
+      gap: 4.5rem;
+    }
+
+    .career-arc-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .timeline-detail-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .career-timeline-head {
@@ -2490,6 +2690,18 @@
     .career-snapshot-item {
       grid-template-columns: 1fr;
       gap: 0.3rem;
+    }
+
+    .career-arc-card {
+      padding: 1.15rem;
+    }
+
+    .career-arc-card-copy {
+      font-size: 0.82rem;
+    }
+
+    .timeline-era-head {
+      padding-top: 1.1rem;
     }
 
     .timeline-entry {
