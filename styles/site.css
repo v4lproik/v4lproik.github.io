@@ -2134,6 +2134,42 @@
     display: block;
   }
 
+
+  .careers-page .career-intro .reading-copy,
+  .careers-page .timeline-copy {
+    text-align: justify;
+  }
+
+  @media (max-width: 39.999rem) {
+    .careers-page .career-intro .reading-copy,
+    .careers-page .timeline-copy {
+      text-align: left;
+    }
+  }
+
+  .careers-page .chapter-fact-value {
+    text-align: left;
+  }
+
+  .timeline-period {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 0.65rem;
+    color: #9db1c1;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 39.999rem) {
+    .timeline-period {
+      display: flex;
+      margin-top: 0.5rem;
+      margin-left: 0;
+    }
+  }
+
   .timeline-shell {
     position: relative;
     margin-top: 2rem;
@@ -2275,6 +2311,7 @@
     line-height: 1.8;
     text-align: justify;
   }
+
 
   .timeline-links {
     display: flex;
