@@ -349,17 +349,25 @@
     const settings = Object.assign({ updateHash: true, scrollIntoView: false, animate: true, direction: null }, options);
     const nextIndex = normalizeIndex(index);
     const direction = settings.direction == null ? inferDirection(nextIndex) : settings.direction;
+    let nextUrl = "";
+    let currentUrl = "";
+
+    if (settings.updateHash) {
+      nextUrl = urlForChapter(slides[nextIndex].id);
+      currentUrl = window.location.pathname + window.location.search + window.location.hash;
+
+      if (window.location.protocol !== "file:" && nextUrl !== currentUrl) {
+        window.location.assign(nextUrl);
+        return;
+      }
+    }
 
     carousel.dataset.motion = settings.animate ? (direction < 0 ? "prev" : direction > 0 ? "next" : "idle") : "idle";
     currentIndex = nextIndex;
     updateSlides();
 
-    if (settings.updateHash) {
-      const nextUrl = urlForChapter(currentId());
-
-      if (nextUrl !== window.location.pathname + window.location.search + window.location.hash) {
-        history.pushState(null, "", nextUrl);
-      }
+    if (settings.updateHash && nextUrl !== currentUrl) {
+      history.pushState(null, "", nextUrl);
     }
 
     if (settings.scrollIntoView) {
