@@ -586,6 +586,12 @@
       transform 180ms ease;
   }
 
+  @media (max-width: 39.999rem) {
+    .brand-lockup {
+      gap: 0.55rem;
+    }
+  }
+
   .site-header {
     overflow: visible;
     border-radius: 1.55rem;
@@ -738,6 +744,7 @@
   .brand-mark {
     position: relative;
     display: inline-flex;
+    flex: 0 0 auto;
     padding: 2px;
     border-radius: 1rem;
     background: linear-gradient(135deg, rgba(255, 179, 107, 0.96), rgba(79, 132, 232, 0.96));
@@ -769,8 +776,8 @@
   }
 
   .brand-mark img {
-    width: 2.7rem;
-    height: 2.7rem;
+    width: 2.9rem;
+    height: 2.9rem;
     display: block;
     border-radius: 0.9rem;
     object-fit: cover;
@@ -783,7 +790,7 @@
   .brand-text {
     display: flex;
     flex-direction: row;
-    align-items: baseline;
+    align-items: center;
     gap: 0.4rem;
     max-width: 14rem;
     margin-top: 0.05rem;
