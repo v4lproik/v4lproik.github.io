@@ -251,6 +251,16 @@
   let swipePointerId = null;
   let resizeFrame = 0;
 
+  function resetSwipe() {
+    swipeStartX = null;
+    swipePointerId = null;
+  }
+
+  function hasActiveSelection() {
+    const selection = window.getSelection();
+    return Boolean(selection && !selection.isCollapsed);
+  }
+
   carousel.dataset.carouselReady = "true";
   carousel.dataset.motion = "idle";
 
@@ -526,20 +536,17 @@
     }
 
     const deltaX = event.clientX - swipeStartX;
-    swipeStartX = null;
-    swipePointerId = null;
+    resetSwipe();
 
-    if (Math.abs(deltaX) < 56) {
+    if (hasActiveSelection() || Math.abs(deltaX) < 56) {
       return;
     }
 
     setIndex(currentIndex + (deltaX < 0 ? 1 : -1), { direction: deltaX < 0 ? 1 : -1 });
   });
 
-  viewport.addEventListener("pointercancel", function () {
-    swipeStartX = null;
-    swipePointerId = null;
-  });
+  viewport.addEventListener("selectstart", resetSwipe);
+  viewport.addEventListener("pointercancel", resetSwipe);
 
   window.addEventListener("popstate", function () {
     const chapter = chapterFromLocation();
