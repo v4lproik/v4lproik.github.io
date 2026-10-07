@@ -351,6 +351,21 @@
     border-radius: 0.72rem;
   }
 
+  @media (min-width: 48rem) {
+    .site-header.is-condensed .brand-lockup {
+      align-self: center;
+      align-items: center;
+    }
+
+    .site-header.is-condensed .brand-text {
+      max-width: 14rem;
+      margin-top: 0;
+      overflow: visible;
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   .site-header-spacer {
     display: none;
   }
@@ -603,8 +618,21 @@
   }
 
   @media (max-width: 21.999rem) {
-    .site-header:not(.is-condensed) .site-header-nav [data-nav-id="chapter-profile"] {
-      display: none;
+    .site-header.is-mobile-fixed {
+      width: calc(100% - 1rem);
+    }
+
+    .site-header:not(.is-mobile-fixed) {
+      width: calc(100% + 1rem);
+      margin-inline: -0.5rem;
+    }
+
+    .site-header:not(.is-condensed) {
+      padding-inline: 0.5rem !important;
+    }
+
+    .site-header:not(.is-condensed) .site-header-nav {
+      gap: 0.05rem;
     }
   }
 
