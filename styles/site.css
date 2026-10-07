@@ -696,8 +696,42 @@
       justify-content: flex-end;
     }
 
+    .site-header-nav-row-sections {
+      flex-wrap: nowrap;
+    }
+
     .site-header-nav-row-socials {
       gap: 0.65rem 0.8rem;
+    }
+  }
+
+  @media (min-width: 48rem) and (max-width: 63.999rem) {
+    .site-header:not(.is-condensed) .site-header-nav-row-sections {
+      gap: 0.45rem;
+    }
+
+    .site-header:not(.is-condensed) .site-header-nav .nav-link {
+      justify-content: center;
+      min-width: 2.4rem;
+      min-height: 2.4rem;
+      padding: 0.5rem;
+      gap: 0;
+    }
+
+    .site-header:not(.is-condensed) .site-header-nav .nav-link-label {
+      position: static;
+      width: auto;
+      height: auto;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      border: 0;
+      clip: auto;
+      clip-path: none;
+      max-width: 0;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateY(-0.1rem);
     }
   }
 
