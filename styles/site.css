@@ -391,7 +391,7 @@
     }
 
     .site-header.is-mobile-fixed.is-condensed {
-      height: 4.25rem;
+      height: auto;
     }
 
     .site-header:not(.is-condensed) .site-header-nav {
@@ -454,6 +454,7 @@
     }
 
     .site-header.is-condensed .brand-lockup {
+      min-width: 0;
       max-width: 0;
       max-height: 0;
       opacity: 0;
@@ -474,6 +475,7 @@
 
     .site-header.is-condensed .nav-link {
       min-width: 1.95rem;
+      min-height: 1.9rem;
       padding: 0.45rem;
     }
   }
@@ -618,7 +620,7 @@
   }
 
   @media (max-width: 21.999rem) {
-    .site-header.is-mobile-fixed {
+    .site-header.is-mobile-fixed:not(.is-condensed) {
       width: calc(100% - 1rem);
     }
 
