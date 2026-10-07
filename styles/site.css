@@ -380,16 +380,22 @@
     }
 
     .site-header:not(.is-condensed) .site-header-nav {
+      grid-row: 2;
       flex-flow: row nowrap;
       align-items: center;
       justify-self: end;
-      gap: 0.15rem;
+      gap: 0.1rem;
       width: auto;
       margin-top: 0;
     }
 
     .site-header:not(.is-condensed) .site-header-nav-row {
       display: contents;
+    }
+
+    .site-header:not(.is-condensed) .site-header-socials {
+      align-self: center;
+      gap: 0.15rem;
     }
 
     .site-header:not(.is-condensed) .site-header-socials .nav-link {
@@ -400,9 +406,9 @@
 
     .site-header:not(.is-condensed) .site-header-nav .nav-link {
       justify-content: center;
-      min-width: 2rem;
-      min-height: 2rem;
-      padding: 0.4rem;
+      min-width: 1.9rem;
+      min-height: 1.9rem;
+      padding: 0.25rem;
       gap: 0;
     }
 
@@ -590,6 +596,16 @@
     .brand-lockup {
       gap: 0.55rem;
     }
+
+    .site-header:not(.is-condensed) .site-header-socials {
+      margin-left: 3.7rem;
+    }
+  }
+
+  @media (max-width: 21.999rem) {
+    .site-header:not(.is-condensed) .site-header-nav [data-nav-id="chapter-profile"] {
+      display: none;
+    }
   }
 
   .site-header {
@@ -671,7 +687,7 @@
     align-self: start;
     justify-self: start;
     gap: 0.3rem;
-    margin: 0 0 0 3.8rem;
+    margin: 0 0 0 4rem;
   }
 
   .site-header-socials .site-header-nav-row-socials {
