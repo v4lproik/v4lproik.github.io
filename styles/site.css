@@ -181,7 +181,10 @@
       border-color 180ms ease,
       background-color 180ms ease,
       box-shadow 180ms ease,
-      transform 180ms ease;
+      transform 180ms ease,
+      gap 180ms ease,
+      min-width 180ms ease,
+      padding 180ms ease;
   }
 
   .nav-link-icon {
@@ -201,7 +204,13 @@
 
   .nav-link-label {
     display: inline-block;
-    transition: opacity 160ms ease, transform 160ms ease;
+    max-width: 10rem;
+    overflow: hidden;
+    white-space: nowrap;
+    transition:
+      max-width 180ms ease,
+      opacity 160ms ease,
+      transform 160ms ease;
   }
 
   .nav-link:hover,
@@ -284,15 +293,16 @@
   }
 
   .site-header.is-condensed .nav-link-label {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
     padding: 0;
     overflow: hidden;
     border: 0;
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
+    clip: auto;
+    clip-path: none;
+    max-width: 0;
     white-space: nowrap;
     opacity: 0;
     transform: translateY(-0.1rem);
@@ -328,7 +338,34 @@
     border-radius: 0.72rem;
   }
 
+  .site-header-spacer {
+    display: none;
+  }
+
+  .site-header.is-measuring,
+  .site-header.is-measuring * {
+    transition: none !important;
+  }
+
   @media (max-width: 47.999rem) {
+    .site-header-spacer {
+      display: block;
+      transition: height 180ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .site-header.is-mobile-fixed {
+      position: fixed !important;
+      left: 50%;
+      width: calc(100% - 2rem);
+      height: var(--expanded-header-height);
+      box-sizing: border-box;
+      transform: translateX(-50%);
+    }
+
+    .site-header.is-mobile-fixed.is-condensed {
+      height: 4.25rem;
+    }
+
     .site-header.is-condensed {
       padding-inline: 0.8rem;
       padding-block: 0.7rem;
@@ -339,19 +376,38 @@
     }
 
     .site-header.is-condensed .brand-lockup {
-      display: none;
+      max-width: 0;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      pointer-events: none;
+      transform: translateY(-0.35rem) scale(0.94);
     }
 
     .site-header.is-condensed .site-header-nav {
       width: 100%;
-      flex: 0 1 auto;
+      flex: 1 1 auto;
       justify-content: center;
-      gap: 0.34rem;
+      gap: 0.15rem;
+      overflow-x: hidden;
+      overflow-y: visible;
+      touch-action: pan-y;
     }
 
     .site-header.is-condensed .nav-link {
-      min-width: 2.1rem;
-      padding: 0.5rem;
+      min-width: 1.95rem;
+      padding: 0.45rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .site-header,
+    .site-header-spacer,
+    .site-header .brand-lockup,
+    .site-header .brand-text,
+    .site-header .nav-link,
+    .site-header .nav-link-label {
+      transition: none;
     }
   }
 
@@ -460,17 +516,25 @@
     display: inline-flex;
     align-items: center;
     gap: 0.85rem;
-    transition: gap 180ms ease, opacity 180ms ease, transform 180ms ease;
+    max-width: 20rem;
+    max-height: 4rem;
+    transition:
+      gap 180ms ease,
+      max-width 180ms ease,
+      max-height 180ms ease,
+      opacity 180ms ease,
+      transform 180ms ease;
   }
 
   .site-header {
     overflow: visible;
     border-radius: 1.55rem;
     transition:
+      height 180ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      padding 180ms ease,
       border-radius 180ms ease,
       background-color 180ms ease,
-      box-shadow 180ms ease,
-      transform 180ms ease;
+      box-shadow 180ms ease;
   }
 
   .site-header.glass-panel {
@@ -594,6 +658,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.05rem;
+    max-width: 14rem;
     line-height: 1.1;
     transition:
       opacity 180ms ease,
