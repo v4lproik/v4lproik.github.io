@@ -2,29 +2,111 @@
 
 (function () {
   const headers = Array.from(document.querySelectorAll(".site-header"));
-  const collapseThreshold = 56;
+  const mobileViewport = window.matchMedia("(max-width: 47.999rem)");
   const expandThreshold = 20;
 
   if (!headers.length) {
     return;
   }
 
+  const layouts = headers.map(function (header) {
+    const spacer = document.createElement("div");
+
+    spacer.className = "site-header-spacer";
+    spacer.setAttribute("aria-hidden", "true");
+    header.insertAdjacentElement("afterend", spacer);
+
+    return { header, spacer, expandedSpacerHeight: 0, condensedSpacerHeight: 0 };
+  });
+
   let frame = 0;
   let condensed = false;
+  let viewportWidth = -1;
 
-  function syncHeaderDensity() {
-    const scrollY = window.scrollY || window.pageYOffset || 0;
-    const nextCondensed = condensed ? scrollY > expandThreshold : scrollY > collapseThreshold;
+  function collapseThreshold() {
+    return mobileViewport.matches ? 96 : 56;
+  }
 
-    if (nextCondensed === condensed) {
+  function setHeaderDensity(nextCondensed) {
+    condensed = nextCondensed;
+
+    layouts.forEach(function (layout) {
+      const spacerHeight = condensed
+        ? layout.condensedSpacerHeight
+        : layout.expandedSpacerHeight;
+
+      layout.header.classList.toggle("is-condensed", condensed);
+
+      if (mobileViewport.matches && spacerHeight) {
+        layout.spacer.style.height = `${spacerHeight}px`;
+      }
+    });
+  }
+
+  function syncResponsiveLayout(force) {
+    const nextViewportWidth = document.documentElement.clientWidth;
+
+    if (!force && nextViewportWidth === viewportWidth) {
       return;
     }
 
-    condensed = nextCondensed;
+    viewportWidth = nextViewportWidth;
 
-    headers.forEach(function (header) {
-      header.classList.toggle("is-condensed", condensed);
+    layouts.forEach(function (layout) {
+      const { header, spacer } = layout;
+      const mobile = mobileViewport.matches;
+
+      header.classList.toggle("is-mobile-fixed", mobile);
+
+      if (!mobile) {
+        header.style.removeProperty("--expanded-header-height");
+        spacer.style.removeProperty("height");
+        layout.expandedSpacerHeight = 0;
+        layout.condensedSpacerHeight = 0;
+        return;
+      }
+
+      const wasCondensed = header.classList.contains("is-condensed");
+
+      header.style.removeProperty("--expanded-header-height");
+      header.classList.add("is-measuring");
+      header.classList.remove("is-condensed");
+
+      const style = window.getComputedStyle(header);
+      const expandedRect = header.getBoundingClientRect();
+      const expandedHeight = Math.ceil(expandedRect.height);
+      const marginBottom = Number.parseFloat(style.marginBottom) || 0;
+
+      header.style.setProperty("--expanded-header-height", `${expandedHeight}px`);
+      header.classList.add("is-condensed");
+
+      const condensedHeight = Math.ceil(header.getBoundingClientRect().height);
+
+      // At the collapse boundary, keep the next section below the compact bar
+      // without retaining the full expanded-header gap.
+      layout.expandedSpacerHeight = expandedHeight + marginBottom;
+      layout.condensedSpacerHeight = Math.min(
+        layout.expandedSpacerHeight,
+        collapseThreshold() + Math.max(0, expandedRect.top) + condensedHeight
+      );
+
+      header.classList.toggle("is-condensed", wasCondensed);
+      spacer.style.height = `${
+        wasCondensed ? layout.condensedSpacerHeight : layout.expandedSpacerHeight
+      }px`;
+      header.classList.remove("is-measuring");
     });
+  }
+
+  function syncHeaderDensity() {
+    syncResponsiveLayout(false);
+
+    const scrollY = window.scrollY || window.pageYOffset || 0;
+    const nextCondensed = condensed ? scrollY > expandThreshold : scrollY > collapseThreshold();
+
+    if (nextCondensed !== condensed) {
+      setHeaderDensity(nextCondensed);
+    }
   }
 
   function scheduleHeaderDensitySync() {
@@ -32,14 +114,16 @@
     frame = window.requestAnimationFrame(syncHeaderDensity);
   }
 
-  condensed = (window.scrollY || window.pageYOffset || 0) > collapseThreshold;
-
-  headers.forEach(function (header) {
-    header.classList.toggle("is-condensed", condensed);
-  });
+  syncResponsiveLayout(true);
+  setHeaderDensity((window.scrollY || window.pageYOffset || 0) > collapseThreshold());
 
   window.addEventListener("scroll", scheduleHeaderDensitySync, { passive: true });
   window.addEventListener("resize", scheduleHeaderDensitySync);
+  window.addEventListener("pageshow", scheduleHeaderDensitySync);
+
+  if ("onscrollend" in window) {
+    window.addEventListener("scrollend", scheduleHeaderDensitySync, { passive: true });
+  }
 })();
 
 (function () {
