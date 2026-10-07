@@ -366,6 +366,26 @@
       height: 4.25rem;
     }
 
+    .site-header:not(.is-condensed) .site-header-nav {
+      flex-flow: row wrap;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .site-header:not(.is-condensed) .site-header-nav-row {
+      display: contents;
+    }
+
+    .site-header:not(.is-condensed) .site-header-nav-row-sections .nav-link {
+      min-width: 4.75rem;
+    }
+
+    .site-header:not(.is-condensed) .nav-link {
+      padding: 0.45rem 0.65rem;
+      gap: 0.4rem;
+      font-size: 0.875rem;
+    }
+
     .site-header.is-condensed {
       padding-inline: 0.8rem;
       padding-block: 0.7rem;
@@ -397,6 +417,23 @@
     .site-header.is-condensed .nav-link {
       min-width: 1.95rem;
       padding: 0.45rem;
+    }
+  }
+
+  @media (max-width: 22.5rem) {
+    .site-header:not(.is-condensed) .site-header-nav {
+      gap: 0.35rem;
+    }
+
+    .site-header:not(.is-condensed) .nav-link {
+      padding: 0.5rem 0.35rem;
+      gap: 0.25rem;
+      font-size: 0.8rem;
+    }
+
+    .site-header:not(.is-condensed) .site-header-nav-row-socials .nav-link {
+      min-width: 2.4rem;
+      justify-content: center;
     }
   }
 
