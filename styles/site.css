@@ -1104,15 +1104,48 @@
     border-color: rgba(184, 138, 104, 0.14);
   }
 
+  .hero-bottom-controls {
+    position: relative;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
   .hero-side-controls {
     display: grid;
+    grid-template-columns: max-content max-content;
+    justify-content: space-between;
+    width: 100%;
     gap: 0.85rem;
-    margin-top: 1.15rem;
+    margin: 1.15rem auto 0;
+  }
+
+  .hero-bottom-controls .hero-side-controls,
+  .hero-bottom-controls .back-to-top-shell {
+    margin: 0;
+  }
+
+  body > .hero-bottom-controls {
+    width: calc(100% - 2rem);
+    margin-inline: auto;
+  }
+
+  .hero-side-control-prev {
+    justify-self: start;
+  }
+
+  .hero-side-control-next {
+    justify-self: end;
   }
 
   @media (min-width: 40rem) {
-    .hero-side-controls {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    body > .hero-bottom-controls {
+      width: calc(100% - 3rem);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    body > .hero-bottom-controls {
+      width: min(calc(100% - 4rem), 74rem);
     }
   }
 
@@ -1141,13 +1174,33 @@
 
   @media (max-width: 39.999rem) {
     .hero-side-controls {
-      gap: 0.65rem;
-      margin-top: 0.95rem;
+      grid-template-columns: minmax(0, 1fr);
     }
 
+    .hero-side-control-prev,
+    .hero-side-control-next {
+      justify-self: center;
+    }
+
+    .hero-bottom-controls .hero-side-controls {
+      gap: 2rem;
+    }
+
+    .hero-bottom-controls .back-to-top-link {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  @media (max-width: 89.999rem) {
     .hero-side-control {
-      min-height: 4.9rem;
-      padding: 0.78rem 0.9rem;
+      width: 9.4rem;
+      min-height: 5.75rem;
+      padding: 0.78rem 0.4rem;
+    }
+
+    .hero-side-row {
+      gap: 0.3rem;
     }
 
     .hero-side-kicker {
@@ -1161,6 +1214,18 @@
 
     .hero-side-arrow {
       font-size: 1.05rem;
+    }
+
+    .hero-bottom-controls .back-to-top-shell {
+      position: absolute;
+      inset: 0;
+      align-items: center;
+      padding: 0;
+      pointer-events: none;
+    }
+
+    .hero-bottom-controls .back-to-top-link {
+      pointer-events: auto;
     }
   }
 
@@ -1272,9 +1337,14 @@
       display: block;
       position: fixed;
       inset: 0;
-      margin-top: 0;
+      width: auto;
+      margin: 0;
       pointer-events: none;
       z-index: 15;
+    }
+
+    body > .hero-bottom-controls {
+      width: auto;
     }
 
     .hero-side-control {
