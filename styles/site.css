@@ -280,6 +280,7 @@
   }
 
   .site-header.is-condensed .site-header-socials {
+    position: static;
     order: 2;
     display: flex;
     flex: 0 0 auto;
@@ -379,13 +380,12 @@
     }
 
     .site-header:not(.is-condensed) .site-header-inner {
-      grid-template-columns: auto minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1fr);
       grid-template-areas:
-        "brand brand"
-        "social pages";
+        "brand"
+        "pages";
       align-items: center;
-      column-gap: 0.4rem;
-      row-gap: 0.55rem;
+      row-gap: 0.3rem;
     }
 
     .site-header:not(.is-condensed) .site-header-nav {
@@ -401,15 +401,17 @@
       display: contents;
     }
 
-    .site-header:not(.is-condensed) .site-header-socials {
-      align-self: center;
-      gap: 0.15rem;
+    .site-header:not(.is-condensed) .site-header-socials .nav-link {
+      min-width: 1.9rem;
+      min-height: 1.9rem;
+      padding: 0.25rem;
     }
 
-    .site-header:not(.is-condensed) .nav-link {
+    .site-header:not(.is-condensed) .site-header-nav .nav-link {
       justify-content: center;
-      min-width: 2.1rem;
-      padding: 0.45rem;
+      min-width: 2rem;
+      min-height: 2rem;
+      padding: 0.4rem;
       gap: 0;
     }
 
@@ -579,7 +581,7 @@
   .brand-lockup {
     grid-area: brand;
     display: inline-flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.85rem;
     max-width: 20rem;
     max-height: 4rem;
@@ -617,27 +619,25 @@
   }
 
   .site-header-inner {
+    position: relative;
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
       "brand"
-      "social"
       "pages";
     align-items: start;
     column-gap: 2rem;
-    row-gap: 0.45rem;
+    row-gap: 0.3rem;
     transition: gap 180ms ease, transform 180ms ease;
   }
 
   @media (min-width: 48rem) {
     .site-header-inner {
       grid-template-columns: auto minmax(0, 1fr);
-      grid-template-areas:
-        "brand pages"
-        "social pages";
+      grid-template-areas: "brand pages";
       align-items: center;
       column-gap: 2rem;
-      row-gap: 0.45rem;
+      row-gap: 0;
     }
   }
 
@@ -669,24 +669,25 @@
   }
 
   .site-header-socials {
-    grid-area: social;
+    position: absolute;
+    left: 3.8rem;
+    top: 1.05rem;
     display: flex;
     align-items: center;
-    align-self: start;
-    justify-self: start;
-    gap: 0.45rem;
-    margin-left: 0;
+    gap: 0.3rem;
+    margin: 0;
   }
 
   .site-header-socials .site-header-nav-row-socials {
     flex-wrap: nowrap;
-    gap: 0.45rem;
+    gap: 0.3rem;
   }
 
   .site-header-socials .nav-link {
     justify-content: center;
-    min-width: 2.4rem;
-    padding: 0.45rem;
+    min-width: 1.9rem;
+    min-height: 1.9rem;
+    padding: 0.25rem;
   }
 
   @media (min-width: 48rem) {
@@ -755,10 +756,13 @@
 
   .brand-text {
     display: flex;
-    flex-direction: column;
-    gap: 0.05rem;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.4rem;
     max-width: 14rem;
-    line-height: 1.1;
+    margin-top: 0.05rem;
+    line-height: 1;
+    white-space: nowrap;
     transition:
       opacity 180ms ease,
       max-width 180ms ease,
@@ -784,6 +788,12 @@
     color: #9db1c1;
     font-size: 0.68rem;
     letter-spacing: 0.04em;
+  }
+
+  .brand-subtitle::before {
+    content: "—";
+    margin-right: 0.4rem;
+    color: rgba(157, 177, 193, 0.72);
   }
 
   @media (min-width: 40rem) {
