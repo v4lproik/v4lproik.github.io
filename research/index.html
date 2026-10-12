@@ -37,7 +37,7 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="../assets/site.css?v=20261007l">
+    <link rel="stylesheet" href="../assets/site.css?v=20261007z">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -98,6 +98,20 @@
       .research-stack {
         display: grid;
         gap: 1.5rem;
+      }
+
+      @media (max-width: 39.999rem) {
+        .research-stack {
+          gap: 0;
+        }
+
+        .research-stack > * + * {
+          margin-top: 1.5rem;
+        }
+
+        .research-stack > .hero-side-controls {
+          margin-top: 0.65rem;
+        }
       }
 
       .archive-card,
