@@ -1174,12 +1174,32 @@
 
   @media (max-width: 39.999rem) {
     .hero-side-controls {
-      grid-template-columns: minmax(0, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .hero-side-control-prev,
     .hero-side-control-next {
-      justify-self: center;
+      max-width: 100%;
+    }
+
+    .hero-side-controls .hero-side-control-prev {
+      padding-inline: 0.75rem 0.15rem;
+    }
+
+    .hero-side-controls .hero-side-control-next {
+      padding-inline: 0.15rem 0.75rem;
+    }
+
+    .hero-side-controls .hero-side-row {
+      gap: 0.2rem;
+    }
+
+    .hero-bottom-controls {
+      margin-top: 0.65rem;
+    }
+
+    .hero-side-controls .hero-side-name {
+      font-size: 0.88rem;
     }
 
     .hero-bottom-controls .hero-side-controls {
